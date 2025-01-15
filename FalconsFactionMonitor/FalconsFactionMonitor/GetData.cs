@@ -104,6 +104,7 @@ internal static class GetData
 
                 var factionName = cells[0].InnerText.Trim();
                 var influenceText = cells[5].InnerText.Trim();
+                var lastUpdatedText = cells[3].InnerText.Trim();
 
                 if (double.TryParse(influenceText.TrimEnd('%'), out double influence))
                 {
@@ -112,7 +113,7 @@ internal static class GetData
                         SystemName = system.SystemName,
                         FactionName = factionName,
                         InfluencePercent = influence,
-                        LastUpdated = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") // Placeholder for last updated date
+                        LastUpdated = lastUpdatedText
                     });
                 }
             }
