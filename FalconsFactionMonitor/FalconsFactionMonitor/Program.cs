@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Net.Http;
 using System.Threading.Tasks;
-using HtmlAgilityPack;
 using FalconsFactionMonitor.Models;
 using FalconsFactionMonitor.Services;
 using System.Globalization;
@@ -12,6 +10,15 @@ class Program
 {
     static async Task Main(string[] args)
     {
+        Console.WriteLine("Do you wish to retrieve details from Inara? (Y/N)");
+        string inaraParseCheck = Console.ReadLine();
+        bool inaraParse = false;
+        if (inaraParseCheck.ToUpper().StartsWith("Y"))
+        {
+            inaraParse = true;
+        }
+
+        Console.Clear();
         Console.Write("Enter the faction name: ");
         string factionName = Console.ReadLine();
 
@@ -20,31 +27,42 @@ class Program
             Console.WriteLine("Faction name cannot be empty.");
             return;
         }
+        if (factionName.ToUpper() == "USC")
+        {
+            factionName = "United Systems Commonwealth";
+        }
 
         try
         {
-            var systems = await GetData.GetFactionSystems(factionName);
+            //Set Variables and Create Output Directory
             var solutionRoot = Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory)?.Parent?.Parent?.FullName;
             List<FactionDetail> previousFactions;
             if (solutionRoot == null)
             {
                 throw new Exception("Unable to determine solution root directory.");
             }
-
             var folderPath = Path.Combine(solutionRoot, "Output");
             Directory.CreateDirectory(folderPath);
-
             var sanitizedFactionName = string.Join("", factionName.Split(Path.GetInvalidFileNameChars())).Replace(" ", "_");
             var datestamp = DateTime.Now.ToString("yyyyMMdd-");
             var filePath = Path.Combine(folderPath, $"{datestamp}{sanitizedFactionName}-Systems.csv");
-            SaveToCSV.FactionSystems(systems, filePath);
-            Console.WriteLine($"The faction systems have been saved to '{filePath}'.");
+
+            //Get System Data and Save to CSV, if inaraParse is true
+            List<FactionSystem> systems = new List<FactionSystem>();
+            if (inaraParse)
+            {
+                systems = await GetData.GetFactionSystems(factionName);
+                SaveToCSV.FactionSystems(systems, filePath);
+                Console.WriteLine($"The faction systems have been saved to '{filePath}'.");
+            }
 
             // Retrieve the latest CSV file for comparison
-            string latestFilePath = GetData.GetLatestCsvFile(folderPath, sanitizedFactionName, factionName);
-            if (latestFilePath != null)
+            string latestSystemsFilePath = GetData.GetLatestCsvFile(folderPath, sanitizedFactionName, factionName, false);
+            string latestFactionsFilePath = GetData.GetLatestCsvFile(folderPath, sanitizedFactionName, factionName);
+            List<FactionSystem> systemsFromFile = GetData.GetSystemsFromFile(latestSystemsFilePath);
+            if (latestFactionsFilePath != null)
             {
-                previousFactions = ReadFactionsFromCsv(latestFilePath);
+                previousFactions = ReadFactionsFromCsv(latestFactionsFilePath);
             }
             else
             {
@@ -52,17 +70,27 @@ class Program
             }
 
             var factionsFilePath = Path.Combine(folderPath, $"{datestamp}{sanitizedFactionName}-Systems-Factions.csv");
-            var allFactions = await GetData.GetFactionsInSystems(systems);
+            var allFactions = await GetData.GetFactionsInSystems(systemsFromFile);
 
-            // Calculate the difference
+            // Calculate the difference in influence
             foreach (var faction in allFactions)
             {
                 if (previousFactions != null)
                 {
-                    var previousFaction = previousFactions.Find(f => f.SystemName == faction.SystemName && f.FactionName == faction.FactionName);
+                    //var previousFaction = previousFactions.Find(f => f.SystemName == faction.SystemName && f.FactionName == faction.FactionName);
+                    dynamic previousFaction = null;
+                    foreach (var f in previousFactions)
+                    {
+                        if (f.SystemName == faction.SystemName && f.FactionName == faction.FactionName)
+                        {
+                            previousFaction = f;
+                            break;
+                        }
+                    }
+
                     if (previousFaction != null)
                     {
-                        faction.Difference = faction.InfluencePercent - previousFaction.InfluencePercent;
+                        faction.Difference = Math.Round(faction.InfluencePercent - previousFaction.InfluencePercent,2);
                     }
                     else
                     {
