@@ -7,11 +7,24 @@ using HtmlAgilityPack;
 using FalconsFactionMonitor.Models;
 using FalconsFactionMonitor.Services;
 using System.Globalization;
+using System.Threading;
 
 class Program
 {
     static async Task Main(string[] args)
     {
+        JournalMonitor journalMonitor = new JournalMonitor();
+        journalMonitor.StartMonitoring();
+        return;
+        Console.WriteLine("Do you wish to retrieve details from Inara? (Y/N)");
+        string inaraParseCheck = Console.ReadLine();
+        bool inaraParse = false;
+        if (inaraParseCheck.ToUpper().StartsWith("Y"))
+        {
+            inaraParse = true;
+        }
+
+        Console.Clear();
         Console.Write("Enter the faction name: ");
         string factionName = Console.ReadLine();
 
