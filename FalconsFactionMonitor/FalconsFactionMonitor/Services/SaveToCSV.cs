@@ -21,10 +21,10 @@ namespace FalconsFactionMonitor.Services
         {
             using (var writer = new StreamWriter(filePath))
             {
-                writer.WriteLine("System Name,Faction Name,Influence Percent,Difference,Last Updated");
+                writer.WriteLine("System Name,Faction Name,Influence Percent,Difference,Player Faction,Last Updated");
                 foreach (var faction in factions)
                 {
-                    writer.WriteLine($"{faction.SystemName},{faction.FactionName},{faction.InfluencePercent},{faction.Difference},{faction.LastUpdated}");
+                    writer.WriteLine($"{faction.SystemName},{faction.FactionName},{faction.InfluencePercent},{faction.Difference},{faction.isPlayer},{faction.LastUpdated}");
                 }
             }
         }

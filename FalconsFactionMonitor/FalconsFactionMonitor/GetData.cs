@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Net.Http;
+using System.Text.Json;
 using System.Threading.Tasks;
 using FalconsFactionMonitor.Models;
 using HtmlAgilityPack;
@@ -70,7 +72,7 @@ internal static class GetData
 
         foreach (var system in systems)
         {
-            string url = $"https://inara.cz/elite/starsystem/?search={Uri.EscapeDataString(system.SystemName)}";
+            string url = $"https://www.edsm.net/api-system-v1/factions?systemName={Uri.EscapeDataString(system.SystemName)}";
             var response = await client.GetAsync(url);
 
             if (!response.IsSuccessStatusCode)
@@ -80,48 +82,28 @@ internal static class GetData
             }
 
             var responseContent = await response.Content.ReadAsStringAsync();
-            var htmlDoc = new HtmlDocument();
-            htmlDoc.LoadHtml(responseContent);
 
-            var factionsTable = htmlDoc.DocumentNode.SelectSingleNode("//table[@class='tablesorter']");
-            if (factionsTable == null)
+            var responseJSON = JsonSerializer.Deserialize<EDSMFactions>(responseContent);
+
+            foreach (var faction in responseJSON.factions)
             {
-                Console.WriteLine($"No factions table found for system: {system.SystemName}");
-                continue;
-            }
+                var influence = Math.Round(faction.influence * 100, 2);
+                string lastUpdated = DateTimeOffset.FromUnixTimeSeconds(faction.lastUpdate).UtcDateTime.ToString();
 
-            var rows = factionsTable.SelectNodes(".//tr");
-            if (rows == null || rows.Count == 0)
-            {
-                Console.WriteLine($"No factions data found for system: {system.SystemName}");
-                continue;
-            }
-
-            foreach (var row in rows)
-            {
-                var cells = row.SelectNodes(".//td");
-                if (cells == null || cells.Count < 6) continue;
-
-                var factionName = cells[0].InnerText.Trim();
-                var influenceText = cells[5].InnerText.Trim();
-                var lastUpdatedText = cells[3].InnerText.Trim();
-
-                if (double.TryParse(influenceText.TrimEnd('%'), out double influence))
+                allFactions.Add(new FactionDetail
                 {
-                    allFactions.Add(new FactionDetail
-                    {
-                        SystemName = system.SystemName,
-                        FactionName = factionName,
-                        InfluencePercent = influence,
-                        LastUpdated = lastUpdatedText
-                    });
-                }
+                    SystemName = system.SystemName,
+                    FactionName = faction.name,
+                    InfluencePercent = influence,
+                    isPlayer = faction.isPlayer,
+                    LastUpdated = lastUpdated
+                });
             }
         }
 
         return allFactions;
     }
-    internal static string GetLatestCsvFile(string directoryPath, string sanitizedFactionName, string factionName)
+    internal static string GetLatestCsvFile(string directoryPath, string sanitizedFactionName, string factionName, bool totalList = true)
     {
         if (!Directory.Exists(directoryPath))
         {
@@ -129,7 +111,16 @@ internal static class GetData
             return null;
         }
 
-        var pattern = $"*-{sanitizedFactionName}-Systems-Factions.csv";
+        var pattern = "";
+
+        if (totalList)
+        {
+            pattern = $"*-{sanitizedFactionName}-Systems-Factions.csv";
+        }
+        else
+        {
+            pattern = $"*-{sanitizedFactionName}-Systems.csv";
+        }
         var csvFiles = Directory.GetFiles(directoryPath, pattern);
         if (csvFiles.Length == 0)
         {
@@ -150,5 +141,56 @@ internal static class GetData
         }
 
         return latestFile.FileName;
+    }
+    internal static List<FactionSystem> GetSystemsFromFile(string CSVFile)
+    {
+        var list = new List<FactionSystem>();
+
+        try
+        {
+            using (var reader = new StreamReader(CSVFile))
+            {
+                var headers = reader.ReadLine()?.Split(','); //Read Header Line
+                if (headers == null)
+                {
+                    Console.WriteLine("CSV File is Empty.");
+                    return list;
+                }
+
+                int systemNameIndex = Array.IndexOf(headers, "System Name");
+                int influenceIndex = Array.IndexOf(headers, "Influence Percent");
+                int lastUpdatedIndex = Array.IndexOf(headers, "Last Updated");
+
+                if (systemNameIndex == -1 ||  influenceIndex == -1 ||  lastUpdatedIndex == -1)
+                {
+                    Console.WriteLine("Required columns not found in CSV.");
+                    return list;
+                }
+
+                while (!reader.EndOfStream)
+                {
+                    var values = reader.ReadLine()?.Split(',');
+                    if (values == null || values.Length < 3) continue;
+
+                    if (double.TryParse(values[influenceIndex], NumberStyles.Any, CultureInfo.InvariantCulture, out double influence))
+                    {
+                        list.Add(new FactionSystem
+                        {
+                            SystemName = values[systemNameIndex],
+                            InfluencePercent = influence,
+                            LastUpdated = values[lastUpdatedIndex]
+                        });
+                    }
+
+                }
+            }
+            return list;
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error reading CSV File: {ex.Message}");
+        }
+
+        return null;
     }
 }

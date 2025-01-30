@@ -83,6 +83,7 @@
   <ItemGroup>
     <Compile Include="GetData.cs" />
     <Compile Include="Models\FactionDetail.cs" />
+    <Compile Include="Models\EDSMData.cs" />
     <Compile Include="Models\FactionSystem.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
