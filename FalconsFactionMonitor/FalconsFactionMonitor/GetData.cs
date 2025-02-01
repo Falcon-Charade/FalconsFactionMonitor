@@ -161,7 +161,7 @@ internal static class GetData
                 int influenceIndex = Array.IndexOf(headers, "Influence Percent");
                 int lastUpdatedIndex = Array.IndexOf(headers, "Last Updated");
 
-                if (systemNameIndex == -1 || influenceIndex == -1 || lastUpdatedIndex == -1)
+                if (systemNameIndex == -1 ||  influenceIndex == -1 || lastUpdatedIndex == -1)
                 {
                     Console.WriteLine("Required columns not found in CSV.");
                     return list;
