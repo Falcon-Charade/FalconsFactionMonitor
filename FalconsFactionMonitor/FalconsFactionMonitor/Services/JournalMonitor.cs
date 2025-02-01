@@ -3,7 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Threading;
 using Newtonsoft.Json.Linq;
 
 namespace FalconsFactionMonitor.Services
@@ -11,7 +10,7 @@ namespace FalconsFactionMonitor.Services
     internal class JournalMonitor
     {
         private readonly string journalDirectory = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile),
-                                            "Saved Games", "Frontier Developments");//, "Elite Dangerous");
+                                            "Saved Games", "Frontier Developments", "Elite Dangerous");
         private string latestJournalFile;
         private long lastFilePosition = 0;
         private FileSystemWatcher watcher;

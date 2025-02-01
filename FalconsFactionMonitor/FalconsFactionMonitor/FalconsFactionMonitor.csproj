@@ -84,14 +84,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GetData.cs" />
+    <Compile Include="Services\GetData.cs" />
     <Compile Include="Models\LiveData.cs" />
     <Compile Include="Models\FactionDetail.cs" />
     <Compile Include="Models\FactionSystem.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\JournalMonitor.cs" />
+    <Compile Include="Services\JournalRetrieval.cs" />
     <Compile Include="Services\SaveToCSV.cs" />
+    <Compile Include="Services\WebRetrieval.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
