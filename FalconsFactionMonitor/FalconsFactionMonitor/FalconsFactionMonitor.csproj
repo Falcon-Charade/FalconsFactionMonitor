@@ -84,7 +84,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GetData.cs" />
+    <Compile Include="Services\GetData.cs" />
     <Compile Include="Models\LiveData.cs" />
     <Compile Include="Models\FactionDetail.cs" />
     <Compile Include="Models\EDSMData.cs" />

@@ -67,41 +67,49 @@ internal static class GetData
 
     internal static async Task<List<FactionDetail>> GetFactionsInSystems(List<FactionSystem> systems)
     {
-        var allFactions = new List<FactionDetail>();
-        using var client = new HttpClient();
-
-        foreach (var system in systems)
+        try
         {
-            string url = $"https://www.edsm.net/api-system-v1/factions?systemName={Uri.EscapeDataString(system.SystemName)}";
-            var response = await client.GetAsync(url);
+            var allFactions = new List<FactionDetail>();
+            using var client = new HttpClient();
 
-            if (!response.IsSuccessStatusCode)
+            foreach (var system in systems)
             {
-                Console.WriteLine($"Failed to fetch data for system: {system.SystemName}");
-                continue;
-            }
+                string url = $"https://www.edsm.net/api-system-v1/factions?systemName={Uri.EscapeDataString(system.SystemName)}";
+                HttpResponseMessage response = await client.GetAsync(url);
 
-            var responseContent = await response.Content.ReadAsStringAsync();
-
-            var responseJSON = JsonSerializer.Deserialize<EDSMFactions>(responseContent);
-
-            foreach (var faction in responseJSON.factions)
-            {
-                var influence = Math.Round(faction.influence * 100, 2);
-                string lastUpdated = DateTimeOffset.FromUnixTimeSeconds(faction.lastUpdate).UtcDateTime.ToString();
-
-                allFactions.Add(new FactionDetail
+                if (!response.IsSuccessStatusCode)
                 {
-                    SystemName = system.SystemName,
-                    FactionName = faction.name,
-                    InfluencePercent = influence,
-                    isPlayer = faction.isPlayer,
-                    LastUpdated = lastUpdated
-                });
-            }
-        }
+                    Console.WriteLine($"Failed to fetch data for system: {system.SystemName}");
+                    continue;
+                }
 
-        return allFactions;
+                var responseContent = await response.Content.ReadAsStringAsync();
+
+                var responseJSON = JsonSerializer.Deserialize<EDSMFactions>(responseContent);
+
+                foreach (var faction in responseJSON.factions)
+                {
+                    var influence = Math.Round(faction.influence * 100, 2);
+                    string lastUpdated = DateTimeOffset.FromUnixTimeSeconds(faction.lastUpdate).UtcDateTime.ToString();
+
+                    allFactions.Add(new FactionDetail
+                    {
+                        SystemName = system.SystemName,
+                        FactionName = faction.name,
+                        InfluencePercent = influence,
+                        isPlayer = faction.isPlayer,
+                        LastUpdated = lastUpdated
+                    });
+                }
+            }
+
+            return allFactions;
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine (ex.ToString());
+            return null;
+        }
     }
     internal static string GetLatestCsvFile(string directoryPath, string sanitizedFactionName, string factionName, bool totalList = true)
     {
@@ -141,6 +149,105 @@ internal static class GetData
         }
 
         return latestFile.FileName;
+    }
+    internal static List<FactionSystem> GetLatestSystemsCsv(string directoryPath, string sanitizedFactionName, string factionName)
+    {
+        if (!Directory.Exists(directoryPath))
+        {
+            Console.WriteLine($"Directory not found: {directoryPath}");
+            return null;
+        }
+
+        var pattern = $"*{sanitizedFactionName}-Systems.csv";
+        var csvFiles = Directory.GetFiles(directoryPath, pattern);
+        if (csvFiles.Length == 0)
+        {
+            Console.WriteLine($"No CSV files found for faction \"{factionName}\" in the directory.");
+            return null;
+        }
+
+        var latestFile = csvFiles
+            .Select(file => new { FileName = file, DatePrefix = Path.GetFileName(file).Split('-')[0] })
+            .Where(f => DateTime.TryParseExact(f.DatePrefix, "yyyyMMdd", null, DateTimeStyles.None, out _))
+            .OrderByDescending(f => f.DatePrefix)
+            .FirstOrDefault();
+
+        if (latestFile == null)
+        {
+            Console.WriteLine($"No valid datestamp-prefixed CSV files found for faction \"{factionName}\".");
+            return null;
+        }
+        else
+        {
+            string latestFileName = latestFile.FileName;
+            List<FactionSystem> systems = ReadSystemsFromCsv(latestFileName);
+            return systems;
+        }
+    }
+    internal static List<FactionDetail> ReadFactionsFromCsv(string filePath)
+    {
+        var factions = new List<FactionDetail>();
+
+        if (!File.Exists(filePath))
+        {
+            throw new FileNotFoundException($"CSV file not found: {filePath}");
+        }
+
+        using var reader = new StreamReader(filePath);
+        string headerLine = reader.ReadLine(); // Skip header
+
+        string line;
+        while ((line = reader.ReadLine()) != null)
+        {
+            var columns = line.Split(',');
+            if (columns.Length < 5) continue;
+
+            if (double.TryParse(columns[2], NumberStyles.Any, CultureInfo.InvariantCulture, out double influencePercent) &&
+                double.TryParse(columns[3], NumberStyles.Any, CultureInfo.InvariantCulture, out double difference))
+            {
+                factions.Add(new FactionDetail
+                {
+                    SystemName = columns[0],
+                    FactionName = columns[1],
+                    InfluencePercent = influencePercent,
+                    Difference = difference,
+                    LastUpdated = columns[4]
+                });
+            }
+        }
+
+        return factions;
+    }
+    internal static List<FactionSystem> ReadSystemsFromCsv(string filePath)
+    {
+        var systems = new List<FactionSystem>();
+
+        if (!File.Exists(filePath))
+        {
+            throw new FileNotFoundException($"CSV file not found: {filePath}");
+        }
+
+        using var reader = new StreamReader(filePath);
+        string headerLine = reader.ReadLine(); // Skip header
+
+        string line;
+        while ((line = reader.ReadLine()) != null)
+        {
+            var columns = line.Split(',');
+            if (columns.Length < 3) continue;
+
+            if (double.TryParse(columns[1], NumberStyles.Any, CultureInfo.InvariantCulture, out double influencePercent))
+            {
+                systems.Add(new FactionSystem
+                {
+                    SystemName = columns[0],
+                    InfluencePercent = influencePercent,
+                    LastUpdated = columns[2]
+                });
+            }
+        }
+
+        return systems;
     }
     internal static List<FactionSystem> GetSystemsFromFile(string CSVFile)
     {

@@ -2,12 +2,13 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Threading.Tasks;
 
 namespace FalconsFactionMonitor.Services
 {
     internal class WebRetrievalService
     {
-        internal async void WebRetrieval()
+        internal async Task WebRetrieval()
         {
             Console.WriteLine("Do you wish to retrieve details from Inara? (Y/N)");
             string inaraParseCheck = Console.ReadLine();
@@ -25,6 +26,10 @@ namespace FalconsFactionMonitor.Services
             {
                 Console.WriteLine("Faction name cannot be empty.");
                 return;
+            }
+            if (factionName.ToUpper() == "USC")
+            {
+                factionName = "United Systems Commonwealth";
             }
 
             try
@@ -44,7 +49,7 @@ namespace FalconsFactionMonitor.Services
                 var datestamp = DateTime.Now.ToString("yyyyMMdd-");
                 var filePath = Path.Combine(folderPath, $"{datestamp}{sanitizedFactionName}-Systems.csv");
 
-
+                //Get System Data and Save to CSV, if inaraParse is true
                 if (inaraParse)
                 {
                     systems = await GetData.GetFactionSystems(factionName);
@@ -53,7 +58,8 @@ namespace FalconsFactionMonitor.Services
                 }
                 else
                 {
-                    systems = GetData.GetLatestSystemsCsv(folderPath, sanitizedFactionName, factionName);
+                    string latestSystemsFileName = GetData.GetLatestCsvFile(folderPath, sanitizedFactionName, factionName, totalList: false);
+                    systems = GetData.ReadSystemsFromCsv(latestSystemsFileName);
                 }
 
                 // Retrieve the latest CSV file for comparison
