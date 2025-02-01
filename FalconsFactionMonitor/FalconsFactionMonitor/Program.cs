@@ -90,7 +90,7 @@ class Program
 
                     if (previousFaction != null)
                     {
-                        faction.Difference = Math.Round(faction.InfluencePercent - previousFaction.InfluencePercent, 2);
+                        faction.Difference = Math.Round(faction.InfluencePercent - previousFaction.InfluencePercent,2);
                     }
                     else
                     {
