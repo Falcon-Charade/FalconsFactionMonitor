@@ -9,8 +9,12 @@ namespace FalconsFactionMonitor.Services
 {
     internal class JournalMonitor
     {
-        private readonly string journalDirectory = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile),
-                                            "Saved Games", "Frontier Developments", "Elite Dangerous");
+        private readonly string journalDirectory = Path.Combine(
+            Environment.GetFolderPath(Environment.SpecialFolder.UserProfile),
+            "Saved Games",
+            "Frontier Developments",
+            "Elite Dangerous"
+        );
         private string latestJournalFile;
         private long lastFilePosition = 0;
         private FileSystemWatcher watcher;
@@ -19,35 +23,93 @@ namespace FalconsFactionMonitor.Services
 
         public void StartMonitoring()
         {
-            latestJournalFile = GetLatestJournalFile();
-            if (latestJournalFile == null)
+            // Initialize directory watcher to see creation/changes to *any* journal files
+            watcher = new FileSystemWatcher(journalDirectory)
             {
-                Console.WriteLine("No journal file found.");
-                return;
-            }
-
-            // Initialize FileSystemWatcher to detect file updates
-            watcher = new FileSystemWatcher(journalDirectory, Path.GetFileName(latestJournalFile))
-            {
-                NotifyFilter = NotifyFilters.LastWrite
+                Filter = "Journal.????-??-??T*.log",
+                NotifyFilter = NotifyFilters.FileName | NotifyFilters.LastWrite
             };
 
-            watcher.Changed += (s, e) => ProcessNewJournalEntries();
+            // Wire up events:
+            watcher.Changed += OnFileChanged;
+            watcher.Created += OnFileCreated;
             watcher.EnableRaisingEvents = true;
 
-            Console.WriteLine($"Monitoring journal: {latestJournalFile}");
+            // Set the initial "latest journal" and read any existing lines
+            latestJournalFile = GetLatestJournalFile();
+            if (latestJournalFile != null)
+            {
+                Console.WriteLine($"Monitoring journal: {latestJournalFile}");
+                ProcessNewJournalEntries();
+            }
+            else
+            {
+                Console.WriteLine("No journal file found initially.");
+            }
+        }
 
-            // Initial read in case there are existing entries
-            ProcessNewJournalEntries();
+        // Optional cleanup if you want to stop the watcher externally
+        public void StopMonitoring()
+        {
+            watcher?.Dispose();
         }
 
         private string GetLatestJournalFile()
         {
-            var journalFiles = Directory.GetFiles(journalDirectory, "Journal.*.log")
+            var journalFiles = Directory.GetFiles(journalDirectory, "Journal.????-??-??T*.log")
                                         .OrderByDescending(f => f)
                                         .ToList();
 
             return journalFiles.FirstOrDefault();
+        }
+
+        private void OnFileChanged(object sender, FileSystemEventArgs e)
+        {
+            // If the changed file is the file we are currently monitoring, process it
+            if (e.FullPath == latestJournalFile)
+            {
+                ProcessNewJournalEntries();
+            }
+        }
+
+        private void OnFileCreated(object sender, FileSystemEventArgs e)
+        {
+            // A new file was created. Check if it's 'newer' than the one we're watching
+            // Typically, if Elite spawns a new file, that new file is the one we want to watch going forward.
+            // But only switch once the old file is "fully processed" (i.e. we've read everything).
+
+            string newFile = e.FullPath;
+            // Compare the file names or creation times to see if it's indeed more recent
+            // Generally the newest file has a larger suffix, but you can also compare timestamps:
+            // e.g., if "newFile" is definitely newer than "latestJournalFile" then switch.
+
+            if (IsFileNewer(newFile, latestJournalFile))
+            {
+                // First, finalize reading the old file (in case there's a last chunk)
+                ProcessNewJournalEntries();
+
+                // Switch to the new file
+                latestJournalFile = newFile;
+                lastFilePosition = 0; // reset
+                Console.WriteLine($"Switching to new journal file: {latestJournalFile}");
+
+                // Immediately process anything that's in the new file at creation
+                ProcessNewJournalEntries();
+            }
+        }
+
+        private bool IsFileNewer(string fileA, string fileB)
+        {
+            // A simple check can be comparing the file names directly:
+            // "Journal.230120XXXX.01.log" etc. If the file name is lexically greater, it should be newer.
+            // Or we can compare last write times.
+
+            if (string.IsNullOrEmpty(fileB)) return true;  // If no old file, new one is definitely "newer".
+
+            var fileACreation = File.GetLastWriteTime(fileA);
+            var fileBCreation = File.GetLastWriteTime(fileB);
+
+            return fileACreation > fileBCreation;
         }
 
         private void ProcessNewJournalEntries()
@@ -62,7 +124,6 @@ namespace FalconsFactionMonitor.Services
                     fs.Seek(lastFilePosition, SeekOrigin.Begin);
 
                     string line;
-                    var factionDetails = new List<LiveData>();
 
                     while ((line = reader.ReadLine()) != null)
                     {
@@ -75,6 +136,11 @@ namespace FalconsFactionMonitor.Services
                             string economy = json["SystemEconomy_Localised"]?.ToString() ?? "Unknown";
                             string lastUpdated = json["timestamp"]?.ToString();
 
+                            Console.WriteLine($"\n[INFO] FSDJump detected! System: {systemName}, Security: {security}, Economy: {economy}");
+
+                            // We'll collect all faction details in a list and pass them via the event
+                            var factionDetails = new List<LiveData>();
+
                             var factions = json["Factions"] as JArray;
                             if (factions != null)
                             {
@@ -85,6 +151,7 @@ namespace FalconsFactionMonitor.Services
 
                                     bool isPlayer = faction["SquadronFaction"]?.ToObject<bool>() ?? false;
                                     bool nativeFaction = faction["HomeSystem"]?.ToObject<bool>() ?? false;
+
                                     factionDetails.Add(new LiveData
                                     {
                                         SystemName = systemName,
@@ -97,21 +164,24 @@ namespace FalconsFactionMonitor.Services
                                         LastUpdated = lastUpdated
                                     });
                                 }
+                                Console.WriteLine($"[INFO] {factionDetails.Count} factions processed for {systemName}.");
+                                //foreach (var faction in factionDetails)
+                                //{
+                                //    Console.WriteLine($"{faction.SystemName} - {faction.FactionName}: {faction.InfluencePercent}% influence");
+                                //}
+
+                                // Fire the event
+                                OnFSDJumpDetected?.Invoke(factionDetails);
                             }
                         }
                     }
 
                     lastFilePosition = fs.Position;
-
-                    if (factionDetails.Count > 0)
-                    {
-                        OnFSDJumpDetected?.Invoke(factionDetails);
-                    }
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error processing journal: {ex.Message}");
+                Console.WriteLine($"[ERROR] Error processing journal: {ex.Message}");
             }
         }
     }

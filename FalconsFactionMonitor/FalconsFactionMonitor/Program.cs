@@ -32,6 +32,7 @@ class Program
             service.WebRetrieval().Wait();
         }
 
+        // Final goodbye animations, etc., if you want
         Console.Clear();
         Console.WriteLine("Application Exiting.");
         Thread.Sleep(1000);
