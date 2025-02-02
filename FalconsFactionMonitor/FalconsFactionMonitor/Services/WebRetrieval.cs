@@ -10,16 +10,25 @@ namespace FalconsFactionMonitor.Services
     {
         internal async Task WebRetrieval()
         {
-            Console.WriteLine("Do you wish to retrieve details from Inara? (Y/N)");
-            string inaraParseCheck = Console.ReadLine();
+            string inaraParseCheck = "";
             bool inaraParse = false;
-            if (inaraParseCheck.ToUpper().StartsWith("Y"))
+            while (inaraParseCheck.ToUpper() != "Y" && inaraParseCheck.ToUpper() != "N")
+            {
+                Console.Clear();
+                Console.ForegroundColor = ConsoleColor.Magenta;
+                Console.WriteLine("Do you wish to retrieve details from Inara? (Y/N)");
+                Console.ForegroundColor = ConsoleColor.White;
+                inaraParseCheck = Console.ReadKey().KeyChar.ToString();
+            }
+            if (inaraParseCheck.ToUpper() == "Y")
             {
                 inaraParse = true;
             }
 
             Console.Clear();
+            Console.ForegroundColor = ConsoleColor.Green;
             Console.Write("Enter the faction name: ");
+            Console.ForegroundColor = ConsoleColor.White;
             string factionName = Console.ReadLine();
 
             if (string.IsNullOrEmpty(factionName))
@@ -54,7 +63,10 @@ namespace FalconsFactionMonitor.Services
                 {
                     systems = await GetData.GetFactionSystems(factionName);
                     SaveToCSV.FactionSystems(systems, filePath);
-                    Console.WriteLine($"The faction systems have been saved to '{filePath}'.");
+                    Console.ForegroundColor = ConsoleColor.Cyan;
+                    Console.Write("\n[INFO]");
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.WriteLine($"The systems {factionName} can be found in has been saved to '{filePath}'.");
                 }
                 else
                 {
@@ -98,12 +110,18 @@ namespace FalconsFactionMonitor.Services
                 }
 
                 SaveToCSV.SystemFactions(allFactions, factionsFilePath);
-                Console.WriteLine($"The factions in systems have been saved to '{factionsFilePath}'.");
+                Console.ForegroundColor = ConsoleColor.Cyan;
+                Console.Write("\n[INFO]");
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.WriteLine($"The full faction list for systems {factionName} can be found in has been saved to '{factionsFilePath}'.");
 
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"An error occurred: {ex.Message}");
+                Console.ForegroundColor = ConsoleColor.DarkRed;
+                Console.Write("\n[ERROR]");
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.WriteLine($" {ex.Message}");
             }
             finally
             {
