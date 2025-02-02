@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Data.SqlClient;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -12,14 +14,38 @@ namespace FalconsFactionMonitor.Services
             try
             {
                 var monitor = new JournalMonitor();
+                var solutionRoot = Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory)?.Parent?.Parent?.FullName;
+                string filePath = Path.Combine(solutionRoot, "Services", "StoredProcInsert.sql");
+                string storedProc = File.ReadAllText(filePath);
+                string connectionString = "Data Source=FALCON-DESK\\FALCONFM_DB;Initial Catalog=FalconsFactionMonitor;Persist Security Info=True;User ID=ProgramUser;Password=Pass;Encrypt=True;TrustServerCertificate=True;";
 
                 // Subscribe to the OnFSDJumpDetected event
                 monitor.OnFSDJumpDetected += factions =>
                 {
                     Console.WriteLine("New FSD Jump detected! Processing factions...");
-                    foreach (var faction in factions.OrderByDescending(f => f.InfluencePercent))
+                    using (SqlConnection connection = new SqlConnection(connectionString))
                     {
-                        Console.WriteLine($"{faction.SystemName} - {faction.FactionName}: {faction.InfluencePercent}% influence");
+                        connection.Open();
+                        foreach (var faction in factions.OrderByDescending(f => f.InfluencePercent))
+                        {
+                            Console.ForegroundColor = ConsoleColor.Yellow;
+                            Console.Write($"{faction.SystemName} - {faction.FactionName}: ");
+                            Console.ForegroundColor = ConsoleColor.White;
+                            Console.WriteLine($"{faction.InfluencePercent}% influence");
+
+
+                            using (SqlCommand command = new SqlCommand(storedProc, connection))
+                            {
+                                command.Parameters.AddWithValue("@SystemName", faction.SystemName);
+                                command.Parameters.AddWithValue("@FactionName", faction.FactionName);
+                                command.Parameters.AddWithValue("@Influence", faction.InfluencePercent);
+                                command.Parameters.AddWithValue("@State", faction.State);
+                                command.Parameters.AddWithValue("@PlayerFaction", faction.IsPlayer);
+                                command.Parameters.AddWithValue("@LastUpdated", faction.LastUpdated);
+                                command.ExecuteNonQuery();
+                            }
+                        }
+                        connection.Close();
                     }
                 };
 
@@ -34,14 +60,20 @@ namespace FalconsFactionMonitor.Services
                 }
 
                 // Once Elite closes, we can gracefully shut down (if you had any cleanup)
+                Console.ForegroundColor = ConsoleColor.Cyan;
                 Console.WriteLine("Elite Dangerous has closed. Stopping the journal monitor...");
+                Console.ResetColor();
                 monitor.StopMonitoring(); // Optional if you build a StopMonitoring() method
 
                 return Task.CompletedTask;
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"An error occurred: {ex.Message}");
+                Console.ForegroundColor = ConsoleColor.DarkRed;
+                Console.Write("An error occurred: ");
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.WriteLine($"{ex.Message}");
+                Console.ResetColor();
                 return Task.FromException( ex );
             }
         }
