@@ -126,8 +126,8 @@ namespace FalconsFactionMonitor.Services
 
             try
             {
-                using (var fs = new FileStream(latestJournalFile, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
-                using (var reader = new StreamReader(fs))
+                using var fs = new FileStream(latestJournalFile, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+                using var reader = new StreamReader(fs);
                 {
                     fs.Seek(lastFilePosition, SeekOrigin.Begin);
 
@@ -162,8 +162,7 @@ namespace FalconsFactionMonitor.Services
                             // We'll collect all faction details in a list and pass them via the event
                             var factionDetails = new List<LiveData>();
 
-                            var factions = json["Factions"] as JArray;
-                            if (factions != null)
+                            if (json["Factions"] is JArray factions)
                             {
                                 foreach (var faction in factions)
                                 {
@@ -206,9 +205,9 @@ namespace FalconsFactionMonitor.Services
             catch (Exception ex)
             {
                 Console.ForegroundColor = ConsoleColor.DarkRed;
-                Console.Write($"\n[ERROR]");
+                Console.Write("\n[ERROR]");
                 Console.ForegroundColor = ConsoleColor.White;
-                Console.WriteLine(" Error processing journal: {ex.Message}");
+                Console.WriteLine($" Error processing journal: {ex.Message}");
             }
         }
     }

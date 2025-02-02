@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Configuration;
 using System.Data.SqlClient;
 using System.Diagnostics;
 using System.IO;
@@ -17,13 +18,13 @@ namespace FalconsFactionMonitor.Services
                 var solutionRoot = Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory)?.Parent?.Parent?.FullName;
                 string filePath = Path.Combine(solutionRoot, "Services", "StoredProcInsert.sql");
                 string storedProc = File.ReadAllText(filePath);
-                string connectionString = "Data Source=FALCON-DESK\\FALCONFM_DB;Initial Catalog=FalconsFactionMonitor;Persist Security Info=True;User ID=ProgramUser;Password=Pass;Encrypt=True;TrustServerCertificate=True;";
+                string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
 
                 // Subscribe to the OnFSDJumpDetected event
                 monitor.OnFSDJumpDetected += factions =>
                 {
                     Console.WriteLine("New FSD Jump detected! Processing factions...");
-                    using (SqlConnection connection = new SqlConnection(connectionString))
+                    using SqlConnection connection = new SqlConnection(connectionString);
                     {
                         connection.Open();
                         foreach (var faction in factions.OrderByDescending(f => f.InfluencePercent))
@@ -34,7 +35,7 @@ namespace FalconsFactionMonitor.Services
                             Console.WriteLine($"{faction.InfluencePercent}% influence");
 
 
-                            using (SqlCommand command = new SqlCommand(storedProc, connection))
+                            using SqlCommand command = new SqlCommand(storedProc, connection);
                             {
                                 command.Parameters.AddWithValue("@SystemName", faction.SystemName);
                                 command.Parameters.AddWithValue("@FactionName", faction.FactionName);
