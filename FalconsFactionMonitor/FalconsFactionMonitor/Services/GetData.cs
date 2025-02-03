@@ -107,6 +107,9 @@ internal static class GetData
         }
         catch (Exception ex)
         {
+            Console.ForegroundColor = ConsoleColor.DarkRed;
+            Console.Write("\n[Error] ");
+            Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine (ex.ToString());
             return null;
         }
@@ -115,7 +118,10 @@ internal static class GetData
     {
         if (!Directory.Exists(directoryPath))
         {
-            Console.WriteLine($"Directory not found: {directoryPath}");
+            Console.ForegroundColor = ConsoleColor.DarkRed;
+            Console.Write("\n[Error]");
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.WriteLine($" Directory not found: {directoryPath}");
             return null;
         }
 
@@ -132,6 +138,9 @@ internal static class GetData
         var csvFiles = Directory.GetFiles(directoryPath, pattern);
         if (csvFiles.Length == 0)
         {
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.Write("\n[INFO]");
+            Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine($"No CSV files found for faction \"{factionName}\" in the directory.");
             return null;
         }
@@ -144,45 +153,14 @@ internal static class GetData
 
         if (latestFile == null)
         {
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.Write("\n[INFO]");
+            Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine($"No valid datestamp-prefixed CSV files found for faction \"{factionName}\".");
             return null;
         }
 
         return latestFile.FileName;
-    }
-    internal static List<FactionSystem> GetLatestSystemsCsv(string directoryPath, string sanitizedFactionName, string factionName)
-    {
-        if (!Directory.Exists(directoryPath))
-        {
-            Console.WriteLine($"Directory not found: {directoryPath}");
-            return null;
-        }
-
-        var pattern = $"*{sanitizedFactionName}-Systems.csv";
-        var csvFiles = Directory.GetFiles(directoryPath, pattern);
-        if (csvFiles.Length == 0)
-        {
-            Console.WriteLine($"No CSV files found for faction \"{factionName}\" in the directory.");
-            return null;
-        }
-
-        var latestFile = csvFiles
-            .Select(file => new { FileName = file, DatePrefix = Path.GetFileName(file).Split('-')[0] })
-            .Where(f => DateTime.TryParseExact(f.DatePrefix, "yyyyMMdd", null, DateTimeStyles.None, out _))
-            .OrderByDescending(f => f.DatePrefix)
-            .FirstOrDefault();
-
-        if (latestFile == null)
-        {
-            Console.WriteLine($"No valid datestamp-prefixed CSV files found for faction \"{factionName}\".");
-            return null;
-        }
-        else
-        {
-            string latestFileName = latestFile.FileName;
-            List<FactionSystem> systems = ReadSystemsFromCsv(latestFileName);
-            return systems;
-        }
     }
     internal static List<FactionDetail> ReadFactionsFromCsv(string filePath)
     {
@@ -260,6 +238,9 @@ internal static class GetData
                 var headers = reader.ReadLine()?.Split(','); //Read Header Line
                 if (headers == null)
                 {
+                    Console.ForegroundColor = ConsoleColor.DarkRed;
+                    Console.Write("\n[Error]");
+                    Console.ForegroundColor = ConsoleColor.White;
                     Console.WriteLine("CSV File is Empty.");
                     return list;
                 }
@@ -270,6 +251,9 @@ internal static class GetData
 
                 if (systemNameIndex == -1 ||  influenceIndex == -1 ||  lastUpdatedIndex == -1)
                 {
+                    Console.ForegroundColor = ConsoleColor.DarkRed;
+                    Console.Write("\n[Error]");
+                    Console.ForegroundColor = ConsoleColor.White;
                     Console.WriteLine("Required columns not found in CSV.");
                     return list;
                 }
@@ -295,6 +279,9 @@ internal static class GetData
         }
         catch (Exception ex)
         {
+            Console.ForegroundColor = ConsoleColor.DarkRed;
+            Console.Write("\n[Error]");
+            Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine($"Error reading CSV File: {ex.Message}");
         }
 

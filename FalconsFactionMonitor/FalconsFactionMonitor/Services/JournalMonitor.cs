@@ -39,12 +39,17 @@ namespace FalconsFactionMonitor.Services
             latestJournalFile = GetLatestJournalFile();
             if (latestJournalFile != null)
             {
-                Console.WriteLine($"Monitoring journal: {latestJournalFile}");
+                Console.ForegroundColor = ConsoleColor.Cyan;
+                Console.Write("\nMonitoring journal:");
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.WriteLine($" {latestJournalFile}");
                 ProcessNewJournalEntries();
             }
             else
             {
+                Console.ForegroundColor = ConsoleColor.Cyan;
                 Console.WriteLine("No journal file found initially.");
+                Console.ForegroundColor = ConsoleColor.White;
             }
         }
 
@@ -91,7 +96,10 @@ namespace FalconsFactionMonitor.Services
                 // Switch to the new file
                 latestJournalFile = newFile;
                 lastFilePosition = 0; // reset
-                Console.WriteLine($"Switching to new journal file: {latestJournalFile}");
+                Console.ForegroundColor = ConsoleColor.Cyan;
+                Console.Write("Switching to new journal file:");
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.WriteLine($" {latestJournalFile}");
 
                 // Immediately process anything that's in the new file at creation
                 ProcessNewJournalEntries();
@@ -118,8 +126,8 @@ namespace FalconsFactionMonitor.Services
 
             try
             {
-                using (var fs = new FileStream(latestJournalFile, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
-                using (var reader = new StreamReader(fs))
+                using var fs = new FileStream(latestJournalFile, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+                using var reader = new StreamReader(fs);
                 {
                     fs.Seek(lastFilePosition, SeekOrigin.Begin);
 
@@ -129,20 +137,43 @@ namespace FalconsFactionMonitor.Services
                     {
                         var json = JObject.Parse(line);
 
-                        if (json["event"]?.ToString() == "FSDJump")
+                        if (
+                                (json["event"]?.ToString() == "FSDJump")
+                             || (json["event"]?.ToString() == "Location")
+                             || (json["event"]?.ToString() == "CarrierJump")
+                           )
                         {
                             string systemName = json["StarSystem"]?.ToString();
                             string security = json["SystemSecurity_Localised"]?.ToString() ?? "Unknown";
                             string economy = json["SystemEconomy_Localised"]?.ToString() ?? "Unknown";
-                            string lastUpdated = json["timestamp"]?.ToString();
+                            var lastUpdated = ((DateTime)json["timestamp"]).ToString("yyyy-MM-dd HH:mm:ss");
 
-                            Console.WriteLine($"\n[INFO] FSDJump detected! System: {systemName}, Security: {security}, Economy: {economy}");
+                            if (json["event"]?.ToString() == "Location")
+                            {
+                                Console.ForegroundColor = ConsoleColor.Magenta;
+                                Console.Write("\n[INFO]");
+                                Console.ForegroundColor = ConsoleColor.White;
+                                Console.WriteLine($" Game load detected! System: {systemName}, Security: {security}, Economy: {economy}, time: {lastUpdated}");
+                            }
+                            else if (json["event"]?.ToString() == "FSDJump")
+                            {
+                                Console.ForegroundColor = ConsoleColor.Magenta;
+                                Console.Write("\n[INFO]");
+                                Console.ForegroundColor = ConsoleColor.White;
+                                Console.WriteLine($" FSDJump detected! System: {systemName}, Security: {security}, Economy: {economy}, time: {lastUpdated}");
+                            }
+                            else if (json["event"]?.ToString() == "CarrierJump")
+                            {
+                                Console.ForegroundColor = ConsoleColor.Magenta;
+                                Console.Write("\n[INFO]");
+                                Console.ForegroundColor = ConsoleColor.White;
+                                Console.WriteLine($" Carrier Jump detected! System: {systemName}, Security: {security}, Economy: {economy}, time: {lastUpdated}");
+                            }
 
                             // We'll collect all faction details in a list and pass them via the event
                             var factionDetails = new List<LiveData>();
 
-                            var factions = json["Factions"] as JArray;
-                            if (factions != null)
+                            if (json["Factions"] is JArray factions)
                             {
                                 foreach (var faction in factions)
                                 {
@@ -150,6 +181,7 @@ namespace FalconsFactionMonitor.Services
                                     influence = Math.Round(influence * 100, 2);  // Convert from 0.x to xx.xx
 
                                     bool isPlayer = faction["SquadronFaction"]?.ToObject<bool>() ?? false;
+                                    string state = faction["FactionState"]?.ToString();
                                     bool nativeFaction = faction["HomeSystem"]?.ToObject<bool>() ?? false;
 
                                     factionDetails.Add(new LiveData
@@ -157,14 +189,16 @@ namespace FalconsFactionMonitor.Services
                                         SystemName = systemName,
                                         FactionName = faction["Name"]?.ToString(),
                                         InfluencePercent = influence,
-                                        SecurityLevel = security,
-                                        EconomyLevel = economy,
+                                        State = state,
                                         IsPlayer = isPlayer,
                                         NativeFaction = nativeFaction,
                                         LastUpdated = lastUpdated
                                     });
                                 }
-                                Console.WriteLine($"[INFO] {factionDetails.Count} factions processed for {systemName}.");
+                                Console.ForegroundColor = ConsoleColor.Magenta;
+                                Console.Write("\n[INFO]");
+                                Console.ForegroundColor = ConsoleColor.White;
+                                Console.WriteLine($" {factionDetails.Count} factions processed for {systemName}.");
                                 //foreach (var faction in factionDetails)
                                 //{
                                 //    Console.WriteLine($"{faction.SystemName} - {faction.FactionName}: {faction.InfluencePercent}% influence");
@@ -181,7 +215,10 @@ namespace FalconsFactionMonitor.Services
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"[ERROR] Error processing journal: {ex.Message}");
+                Console.ForegroundColor = ConsoleColor.DarkRed;
+                Console.Write("\n[ERROR]");
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.WriteLine($" Error processing journal: {ex.Message}");
             }
         }
     }
