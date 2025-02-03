@@ -23,7 +23,7 @@ namespace FalconsFactionMonitor.Services
                 // Subscribe to the OnFSDJumpDetected event
                 monitor.OnFSDJumpDetected += factions =>
                 {
-                    Console.WriteLine("New FSD Jump detected! Processing factions...");
+                    //Console.WriteLine("New FSD Jump detected! Processing factions...");
                     using SqlConnection connection = new SqlConnection(connectionString);
                     {
                         connection.Open();

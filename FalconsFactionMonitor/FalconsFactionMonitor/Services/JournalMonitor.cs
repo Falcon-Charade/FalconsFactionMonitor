@@ -137,7 +137,11 @@ namespace FalconsFactionMonitor.Services
                     {
                         var json = JObject.Parse(line);
 
-                        if ((json["event"]?.ToString() == "FSDJump") || (json["event"]?.ToString() == "Location"))
+                        if (
+                                (json["event"]?.ToString() == "FSDJump")
+                             || (json["event"]?.ToString() == "Location")
+                             || (json["event"]?.ToString() == "CarrierJump")
+                           )
                         {
                             string systemName = json["StarSystem"]?.ToString();
                             string security = json["SystemSecurity_Localised"]?.ToString() ?? "Unknown";
@@ -151,12 +155,19 @@ namespace FalconsFactionMonitor.Services
                                 Console.ForegroundColor = ConsoleColor.White;
                                 Console.WriteLine($" Game load detected! System: {systemName}, Security: {security}, Economy: {economy}, time: {lastUpdated}");
                             }
-                            else
+                            else if (json["event"]?.ToString() == "FSDJump")
                             {
                                 Console.ForegroundColor = ConsoleColor.Magenta;
                                 Console.Write("\n[INFO]");
                                 Console.ForegroundColor = ConsoleColor.White;
                                 Console.WriteLine($" FSDJump detected! System: {systemName}, Security: {security}, Economy: {economy}, time: {lastUpdated}");
+                            }
+                            else if (json["event"]?.ToString() == "CarrierJump")
+                            {
+                                Console.ForegroundColor = ConsoleColor.Magenta;
+                                Console.Write("\n[INFO]");
+                                Console.ForegroundColor = ConsoleColor.White;
+                                Console.WriteLine($" Carrier Jump detected! System: {systemName}, Security: {security}, Economy: {economy}, time: {lastUpdated}");
                             }
 
                             // We'll collect all faction details in a list and pass them via the event
