@@ -4,7 +4,7 @@ using FalconsFactionMonitor.Services;
 
 class Program
 {
-    static void Main()
+    public static void FalconsConsoleService()
     {
         string serviceCheck = "";
         while (serviceCheck != "1" && serviceCheck != "2")
@@ -38,8 +38,9 @@ class Program
         }
         else
         {
-            WebRetrievalService service = new WebRetrievalService();
-            service.WebRetrieval().Wait();
+            Console.WriteLine("Web Retrieval Service is no longer active in this format.");
+            //WebRetrievalService service = new WebRetrievalService();
+            //service.WebRetrieval().Wait();
         }
 
         // Final goodbye animations, etc., if you want

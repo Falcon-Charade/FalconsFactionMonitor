@@ -62,7 +62,7 @@ namespace FalconsFactionMonitor.Services
 
                 // Once Elite closes, we can gracefully shut down (if you had any cleanup)
                 Console.ForegroundColor = ConsoleColor.Cyan;
-                Console.WriteLine("Elite Dangerous has closed. Stopping the journal monitor...");
+                Console.WriteLine("\n\nElite Dangerous has closed. Stopping the journal monitor...");
                 Console.ResetColor();
                 monitor.StopMonitoring(); // Optional if you build a StopMonitoring() method
 

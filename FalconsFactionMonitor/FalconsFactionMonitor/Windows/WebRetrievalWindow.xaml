@@ -1,0 +1,106 @@
+﻿<Window x:Class="FalconsFactionMonitor.Windows.WebRetrievalWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+        Title="WebService" 
+        Height="480"
+        Width="640"
+        MinWidth="640"
+        MinHeight="280">
+    <Window.Background>
+        <VisualBrush Stretch="Uniform">
+            <VisualBrush.Visual>
+                <MediaElement Source="Resources/MainBackground3.gif"/>
+            </VisualBrush.Visual>
+        </VisualBrush>
+    </Window.Background>
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0">
+            <Viewbox Stretch="Uniform"
+                     StretchDirection="Both"
+                     MinWidth="400"
+                     MaxWidth="800">
+                <TextBlock TextAlignment="Center">
+                    <Run Text="Welcome to Falcon's Web Retrieval. " Foreground="Blue"/>
+                </TextBlock>
+            </Viewbox>
+            <Viewbox Stretch="Uniform"
+                     StretchDirection="Both"
+                     MinWidth="10"
+                     MaxWidth="1000">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="Check Inara for Faction Updates?" 
+                               Foreground="Magenta"
+                               Grid.Column="0"/>
+                    <CheckBox x:Name="InaraCheckBox"
+                              IsChecked="False"
+                              MinWidth="15"
+                              MinHeight="15"
+                              Grid.Column="1"
+                              Margin="10,0,5,0"/>
+                </Grid>
+            </Viewbox>
+            <Viewbox Stretch="Uniform"
+                     StretchDirection="Both"
+                     MinWidth="10"
+                     MaxWidth="1000">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="Faction to check: "
+                               Foreground="Magenta"
+                               Grid.Column="0"/>
+                    <TextBox x:Name="FactionTextBox"
+                             Text="Faction Name"
+                             Grid.Column="1"
+                             Width="200"
+                             Margin="10,0,5,0"/>
+                </Grid>
+            </Viewbox>
+            <Viewbox Stretch="Uniform"
+                     StretchDirection="Both"
+                     MinWidth="10"
+                     MaxWidth="1000">
+                <Button x:Name="StartWRServiceButton"
+                        Content="Start Service"
+                        HorizontalAlignment="Center"
+                        Background="Black"
+                        Opacity="50"
+                        Foreground="White"
+                        Width="400"
+                        Height="30"
+                        Margin="0,10,0,0"
+                        Click="StartWRServiceButton_Click" />
+            </Viewbox>
+        </StackPanel>
+        <RichTextBox x:Name="WebRetrievalOutputTextBlock"
+                     FontSize="16"
+                     Margin="0,5,0,0"
+                     Background="Black"
+                     Foreground="White"
+                     VerticalScrollBarVisibility="Auto"
+                     HorizontalScrollBarVisibility="Auto"
+                     Grid.Row="1"
+                     IsReadOnly="True"/>
+        <Button x:Name="ExitJMServiceButton"
+                Content="Exit Monitor Service"
+                HorizontalAlignment="Center"
+                Background="Black"
+                Foreground="White"
+                Width="200"
+                Height="30"
+                Margin="0,10,0,0"
+                Grid.Row="2"
+                Click="ExitJMServiceButton_Click" />
+    </Grid>
+</Window>

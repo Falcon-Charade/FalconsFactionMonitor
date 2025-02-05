@@ -8,31 +8,11 @@ namespace FalconsFactionMonitor.Services
 {
     internal class WebRetrievalService
     {
-        internal async Task WebRetrieval()
+        internal async Task WebRetrieval(string factionName, bool inaraParse = false)
         {
-            string inaraParseCheck = "";
-            bool inaraParse = false;
-            while (inaraParseCheck.ToUpper() != "Y" && inaraParseCheck.ToUpper() != "N")
+            if (string.IsNullOrEmpty(factionName) || factionName.ToUpper().Replace(" ","") == "FACTIONNAME")
             {
-                Console.Clear();
-                Console.ForegroundColor = ConsoleColor.Magenta;
-                Console.WriteLine("Do you wish to retrieve details from Inara? (Y/N)");
-                Console.ForegroundColor = ConsoleColor.White;
-                inaraParseCheck = Console.ReadKey().KeyChar.ToString();
-            }
-            if (inaraParseCheck.ToUpper() == "Y")
-            {
-                inaraParse = true;
-            }
-
-            Console.Clear();
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.Write("Enter the faction name: ");
-            Console.ForegroundColor = ConsoleColor.White;
-            string factionName = Console.ReadLine();
-
-            if (string.IsNullOrEmpty(factionName))
-            {
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Faction name cannot be empty.");
                 return;
             }
