@@ -5,7 +5,7 @@ VisualStudioVersion = 17.12.35527.113
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FalconsFactionMonitor", "FalconsFactionMonitor\FalconsFactionMonitor.csproj", "{A603E702-F2A3-4C00-98EB-151775302AB5}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup", "Setup\Setup.vdproj", "{41CC668E-CDE8-47B2-9EC8-0D862861EB47}"
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup", "Setup\Setup.vdproj", "{CE3264EB-54B8-4BE0-A29D-B9C7A6ECB490}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,8 +17,8 @@ Global
 		{A603E702-F2A3-4C00-98EB-151775302AB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A603E702-F2A3-4C00-98EB-151775302AB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A603E702-F2A3-4C00-98EB-151775302AB5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{41CC668E-CDE8-47B2-9EC8-0D862861EB47}.Debug|Any CPU.ActiveCfg = Debug
-		{41CC668E-CDE8-47B2-9EC8-0D862861EB47}.Release|Any CPU.ActiveCfg = Release
+		{CE3264EB-54B8-4BE0-A29D-B9C7A6ECB490}.Debug|Any CPU.ActiveCfg = Debug
+		{CE3264EB-54B8-4BE0-A29D-B9C7A6ECB490}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
