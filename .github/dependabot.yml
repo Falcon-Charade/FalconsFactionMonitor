@@ -11,4 +11,4 @@ updates:
       interval: "weekly"
       day: "sunday"
       time: "02:00"
-      timezone: "AEDT"
+      timezone: "Australia/Brisbane"
