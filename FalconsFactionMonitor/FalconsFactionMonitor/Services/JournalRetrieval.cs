@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Configuration;
 using System.Data.SqlClient;
 using System.Diagnostics;
@@ -15,10 +16,22 @@ namespace FalconsFactionMonitor.Services
             try
             {
                 var monitor = new JournalMonitor();
-                var solutionRoot = Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory)?.Parent?.Parent?.FullName;
+                var solutionRoot = Directory.GetCurrentDirectory();
+                string currentDirectory = AppDomain.CurrentDomain.BaseDirectory;
+                if (currentDirectory.Contains(@"\bin\Debug") || currentDirectory.Contains(@"\bin\Release"))
+                {
+                    solutionRoot = Directory.GetParent(currentDirectory)?.Parent?.Parent?.FullName;
+                }
+                else
+                {
+                    solutionRoot = currentDirectory;
+                }
                 string filePath = Path.Combine(solutionRoot, "Services", "StoredProcInsert.sql");
                 string storedProc = File.ReadAllText(filePath);
-                string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+                string connectionString = Registry.GetValue(@"HKEY_CURRENT_USER\SOFTWARE\Falcon Charade", "FalconsFactionMonitorDbConnection", null).ToString();
+                SqlConnection connection = new SqlConnection(connectionString);
+                connection.Open();
+                connection.Close();
 
                 // Subscribe to the OnFSDJumpDetected event
                 monitor.OnFSDJumpDetected += factions =>
