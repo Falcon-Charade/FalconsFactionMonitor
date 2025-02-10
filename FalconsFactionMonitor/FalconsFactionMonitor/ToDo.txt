@@ -1,5 +1,0 @@
-﻿Implement Security and Economic State Retrieval
-
-Grab data straight from journals rather than Inara
-
-Implement a trendline ui

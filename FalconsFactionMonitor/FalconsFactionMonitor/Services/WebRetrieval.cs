@@ -44,7 +44,7 @@ namespace FalconsFactionMonitor.Services
             try
             {
                 List<FactionSystem> systems = new List<FactionSystem>();
-                var solutionRoot = Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory)?.Parent?.Parent?.FullName;
+                var solutionRoot = Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory)?.FullName;
                 List<FactionDetail> previousFactions;
                 if (solutionRoot == null)
                 {
