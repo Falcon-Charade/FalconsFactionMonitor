@@ -12,3 +12,11 @@ updates:
       day: "sunday"
       time: "02:00"
       timezone: "Australia/Brisbane"
+    open-pull-requests-limit: 1
+    groups:
+      nuget-dependencies:
+        patterns:
+          - "*"
+    ignore:
+      - Dependency-name: "*"
+        update-types: ["version-update:semver-major"]
