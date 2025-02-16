@@ -18,5 +18,5 @@ updates:
         patterns:
           - "*"
     ignore:
-      - Dependency-name: "*"
+      - dependency-name: "*"
         update-types: ["version-update:semver-major"]
