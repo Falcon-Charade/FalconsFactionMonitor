@@ -1,6 +1,5 @@
 ﻿using Microsoft.Win32;
 using System;
-using System.Configuration;
 using System.Data.SqlClient;
 using System.Diagnostics;
 using System.IO;
