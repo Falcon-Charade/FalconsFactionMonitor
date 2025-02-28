@@ -4,6 +4,7 @@ using System.Data.SqlClient;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace FalconsFactionMonitor.Services
@@ -29,7 +30,29 @@ namespace FalconsFactionMonitor.Services
                 string storedProc = File.ReadAllText(filePath);
                 string connectionString = Registry.GetValue(@"HKEY_CURRENT_USER\SOFTWARE\Falcon Charade", "FalconsFactionMonitorDbConnection", null).ToString();
                 SqlConnection connection = new SqlConnection(connectionString);
-                connection.Open();
+                for (int i = 1; i <= 5; i++)
+                {
+                    try
+                    {
+                        connection.Open();
+                        break;
+                    }
+                    catch (Exception ex)
+                    {
+                        if (ex.Message.StartsWith("Database 'FalconsFactionMonitor' on server 'falcons-sql.database.windows.net' is not currently available."))
+                        {
+                            if (i == 5)
+                            {
+                                throw;
+                            }
+                            Thread.Sleep(10000);
+                        }
+                        else
+                        {
+                            throw;
+                        }
+                    }
+                }
                 connection.Close();
 
                 // Subscribe to the OnFSDJumpDetected event
