@@ -19,6 +19,9 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
         <StackPanel Grid.Row="0">
             <Viewbox Stretch="Uniform"
                      StretchDirection="Both"
@@ -92,15 +95,31 @@
                      HorizontalScrollBarVisibility="Auto"
                      Grid.Row="1"
                      IsReadOnly="True"/>
-        <Button x:Name="ExitJMServiceButton"
-                Content="Exit Monitor Service"
-                HorizontalAlignment="Center"
-                Background="Black"
-                Foreground="White"
-                Width="200"
-                Height="30"
-                Margin="0,10,0,0"
-                Grid.Row="2"
-                Click="ExitJMServiceButton_Click" />
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="OpenOutputButton"
+                    Content="Open Output Directory"
+                    HorizontalAlignment="Center"
+                    Background="Black"
+                    Foreground="White"
+                    Width="200"
+                    Height="30"
+                    Margin="60,5,0,5"
+                    Grid.Column="0"
+                    Click="OpenOutputButton_Click" />
+            <Button x:Name="ExitWRServiceButton"
+                    Content="Exit Monitor Service"
+                    HorizontalAlignment="Right"
+                    Background="Black"
+                    Foreground="White"
+                    Width="200"
+                    Height="30"
+                    Margin="0,5,60,5"
+                    Grid.Column="1"
+                    Click="ExitWRServiceButton_Click" />
+        </Grid>
     </Grid>
 </Window>
