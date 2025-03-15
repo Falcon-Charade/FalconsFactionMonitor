@@ -1,5 +1,5 @@
-﻿using FalconsFactionMonitor.Services;
-using System;
+﻿using System;
+using System.Threading;
 using System.Windows;
 
 namespace FalconsFactionMonitor.Windows
@@ -17,6 +17,7 @@ namespace FalconsFactionMonitor.Windows
             ResultTextBlock.Document.Blocks.Clear();
             ResultTextBlock.Foreground = System.Windows.Media.Brushes.Fuchsia;
             ResultTextBlock.AppendText("Starting Journal Monitor Service.");
+            Thread.Sleep(1000);
             Hide();
             JournalMonitorWindow journalMonitorWindow = new JournalMonitorWindow();
             journalMonitorWindow.Show();
@@ -25,13 +26,11 @@ namespace FalconsFactionMonitor.Windows
         private void WebRetrievalServiceButton_Click(object sender, RoutedEventArgs e)
         {
             ResultTextBlock.Document.Blocks.Clear();
-            ResultTextBlock.Foreground = System.Windows.Media.Brushes.Red;
-            ResultTextBlock.AppendText("Web Retrieval Service is not yet implemented.");
-            //ResultTextBlock.Document.Blocks.Clear();
-            //ResultTextBlock.AppendText("StartingWeb Retrieval Service.");
-            //Hide();
-            //WebRetrievalWindow webRetrievalWindow = new WebRetrievalWindow();
-            //webRetrievalWindow.Show();
+            ResultTextBlock.AppendText("Starting Web Retrieval Service.");
+            Thread.Sleep(1000);
+            Hide();
+            WebRetrievalWindow webRetrievalWindow = new WebRetrievalWindow();
+            webRetrievalWindow.Show();
         }
 
         private void ExitButton_Click(object sender, RoutedEventArgs e)

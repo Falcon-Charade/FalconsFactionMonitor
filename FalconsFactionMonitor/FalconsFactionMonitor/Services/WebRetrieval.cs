@@ -44,7 +44,7 @@ namespace FalconsFactionMonitor.Services
                     systems = await GetData.GetFactionSystems(factionName);
                     SaveToCSV.FactionSystems(systems, filePath);
                     Console.ForegroundColor = ConsoleColor.Cyan;
-                    Console.Write("\n[INFO]");
+                    Console.Write("\n[INFO] ");
                     Console.ForegroundColor = ConsoleColor.White;
                     Console.WriteLine($"The systems {factionName} can be found in has been saved to '{filePath}'.");
                 }
@@ -91,7 +91,7 @@ namespace FalconsFactionMonitor.Services
 
                 SaveToCSV.SystemFactions(allFactions, factionsFilePath);
                 Console.ForegroundColor = ConsoleColor.Cyan;
-                Console.Write("\n[INFO]");
+                Console.Write("\n[INFO] ");
                 Console.ForegroundColor = ConsoleColor.White;
                 Console.WriteLine($"The full faction list for systems {factionName} can be found in has been saved to '{factionsFilePath}'.");
 
@@ -99,7 +99,7 @@ namespace FalconsFactionMonitor.Services
             catch (Exception ex)
             {
                 Console.ForegroundColor = ConsoleColor.DarkRed;
-                Console.Write("\n[ERROR]");
+                Console.Write("\n[ERROR] ");
                 Console.ForegroundColor = ConsoleColor.White;
                 Console.WriteLine($" {ex.Message}");
             }

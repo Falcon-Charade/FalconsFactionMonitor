@@ -1,7 +1,8 @@
 ﻿using FalconsFactionMonitor.Services;
 using System;
 using System.Windows;
-using FalconsFactionMonitor.Windows;
+using System.Diagnostics;
+using System.IO;
 
 namespace FalconsFactionMonitor.Windows
 {
@@ -16,7 +17,7 @@ namespace FalconsFactionMonitor.Windows
             Console.SetOut(new RichTextBoxWriter(WebRetrievalOutputTextBlock));
         }
 
-        private void StartWRServiceButton_Click(object sender, RoutedEventArgs e)
+        private async void StartWRServiceButton_Click(object sender, RoutedEventArgs e)
         {
             bool check = false;
             if (InaraCheckBox.IsChecked == true)
@@ -25,15 +26,22 @@ namespace FalconsFactionMonitor.Windows
             }
             WebRetrievalOutputTextBlock.Document.Blocks.Clear();
             WebRetrievalOutputTextBlock.Foreground = System.Windows.Media.Brushes.White;
+            WebRetrievalOutputTextBlock.AppendText("Program starting execution. This may take a few minutes to run");
             WebRetrievalService service = new WebRetrievalService();
-            service.WebRetrieval(FactionTextBox.Text, inaraParse: check).Wait();
+            await service.WebRetrieval(FactionTextBox.Text, inaraParse: check);
         }
 
-        private void ExitJMServiceButton_Click(object sender, RoutedEventArgs e)
+        private void ExitWRServiceButton_Click(object sender, RoutedEventArgs e)
         {
             MainWindow mainWindow = new MainWindow();
             mainWindow.Show();
             Close();
+        }
+
+        private void OpenOutputButton_Click(object sender, RoutedEventArgs e)
+        {
+            var OutputPath = Path.Combine(Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory)?.FullName, "Output");
+            Process.Start("explorer.exe", OutputPath);
         }
     }
 }
