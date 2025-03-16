@@ -26,7 +26,7 @@ namespace FalconsFactionMonitor.Windows
             }
             WebRetrievalOutputTextBlock.Document.Blocks.Clear();
             WebRetrievalOutputTextBlock.Foreground = System.Windows.Media.Brushes.White;
-            WebRetrievalOutputTextBlock.AppendText("Program starting execution. This may take a few minutes to run");
+            WebRetrievalOutputTextBlock.AppendText("Program starting execution. This may take a few minutes to run.");
             WebRetrievalService service = new WebRetrievalService();
             await service.WebRetrieval(FactionTextBox.Text, inaraParse: check);
         }

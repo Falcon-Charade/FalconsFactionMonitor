@@ -121,6 +121,7 @@
     <Compile Include="app.xaml.cs">
       <DependentUpon>app.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Services\DatabaseService.cs" />
     <Compile Include="Windows\JournalMonitorWindow.xaml.cs">
       <DependentUpon>JournalMonitorWindow.xaml</DependentUpon>
     </Compile>
