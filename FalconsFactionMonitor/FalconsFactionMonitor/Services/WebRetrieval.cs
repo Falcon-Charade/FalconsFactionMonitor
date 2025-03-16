@@ -106,7 +106,6 @@ namespace FalconsFactionMonitor.Services
             finally
             {
                 Console.WriteLine("\n\nProgram finished execution. Press any key to exit...");
-                Console.ReadKey(); // Wait for user input before closing.
             }
         }
     }
