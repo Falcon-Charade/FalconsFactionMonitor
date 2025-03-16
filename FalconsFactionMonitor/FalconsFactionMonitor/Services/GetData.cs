@@ -97,7 +97,7 @@ internal static class GetData
                         SystemName = system.SystemName,
                         FactionName = faction.name,
                         InfluencePercent = influence,
-                        isPlayer = faction.isPlayer,
+                        IsPlayer = faction.isPlayer,
                         LastUpdated = lastUpdated
                     });
                 }

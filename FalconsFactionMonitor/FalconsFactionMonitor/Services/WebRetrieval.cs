@@ -13,7 +13,7 @@ namespace FalconsFactionMonitor.Services
             if (string.IsNullOrEmpty(factionName) || factionName.ToUpper().Replace(" ","") == "FACTIONNAME")
             {
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("Faction name cannot be empty.");
+                Console.WriteLine("\nFaction name cannot be empty.");
                 return;
             }
             if (factionName.ToUpper() == "USC")
@@ -106,7 +106,6 @@ namespace FalconsFactionMonitor.Services
             finally
             {
                 Console.WriteLine("\n\nProgram finished execution. Press any key to exit...");
-                Console.ReadKey(); // Wait for user input before closing.
             }
         }
     }
