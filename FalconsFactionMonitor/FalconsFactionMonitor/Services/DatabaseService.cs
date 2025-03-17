@@ -3,6 +3,7 @@ using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Threading;
@@ -73,6 +74,29 @@ namespace FalconsFactionMonitor.Services
                 }
             }
             connection.Close();
+        }
+        internal static void WebServicePublish(List<FactionDetail> factions)
+        {
+            List<LiveData> allFactions = new List<LiveData>();
+            foreach (var faction in factions)
+            {
+                DateTime parsedDate = DateTime.ParseExact(faction.LastUpdated, "d/M/yyyy h:m:s tt", CultureInfo.InvariantCulture);
+                var lastUpdated = parsedDate.ToString("yyyy-MM-dd HH:mm:ss");
+                allFactions.Add
+                    (
+                        new LiveData
+                        {
+                            SystemName = faction.SystemName,
+                            FactionName = faction.FactionName,
+                            InfluencePercent = faction.InfluencePercent,
+                            State = "None",
+                            IsPlayer = faction.IsPlayer,
+                            LastUpdated = lastUpdated
+                        }
+                    );
+            }
+            DatabaseService dbService = new DatabaseService();
+            dbService.SaveData(allFactions);
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using FalconsFactionMonitor.Services;
 using System;
+using System.Threading.Tasks;
 using System.Windows;
 
 namespace FalconsFactionMonitor.Windows
@@ -9,14 +10,17 @@ namespace FalconsFactionMonitor.Windows
         public JournalMonitorWindow()
         {
             InitializeComponent();
-            Console.SetOut(new RichTextBoxWriter(JournalOutputTextBlock));
+            RichTextBoxWriter writer = new RichTextBoxWriter(JournalOutputTextBlock);
+            Console.SetOut(writer);
+            Console.SetError(writer);
         }
 
         private async void StartJMServiceButton_Click(object sender, RoutedEventArgs e)
         {
             JournalOutputTextBlock.Document.Blocks.Clear();
             JournalRetrievalService service = new JournalRetrievalService();
-            await service.JournalRetrieval();
+
+            await Task.Run(() => service.JournalRetrieval());
         }
 
         private void ExitJMServiceButton_Click(object sender, RoutedEventArgs e)

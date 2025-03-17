@@ -16,7 +16,10 @@ namespace FalconsFactionMonitor.Windows
         {
             ResultTextBlock.Document.Blocks.Clear();
             ResultTextBlock.Foreground = System.Windows.Media.Brushes.Fuchsia;
-            ResultTextBlock.AppendText("Starting Journal Monitor Service.");
+            ResultTextBlock.Dispatcher.Invoke(() =>
+            {
+                ResultTextBlock.AppendText("Starting Journal Monitor Service.");
+            }, System.Windows.Threading.DispatcherPriority.Background);
             Thread.Sleep(1000);
             Hide();
             JournalMonitorWindow journalMonitorWindow = new JournalMonitorWindow();
