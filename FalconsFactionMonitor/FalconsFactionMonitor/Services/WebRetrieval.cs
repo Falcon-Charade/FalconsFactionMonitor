@@ -1,6 +1,7 @@
 ﻿using FalconsFactionMonitor.Models;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.IO;
 using System.Threading.Tasks;
 
@@ -8,7 +9,7 @@ namespace FalconsFactionMonitor.Services
 {
     internal class WebRetrievalService
     {
-        internal async Task WebRetrieval(string factionName, bool inaraParse = false)
+        internal async Task WebRetrieval(string factionName, bool inaraParse = false, bool CSVSave = false)
         {
             if (string.IsNullOrEmpty(factionName) || factionName.ToUpper().Replace(" ","") == "FACTIONNAME")
             {
@@ -24,11 +25,11 @@ namespace FalconsFactionMonitor.Services
             try
             {
                 List<FactionSystem> systems = new List<FactionSystem>();
-                var solutionRoot = Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory)?.FullName;
+                var solutionRoot = GetSavePath();
                 List<FactionDetail> previousFactions;
                 if (solutionRoot == null)
                 {
-                    throw new Exception("Unable to determine solution root directory.");
+                    throw new Exception("Unable to determine directory.");
                 }
 
                 var folderPath = Path.Combine(solutionRoot, "Output");
@@ -42,11 +43,14 @@ namespace FalconsFactionMonitor.Services
                 if (inaraParse)
                 {
                     systems = await GetData.GetFactionSystems(factionName);
-                    SaveToCSV.FactionSystems(systems, filePath);
-                    Console.ForegroundColor = ConsoleColor.Cyan;
-                    Console.Write("\n[INFO] ");
-                    Console.ForegroundColor = ConsoleColor.White;
-                    Console.WriteLine($"The systems {factionName} can be found in has been saved to '{filePath}'.");
+                    if (CSVSave)
+                    {
+                        SaveToCSV.FactionSystems(systems, filePath);
+                        Console.ForegroundColor = ConsoleColor.Cyan;
+                        Console.Write("\n[INFO] ");
+                        Console.ForegroundColor = ConsoleColor.White;
+                        Console.WriteLine($"The systems {factionName} can be found in has been saved to '{filePath}'.");
+                    }
                 }
                 else
                 {
@@ -88,12 +92,15 @@ namespace FalconsFactionMonitor.Services
                         faction.Difference = -1;
                     }
                 }
-
-                SaveToCSV.SystemFactions(allFactions, factionsFilePath);
-                Console.ForegroundColor = ConsoleColor.Cyan;
-                Console.Write("\n[INFO] ");
-                Console.ForegroundColor = ConsoleColor.White;
-                Console.WriteLine($"The full faction list for systems {factionName} can be found in has been saved to '{factionsFilePath}'.");
+                DatabaseService.WebServicePublish(allFactions);
+                if (CSVSave)
+                {
+                    SaveToCSV.SystemFactions(allFactions, factionsFilePath);
+                    Console.ForegroundColor = ConsoleColor.Cyan;
+                    Console.Write("\n[INFO] ");
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.WriteLine($"The full faction list for systems {factionName} can be found in has been saved to '{factionsFilePath}'.");
+                };
 
             }
             catch (Exception ex)
@@ -105,8 +112,21 @@ namespace FalconsFactionMonitor.Services
             }
             finally
             {
-                Console.WriteLine("\n\nProgram finished execution. Press any key to exit...");
+                Console.WriteLine("\n\nProgram finished execution.");
             }
+        }
+
+        // Get save path from App.config
+        public string GetSavePath()
+        {
+            string path = ConfigurationManager.AppSettings["CsvSavePath"];
+
+            if (!string.IsNullOrEmpty(path))
+            {
+                path = Environment.ExpandEnvironmentVariables(path); // Resolve %LOCALAPPDATA%
+            }
+
+            return string.IsNullOrEmpty(path) ? Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Programs", "YourManufacturer", "YourProduct") : path;
         }
     }
 }
