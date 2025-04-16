@@ -1,5 +1,7 @@
 ﻿using FalconsFactionMonitor.Services;
 using System;
+using System.Diagnostics;
+using System.IO;
 using System.Threading.Tasks;
 using System.Windows;
 
@@ -28,6 +30,12 @@ namespace FalconsFactionMonitor.Windows
             MainWindow mainWindow = new MainWindow();
             mainWindow.Show();
             Close();
+        }
+
+        private void ViewJournalFolderButton_Click(object sender, RoutedEventArgs e)
+        {
+            var JournalPath = Path.Combine("C:\\","Users",Environment.UserName, "Saved Games","Frontier Developments","Elite Dangerous");
+            Process.Start("explorer.exe", JournalPath);
         }
     }
 }

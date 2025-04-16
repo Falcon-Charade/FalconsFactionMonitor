@@ -64,6 +64,10 @@ namespace FalconsFactionMonitor.Windows
                 string newPath = dialog.SelectedPath;
 
                 // Update App.config with the new path
+                if (newPath.EndsWith("Output"))
+                {
+                    newPath = newPath.Substring(0, newPath.Length - 7); // Remove "Output" from the path
+                }
                 SetSavePath(newPath);
 
                 // Update the displayed path
