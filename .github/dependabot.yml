@@ -13,6 +13,7 @@ updates:
       time: "02:00"
       timezone: "Australia/Brisbane"
     open-pull-requests-limit: 1
+    versioning-strategy: increase-if-necessary
     groups:
       nuget-dependencies:
         patterns:
@@ -20,4 +21,3 @@ updates:
     ignore:
       - dependency-name: "*"
         update-types: ["version-update:semver-major"]
-    versioning-strategy: increase-if-necessary
