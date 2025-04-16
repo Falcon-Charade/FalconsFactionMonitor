@@ -86,8 +86,9 @@ jobs:
       name: Build solution manually
       run: |
         echo "Manually building the solution..."
+        cd FalconsFactionMonitor
         dotnet restore
-        dotnet build FalconsFactionMonitor/FalconsFactionMonitor.csproj --configuration Release
+        dotnet build FalconsFactionMonitor.csproj --configuration Release
 
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v3
