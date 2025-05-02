@@ -8,21 +8,8 @@
         MinWidth="480"
         MinHeight="200">
 
-    <!--<Window.Resources>
-        <ResourceDictionary>
-            <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="../Themes/Resources.xaml" />
-            </ResourceDictionary.MergedDictionaries>
-        </ResourceDictionary>
-    </Window.Resources>-->
-
     <Window.Background>
         <SolidColorBrush Color="White" Opacity="1" />
-        <!--<VisualBrush Stretch="UniformToFill">
-            <VisualBrush.Visual>
-                <MediaElement Source="Resources/MainBackground3.gif" />
-            </VisualBrush.Visual>
-        </VisualBrush>-->
     </Window.Background>
 
     <Grid Margin="10">
