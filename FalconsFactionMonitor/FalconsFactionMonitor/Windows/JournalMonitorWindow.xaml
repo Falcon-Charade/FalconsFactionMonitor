@@ -22,7 +22,6 @@
         <!-- Header -->
         <TextBlock Grid.Row="0"
                    Text="Welcome to Falcon's Journal Monitor."
-                   Style="{StaticResource HeaderTextBlock}"
                    AutomationProperties.Name="Journal Monitor Heading"
                    Margin="0,0,0,10" />
 

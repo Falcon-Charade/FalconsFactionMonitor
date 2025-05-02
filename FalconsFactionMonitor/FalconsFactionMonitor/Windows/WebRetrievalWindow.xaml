@@ -2,25 +2,14 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="WebService"
+        Style="{StaticResource MaterialDesignWindow}"
         Height="480"
         Width="480"
         MinWidth="480"
         MinHeight="280">
 
-    <Window.Resources>
-        <ResourceDictionary>
-            <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="../Themes/Resources.xaml" />
-            </ResourceDictionary.MergedDictionaries>
-        </ResourceDictionary>
-    </Window.Resources>
-
     <Window.Background>
-        <VisualBrush Stretch="Uniform">
-            <VisualBrush.Visual>
-                <MediaElement Source="Resources/MainBackground3.gif" />
-            </VisualBrush.Visual>
-        </VisualBrush>
+        <SolidColorBrush Color="White" Opacity="1" />
     </Window.Background>
 
     <Grid Margin="10">
@@ -34,7 +23,6 @@
         <!-- Header Section -->
         <TextBlock Grid.Row="0"
                    Text="Welcome to Falcon's Web Retrieval."
-                   Style="{StaticResource HeaderTextBlock}"
                    AutomationProperties.Name="Web Retrieval Heading" />
 
         <!-- Content Section -->
