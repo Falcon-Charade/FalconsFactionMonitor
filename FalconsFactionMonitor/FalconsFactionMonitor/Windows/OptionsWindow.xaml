@@ -1,0 +1,135 @@
+﻿<localbase:BaseWindow x:Class="FalconsFactionMonitor.Windows.OptionsWindow"
+                      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+                      xmlns:local="clr-namespace:FalconsFactionMonitor.Windows"
+                      xmlns:localbase="clr-namespace:FalconsFactionMonitor.Helpers"
+                      Title="Falcons Faction Monitor - Options"
+                      Style="{StaticResource MaterialDesignWindow}"
+                      Width="475"
+                      Height="310"
+                      MinWidth="480"
+                      MinHeight="310">
+
+    <localbase:BaseWindow.Resources>
+        <local:ComboItemNameConverter x:Key="ComboItemNameConverter" />
+        <local:ColorPreviewConverter x:Key="ColorPreviewConverter" />
+    </localbase:BaseWindow.Resources>
+
+
+    <Grid Margin="16">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Header -->
+        <TextBlock Text="Theme Options"
+                   FontSize="20"
+                   FontWeight="Bold"
+                   Margin="0,0,0,16"
+                   Foreground="{DynamicResource MaterialDesignBody}" />
+
+        <!-- Theme Selection -->
+        <StackPanel Grid.Row="1"
+                    VerticalAlignment="Top"
+                    HorizontalAlignment="Stretch"
+                    Margin="0,0,0,16"
+                    Orientation="Vertical"
+                    materialDesign:ColorZoneAssist.Mode="PrimaryLight">
+
+            <!-- Base Theme -->
+            <StackPanel Orientation="Horizontal" Margin="0,8">
+                <TextBlock Text="Base Theme:"
+                           VerticalAlignment="Center"
+                           Margin="0,0,8,0"/>
+                <ComboBox x:Name="BaseThemeComboBox"
+                          Width="120"
+                          SelectedIndex="0"
+                          materialDesign:HintAssist.Hint="Light or Dark">
+                    <ComboBoxItem Content="Light"/>
+                    <ComboBoxItem Content="Dark"/>
+                </ComboBox>
+            </StackPanel>
+
+            <!-- Primary Color -->
+            <StackPanel Orientation="Horizontal" Margin="0,8">
+                <TextBlock Text="Primary Color:"
+                           VerticalAlignment="Center"
+                           Margin="0,0,8,0"/>
+                <ComboBox x:Name="PrimaryColorComboBox"
+                          SelectionChanged="ThemeControl_Changed"
+                          Margin="5"
+                          Width="180"
+                          HorizontalAlignment="Stretch">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                                <Rectangle Width="16" Height="16" Stroke="Black" StrokeThickness="0.5" Margin="0,0,5,0">
+                                    <Rectangle.Fill>
+                                        <SolidColorBrush Color="{Binding Converter={StaticResource ColorPreviewConverter}}" />
+                                    </Rectangle.Fill>
+                                </Rectangle>
+                                <TextBlock Text="{Binding Converter={StaticResource ComboItemNameConverter}}" VerticalAlignment="Center" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+            </StackPanel>
+
+            <!-- Accent Color -->
+            <StackPanel Orientation="Horizontal" Margin="0,8">
+                <TextBlock Text="Accent Color:"
+                           VerticalAlignment="Center"
+                           Margin="0,0,8,0"/>
+                <ComboBox x:Name="AccentColorComboBox"
+                          SelectionChanged="ThemeControl_Changed"
+                          Margin="5"
+                          Width="180"
+                          HorizontalAlignment="Stretch">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                                <Rectangle Width="16" Height="16" Stroke="Black" StrokeThickness="0.5" Margin="0,0,5,0">
+                                    <Rectangle.Fill>
+                                        <SolidColorBrush Color="{Binding Converter={StaticResource ColorPreviewConverter}}" />
+                                    </Rectangle.Fill>
+                                </Rectangle>
+                                <TextBlock Text="{Binding Converter={StaticResource ComboItemNameConverter}}" VerticalAlignment="Center" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+            </StackPanel>
+        </StackPanel>
+
+        <!-- Action Buttons -->
+        <Grid Grid.Row="2"
+              Margin="0,16,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" 
+                    x:Name="ResetButton"
+                    Content="Reset to System Theme" 
+                    Click="ResetButton_Click" 
+                    HorizontalAlignment="Left"
+                    Width="182" />
+            <StackPanel Grid.Column="1"
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Right">
+                <Button x:Name="ApplyButton"
+                    Content="Apply"
+                    Margin="0,0,8,0"
+                    Style="{StaticResource MaterialDesignRaisedButton}"
+                    Click="ApplyButton_Click"/>
+                <Button x:Name="CancelButton"
+                    Content="Cancel"
+                    Style="{StaticResource MaterialDesignFlatButton}"
+                    Click="CancelButton_Click"/>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</localbase:BaseWindow>

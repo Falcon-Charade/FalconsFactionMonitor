@@ -3,14 +3,14 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Falcons Faction Monitor"
         Style="{StaticResource MaterialDesignWindow}"
-        Height="200"
+        Height="220"
         Width="480"
         MinWidth="480"
-        MinHeight="200">
+        MinHeight="220">
 
-    <Window.Background>
+    <!--<Window.Background>
         <SolidColorBrush Color="White" Opacity="1" />
-    </Window.Background>
+    </Window.Background>-->
 
     <Grid Margin="10">
         <Grid.RowDefinitions>
@@ -60,9 +60,21 @@
                      VerticalScrollBarVisibility="Auto"
                      HorizontalScrollBarVisibility="Auto"
                      AutomationProperties.Name="Main Window Output Log" />
+        
+        <!-- Footer Buttons -->
+        <StackPanel Grid.Row="4" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,0">
+            <Button x:Name="OptionsButton"
+                Content="Options"
+                Grid.Row="4"
+                Width="200"
+                Height="30"
+                Margin="0,0,20,0"
+                HorizontalAlignment="Center"
+                Click="OptionsButton_Click"
+                AutomationProperties.Name="Options Button" />
 
-        <!-- Exit Button -->
-        <Button x:Name="ExitButton"
+            <!-- Exit Button -->
+            <Button x:Name="ExitButton"
                 Content="Exit"
                 Grid.Row="4"
                 Width="200"
@@ -70,5 +82,6 @@
                 HorizontalAlignment="Center"
                 Click="ExitButton_Click"
                 AutomationProperties.Name="Exit Program Button" />
+        </StackPanel>
     </Grid>
 </Window>
