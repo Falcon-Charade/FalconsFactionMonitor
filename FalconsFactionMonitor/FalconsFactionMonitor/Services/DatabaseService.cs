@@ -26,7 +26,7 @@ namespace FalconsFactionMonitor.Services
             }
             string filePath = Path.Combine(solutionRoot, "Services", "StoredProcInsert.sql");
             string storedProc = File.ReadAllText(filePath);
-            string connectionString = Registry.GetValue(@"HKEY_CURRENT_USER\SOFTWARE\Falcon Charade", "FalconsFactionMonitorDbConnection", null).ToString();
+            string connectionString = Registry.GetValue(@"HKEY_CURRENT_USER\SOFTWARE\FalconCharade\FalconsFactionMonitor", "FalconsFactionMonitorDbConnection", null).ToString();
             SqlConnection connection = new SqlConnection(connectionString);
             for (int i = 1; i <= 5; i++)
             {
