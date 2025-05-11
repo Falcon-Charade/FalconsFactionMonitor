@@ -5,10 +5,11 @@ using System.Diagnostics;
 using System.IO;
 using System.Configuration;
 using System.Windows.Media;
+using FalconsFactionMonitor.Helpers;
 
 namespace FalconsFactionMonitor.Windows
 {
-    public partial class WebRetrievalWindow : Window
+    public partial class WebRetrievalWindow : BaseWindow
     {
         public WebRetrievalWindow()
         {
@@ -32,10 +33,11 @@ namespace FalconsFactionMonitor.Windows
             await service.WebRetrieval(FactionTextBox.Text, inaraParse: check, CSVSave: CSVSave);
         }
 
-        private void ExitWRServiceButton_Click(object sender, RoutedEventArgs e)
+        private async void ExitWRServiceButton_Click(object sender, RoutedEventArgs e)
         {
-            new MainWindow().Show();
-            Close();
+            // Hide window
+            await Animations.FadeWindowAsync(this, 1.0, 0.0, 300); // Fade out
+            this.Close();
         }
 
         private void OpenOutputButton_Click(object sender, RoutedEventArgs e)
