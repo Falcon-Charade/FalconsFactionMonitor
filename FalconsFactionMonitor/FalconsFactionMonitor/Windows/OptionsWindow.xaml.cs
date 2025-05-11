@@ -76,8 +76,8 @@ namespace FalconsFactionMonitor.Windows
                     break;
                 case "Elite: Dangerous":
                     baseTheme = BaseTheme.Dark;
-                    primary = (Color)ColorConverter.ConvertFromString("#FF8000");
-                    accent = (Color)ColorConverter.ConvertFromString("#FFB000");
+                    primary = (Color)ColorConverter.ConvertFromString("#FF7000");
+                    accent = (Color)ColorConverter.ConvertFromString("#FFD000");
                     break;
                 default:
                     return;
