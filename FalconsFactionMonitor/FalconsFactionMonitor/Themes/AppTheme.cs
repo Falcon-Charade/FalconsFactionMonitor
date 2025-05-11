@@ -43,11 +43,11 @@ public partial class AppTheme
         Color? primaryColor;
         if (baseTheme == BaseTheme.Light)
         {
-            primaryColor = Color.FromArgb(255, 0, 0, 0); // Black
+            primaryColor = (Color)ColorConverter.ConvertFromString("#7B1FA2"); // Material Design Deep Purple 700
         }
         else
         {
-            primaryColor = Color.FromArgb(255, 255, 255, 255); // White
+            primaryColor = (Color)ColorConverter.ConvertFromString("#64B5F6"); // Material Design Light Blue 300
         }
         return primaryColor;
     }

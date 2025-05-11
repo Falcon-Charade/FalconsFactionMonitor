@@ -7,9 +7,9 @@
                       Title="Falcons Faction Monitor - Options"
                       Style="{StaticResource MaterialDesignWindow}"
                       Width="475"
-                      Height="310"
+                      Height="220"
                       MinWidth="480"
-                      MinHeight="310">
+                      MinHeight="220">
 
     <localbase:BaseWindow.Resources>
         <local:ComboItemNameConverter x:Key="ComboItemNameConverter" />
@@ -38,69 +38,83 @@
                     Margin="0,0,0,16"
                     Orientation="Vertical"
                     materialDesign:ColorZoneAssist.Mode="PrimaryLight">
-
-            <!-- Base Theme -->
-            <StackPanel Orientation="Horizontal" Margin="0,8">
-                <TextBlock Text="Base Theme:"
-                           VerticalAlignment="Center"
-                           Margin="0,0,8,0"/>
-                <ComboBox x:Name="BaseThemeComboBox"
-                          Width="120"
-                          SelectedIndex="0"
-                          materialDesign:HintAssist.Hint="Light or Dark">
+            <StackPanel Margin="0,0,0,10">
+                <TextBlock Text="Presets:" FontWeight="Bold" Margin="0,0,0,2"/>
+                <ComboBox x:Name="PresetThemeComboBox" SelectionChanged="PresetThemeComboBox_SelectionChanged">
                     <ComboBoxItem Content="Light"/>
                     <ComboBoxItem Content="Dark"/>
+                    <ComboBoxItem Content="High Contrast Light"/>
+                    <ComboBoxItem Content="High Contrast Dark"/>
+                    <ComboBoxItem Content="Elite: Dangerous"/>
+                    <ComboBoxItem Content="Custom"/>
                 </ComboBox>
             </StackPanel>
 
-            <!-- Primary Color -->
-            <StackPanel Orientation="Horizontal" Margin="0,8">
-                <TextBlock Text="Primary Color:"
-                           VerticalAlignment="Center"
-                           Margin="0,0,8,0"/>
-                <ComboBox x:Name="PrimaryColorComboBox"
-                          SelectionChanged="ThemeControl_Changed"
-                          Margin="5"
-                          Width="180"
-                          HorizontalAlignment="Stretch">
-                    <ComboBox.ItemTemplate>
-                        <DataTemplate>
-                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                                <Rectangle Width="16" Height="16" Stroke="Black" StrokeThickness="0.5" Margin="0,0,5,0">
-                                    <Rectangle.Fill>
-                                        <SolidColorBrush Color="{Binding Converter={StaticResource ColorPreviewConverter}}" />
-                                    </Rectangle.Fill>
-                                </Rectangle>
-                                <TextBlock Text="{Binding Converter={StaticResource ComboItemNameConverter}}" VerticalAlignment="Center" />
-                            </StackPanel>
-                        </DataTemplate>
-                    </ComboBox.ItemTemplate>
-                </ComboBox>
-            </StackPanel>
 
-            <!-- Accent Color -->
-            <StackPanel Orientation="Horizontal" Margin="0,8">
-                <TextBlock Text="Accent Color:"
-                           VerticalAlignment="Center"
-                           Margin="0,0,8,0"/>
-                <ComboBox x:Name="AccentColorComboBox"
-                          SelectionChanged="ThemeControl_Changed"
-                          Margin="5"
-                          Width="180"
-                          HorizontalAlignment="Stretch">
-                    <ComboBox.ItemTemplate>
-                        <DataTemplate>
-                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                                <Rectangle Width="16" Height="16" Stroke="Black" StrokeThickness="0.5" Margin="0,0,5,0">
-                                    <Rectangle.Fill>
-                                        <SolidColorBrush Color="{Binding Converter={StaticResource ColorPreviewConverter}}" />
-                                    </Rectangle.Fill>
-                                </Rectangle>
-                                <TextBlock Text="{Binding Converter={StaticResource ComboItemNameConverter}}" VerticalAlignment="Center" />
-                            </StackPanel>
-                        </DataTemplate>
-                    </ComboBox.ItemTemplate>
-                </ComboBox>
+            <StackPanel x:Name="CustomThemePanel" Visibility="Collapsed">
+                <!-- Base Theme -->
+                <StackPanel Orientation="Horizontal" Margin="0,8">
+                    <TextBlock Text="Base Theme:"
+                               VerticalAlignment="Center"
+                               Margin="0,0,8,0"/>
+                    <ComboBox x:Name="BaseThemeComboBox"
+                              Width="120"
+                              SelectedIndex="0"
+                              materialDesign:HintAssist.Hint="Light or Dark">
+                        <ComboBoxItem Content="Light"/>
+                        <ComboBoxItem Content="Dark"/>
+                    </ComboBox>
+                </StackPanel>
+
+                <!-- Primary Color -->
+                <StackPanel Orientation="Horizontal" Margin="0,8">
+                    <TextBlock Text="Primary Color:"
+                               VerticalAlignment="Center"
+                               Margin="0,0,8,0"/>
+                    <ComboBox x:Name="PrimaryColorComboBox"
+                              SelectionChanged="ThemeControl_Changed"
+                              Margin="5"
+                              Width="180"
+                              HorizontalAlignment="Stretch">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                                    <Rectangle Width="16" Height="16" Stroke="Black" StrokeThickness="0.5" Margin="0,0,5,0">
+                                        <Rectangle.Fill>
+                                            <SolidColorBrush Color="{Binding Converter={StaticResource ColorPreviewConverter}}" />
+                                        </Rectangle.Fill>
+                                    </Rectangle>
+                                    <TextBlock Text="{Binding Converter={StaticResource ComboItemNameConverter}}" VerticalAlignment="Center" />
+                                </StackPanel>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                </StackPanel>
+
+                <!-- Accent Color -->
+                <StackPanel Orientation="Horizontal" Margin="0,8">
+                    <TextBlock Text="Accent Color:"
+                               VerticalAlignment="Center"
+                               Margin="0,0,8,0"/>
+                    <ComboBox x:Name="AccentColorComboBox"
+                              SelectionChanged="ThemeControl_Changed"
+                              Margin="5"
+                              Width="180"
+                              HorizontalAlignment="Stretch">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                                    <Rectangle Width="16" Height="16" Stroke="Black" StrokeThickness="0.5" Margin="0,0,5,0">
+                                        <Rectangle.Fill>
+                                            <SolidColorBrush Color="{Binding Converter={StaticResource ColorPreviewConverter}}" />
+                                        </Rectangle.Fill>
+                                    </Rectangle>
+                                    <TextBlock Text="{Binding Converter={StaticResource ComboItemNameConverter}}" VerticalAlignment="Center" />
+                                </StackPanel>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                </StackPanel>
             </StackPanel>
         </StackPanel>
 
@@ -118,17 +132,21 @@
                     HorizontalAlignment="Left"
                     Width="182" />
             <StackPanel Grid.Column="1"
-                    Orientation="Horizontal"
-                    HorizontalAlignment="Right">
+                        Orientation="Horizontal"
+                        HorizontalAlignment="Right">
                 <Button x:Name="ApplyButton"
-                    Content="Apply"
-                    Margin="0,0,8,0"
-                    Style="{StaticResource MaterialDesignRaisedButton}"
-                    Click="ApplyButton_Click"/>
+                        Content="Apply"
+                        Margin="0,0,8,0"
+                        Style="{StaticResource MaterialDesignRaisedButton}"
+                        Click="ApplyButton_Click"/>
                 <Button x:Name="CancelButton"
-                    Content="Cancel"
-                    Style="{StaticResource MaterialDesignFlatButton}"
-                    Click="CancelButton_Click"/>
+                        Content="Cancel"
+                        Style="{StaticResource MaterialDesignRaisedButton}"
+                        Background="{DynamicResource PrimaryHueDarkBrush}"
+                        Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}"
+                        Click="CancelButton_Click"
+                        Margin="4"
+                        HorizontalAlignment="Right"/>
             </StackPanel>
         </Grid>
     </Grid>
