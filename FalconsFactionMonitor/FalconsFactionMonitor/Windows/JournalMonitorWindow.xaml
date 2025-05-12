@@ -1,13 +1,14 @@
 ﻿<localbase:BaseWindow x:Class="FalconsFactionMonitor.Windows.JournalMonitorWindow"
-           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-           xmlns:localbase="clr-namespace:FalconsFactionMonitor.Helpers"
-           Title="Falcons Faction Monitor - Journal Monitor"
-           Style="{StaticResource MaterialDesignWindow}"
-           Height="480"
-           Width="480"
-           MinWidth="480"
-           MinHeight="480">
+                      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                      xmlns:localbase="clr-namespace:FalconsFactionMonitor.Helpers"
+                      xmlns:resx="clr-namespace:FalconsFactionMonitor.Properties"
+                      Title="{DynamicResource JournalMonitor_Title}"
+                      Style="{StaticResource MaterialDesignWindow}"
+                      Height="480"
+                      Width="480"
+                      MinWidth="480"
+                      MinHeight="480">
 
     <!--<Window.Background>
         <SolidColorBrush Color="White" Opacity="1" />
@@ -22,14 +23,14 @@
 
         <!-- Header -->
         <TextBlock Grid.Row="0"
-                   Text="Welcome to Falcon's Journal Monitor."
+                   Text="{DynamicResource JournalMonitor_Heading}"
                    AutomationProperties.Name="Journal Monitor Heading"
                    Margin="0,0,0,10" />
 
         <!-- Start Service Button -->
         <StackPanel Grid.Row="0" Margin="0,40,0,0" HorizontalAlignment="Center">
             <Button x:Name="StartJMServiceButton"
-                    Content="Start Service"
+                    Content="{DynamicResource JournalMonitor_Button_StartService}"
                     Width="400"
                     Height="30"
                     Click="StartJMServiceButton_Click"
@@ -52,7 +53,7 @@
             </Grid.ColumnDefinitions>
 
             <Button x:Name="ViewJournalFolderButton"
-                    Content="View Journal Folder"
+                    Content="{DynamicResource JournalMonitor_Button_OpenFolder}"
                     Grid.Column="0"
                     Width="200"
                     Height="30"
@@ -61,7 +62,7 @@
                     AutomationProperties.Name="View Journal Folder" />
 
             <Button x:Name="ExitJMServiceButton"
-                    Content="Exit Monitor Service"
+                    Content="{DynamicResource JournalMonitor_Button_ExitService}"
                     Grid.Column="1"
                     Width="200"
                     Height="30"

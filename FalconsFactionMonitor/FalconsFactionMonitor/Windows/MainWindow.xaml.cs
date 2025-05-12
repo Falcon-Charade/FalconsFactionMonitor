@@ -6,6 +6,7 @@ namespace FalconsFactionMonitor.Windows
 {
     public partial class MainWindow : Window
     {
+        public bool SuppressRestoreAfterOptions { get; set; } = false;
         public MainWindow()
         {
             InitializeComponent();
@@ -16,7 +17,7 @@ namespace FalconsFactionMonitor.Windows
         {
             ResultTextBlock.Document.Blocks.Clear();
             ResultTextBlock.Foreground = System.Windows.Media.Brushes.Fuchsia;
-            ResultTextBlock.AppendText("Starting Journal Monitor Service.");
+            ResultTextBlock.AppendText((string)FindResource("Main_Status_StartingJournal"));
             await Task.Delay(500); // Allow text to render before fade
 
 
@@ -37,7 +38,7 @@ namespace FalconsFactionMonitor.Windows
         {
             ResultTextBlock.Document.Blocks.Clear();
             ResultTextBlock.Foreground = System.Windows.Media.Brushes.Fuchsia;
-            ResultTextBlock.AppendText("Starting Web Retrieval Service.");
+            ResultTextBlock.AppendText((string)FindResource("Main_Status_StartingWeb"));
             await Task.Delay(500); // Allow text to render before fade
 
 
@@ -46,7 +47,7 @@ namespace FalconsFactionMonitor.Windows
             this.Hide();
 
             // Create and show the Web Retrieval window as modal
-            WebRetrievalWindow webRetrievalWindow = new WebRetrievalWindow { Owner = this };
+            WebRetrievalWindow webRetrievalWindow = new() { Owner = this };
             webRetrievalWindow.ShowDialog();
 
             // Show main window again after Web Retrieval window is closed
@@ -58,7 +59,7 @@ namespace FalconsFactionMonitor.Windows
         {
             ResultTextBlock.Document.Blocks.Clear();
             ResultTextBlock.Foreground = System.Windows.Media.Brushes.Fuchsia;
-            ResultTextBlock.AppendText("Opening Options.");
+            ResultTextBlock.AppendText((string)FindResource("Main_Status_OpeningOptions"));
             await Task.Delay(500); // Allow text to render before fade
 
 
@@ -67,13 +68,18 @@ namespace FalconsFactionMonitor.Windows
             this.Hide();
 
             // Create and show the options window as modal
-            OptionsWindow optionsWindow = new OptionsWindow();
-            optionsWindow.Owner = this;
+            OptionsWindow optionsWindow = new()
+            {
+                Owner = this,
+                Tag = "manual-restart"
+            };
             optionsWindow.ShowDialog();
 
-            // Show main window again after options window is closed
-            this.Show();
-            await Animations.FadeWindowAsync(this, 0.0, 1.0, 300); // Fade in
+            if (!SuppressRestoreAfterOptions)
+            {
+                this.Show();
+                await Animations.FadeWindowAsync(this, 0.0, 1.0, 300); // Fade in
+            }
         }
 
         private void ExitButton_Click(object sender, RoutedEventArgs e)

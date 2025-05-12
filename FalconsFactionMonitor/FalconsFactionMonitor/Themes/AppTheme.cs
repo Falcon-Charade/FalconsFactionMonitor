@@ -128,7 +128,7 @@ public partial class AppTheme
         }
     }
 
-    public ColorAdjustment? ColorAdjustment { get; set; }
+    public ColorAdjustment ColorAdjustment { get; set; }
 
     public ColorPair SecondaryLight { get; set; }
     public ColorPair SecondaryMid { get; set; }

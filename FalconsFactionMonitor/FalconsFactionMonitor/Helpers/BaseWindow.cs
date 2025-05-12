@@ -10,6 +10,13 @@ namespace FalconsFactionMonitor.Helpers
         protected override async void OnContentRendered(EventArgs e)
         {
             base.OnContentRendered(e);
+
+            // 🔹 Apply global font size
+            if (Application.Current.Resources["GlobalFontSize"] is double fontSize)
+            {
+                this.FontSize = fontSize;
+            }
+
             await FadeInAsync(0.0, 1.0, 300);
         }
 

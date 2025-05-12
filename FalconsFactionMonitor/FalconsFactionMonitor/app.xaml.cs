@@ -1,6 +1,8 @@
 ﻿using MaterialDesignThemes.Wpf;
 using System.Windows;
 using FalconsFactionMonitor.Themes;
+using FalconsFactionMonitor.Helpers;
+using System.Threading;
 
 namespace FalconsFactionMonitor.Windows
 {
@@ -9,6 +11,15 @@ namespace FalconsFactionMonitor.Windows
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
+
+            string cultureCode = LanguageHelper.GetLanguageFromRegistry();
+            LanguageHelper.SetLanguage(cultureCode);
+
+            // 🔹 Apply saved font size
+            if (double.TryParse(AppSettings.Get("FontSize", "12"), out double fontSize))
+            {
+                Current.Resources["GlobalFontSize"] = fontSize;
+            }
 
             var paletteHelper = new PaletteHelper();
             ITheme theme = paletteHelper.GetTheme();
