@@ -1,7 +1,6 @@
 ﻿<Window x:Class="FalconsFactionMonitor.Windows.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:resx="clr-namespace:FalconsFactionMonitor.Properties"
         Title="{DynamicResource Main_Title}"
         Style="{StaticResource MaterialDesignWindow}"
         Height="220"

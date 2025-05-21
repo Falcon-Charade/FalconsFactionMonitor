@@ -2,7 +2,6 @@
                       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                       xmlns:localbase="clr-namespace:FalconsFactionMonitor.Helpers"
-                      xmlns:resx="clr-namespace:FalconsFactionMonitor.Properties"
                       Title="{DynamicResource WebRetrieval_Title}"
                       Style="{StaticResource MaterialDesignWindow}"
                       Height="480"
