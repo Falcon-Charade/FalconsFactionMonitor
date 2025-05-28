@@ -42,6 +42,9 @@ jobs:
         uses: actions/setup-dotnet@v4
         with:
           dotnet-version: '8.0.x'
+            
+      - name: Restore NuGet Packages
+        run: dotnet restore FalconsFactionMonitor/FalconsFactionMonitor.sln
 
       - name: Initialize CodeQL
         uses: github/codeql-action/init@v3
@@ -49,9 +52,6 @@ jobs:
           languages: ${{ matrix.language }}
           packs: |
             codeql/csharp-queries
-            
-      - name: Restore NuGet Packages
-        run: dotnet restore FalconsFactionMonitor/FalconsFactionMonitor/FalconsFactionMonitor.csproj
 
       - name: Build project
         run: |
