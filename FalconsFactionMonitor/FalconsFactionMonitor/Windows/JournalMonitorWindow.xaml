@@ -1,86 +1,73 @@
-﻿<Window x:Class="FalconsFactionMonitor.Windows.JournalMonitorWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="JournalMonitor"
-        Height="480"
-        Width="640"
-        MinWidth="640"
-        MinHeight="480">
-    <Window.Background>
-        <VisualBrush Stretch="Uniform">
-            <VisualBrush.Visual>
-                <MediaElement Source="Resources/MainBackground3.gif"/>
-            </VisualBrush.Visual>
-        </VisualBrush>
-    </Window.Background>
+﻿<localbase:BaseWindow x:Class="FalconsFactionMonitor.Windows.JournalMonitorWindow"
+                      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                      xmlns:localbase="clr-namespace:FalconsFactionMonitor.Helpers"
+                      Title="{DynamicResource JournalMonitor_Title}"
+                      Style="{StaticResource MaterialDesignWindow}"
+                      Height="480"
+                      Width="480"
+                      MinWidth="480"
+                      MinHeight="480">
+
+    <!--<Window.Background>
+        <SolidColorBrush Color="White" Opacity="1" />
+    </Window.Background>-->
+
     <Grid Margin="10">
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
-        <StackPanel Grid.Row="0">
-            <Viewbox Stretch="Uniform"
-                     StretchDirection="Both"
-                     MinWidth="400"
-                     MaxWidth="800">
-                <TextBlock TextAlignment="Center">
-                    <Run Text="Welcome to Falcon's Journal Monitor. " Foreground="Magenta"/>
-                </TextBlock>
-            </Viewbox>
-            <Viewbox Stretch="Uniform"
-                     StretchDirection="Both"
-                     MinWidth="10"
-                     MaxWidth="1000">
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                    <Button x:Name="StartJMServiceButton"
-                            Content="Start Service"
-                            HorizontalAlignment="Center"
-                            Background="Black"
-                            Opacity="50"
-                            Foreground="White"
-                            Width="400"
-                            Height="30"
-                            Margin="0,10,0,0"
-                            Click="StartJMServiceButton_Click" />
-                </StackPanel>
-            </Viewbox>
+
+        <!-- Header -->
+        <TextBlock Grid.Row="0"
+                   Text="{DynamicResource JournalMonitor_Heading}"
+                   AutomationProperties.Name="Journal Monitor Heading"
+                   Margin="0,0,0,10" />
+
+        <!-- Start Service Button -->
+        <StackPanel Grid.Row="0" Margin="0,40,0,0" HorizontalAlignment="Center">
+            <Button x:Name="StartJMServiceButton"
+                    Content="{DynamicResource JournalMonitor_Button_StartService}"
+                    Width="400"
+                    Height="30"
+                    Click="StartJMServiceButton_Click"
+                    AutomationProperties.Name="Start Journal Monitor Service" />
         </StackPanel>
+
+        <!-- Output Log -->
         <RichTextBox x:Name="JournalOutputTextBlock"
-                     FontSize="16"
-                     Margin="0,5,0,0"
-                     Background="Black"
-                     Foreground="White"
+                     Grid.Row="1"
+                     IsReadOnly="True"
                      VerticalScrollBarVisibility="Auto"
                      HorizontalScrollBarVisibility="Auto"
-                     Grid.Row="1"
-                     IsReadOnly="True"/>
-        <Grid
-            Grid.Row="2">
+                     AutomationProperties.Name="Journal Monitor Output Log" />
+
+        <!-- Footer Buttons -->
+        <Grid Grid.Row="2">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
+
             <Button x:Name="ViewJournalFolderButton"
-                Content="View Journal Folder"
-                HorizontalAlignment="Center"
-                Background="Black"
-                Foreground="White"
-                Width="200"
-                Height="30"
-                Margin="0,10,0,0"
-                Grid.Column="0"
-                Click="ViewJournalFolderButton_Click" />
+                    Content="{DynamicResource JournalMonitor_Button_OpenFolder}"
+                    Grid.Column="0"
+                    Width="200"
+                    Height="30"
+                    HorizontalAlignment="Center"
+                    Click="ViewJournalFolderButton_Click"
+                    AutomationProperties.Name="View Journal Folder" />
+
             <Button x:Name="ExitJMServiceButton"
-                Content="Exit Monitor Service"
-                HorizontalAlignment="Center"
-                Background="Black"
-                Foreground="White"
-                Width="200"
-                Height="30"
-                Margin="0,10,0,0"
-                Grid.Column="1"
-                Click="ExitJMServiceButton_Click" />
+                    Content="{DynamicResource JournalMonitor_Button_ExitService}"
+                    Grid.Column="1"
+                    Width="200"
+                    Height="30"
+                    HorizontalAlignment="Center"
+                    Click="ExitJMServiceButton_Click"
+                    AutomationProperties.Name="Exit Journal Monitor Service" />
         </Grid>
     </Grid>
-</Window>
+</localbase:BaseWindow>

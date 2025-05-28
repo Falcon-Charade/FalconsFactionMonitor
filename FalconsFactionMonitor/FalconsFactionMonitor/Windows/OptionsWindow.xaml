@@ -1,0 +1,183 @@
+﻿<localbase:BaseWindow x:Class="FalconsFactionMonitor.Windows.OptionsWindow"
+                      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+                      xmlns:local="clr-namespace:FalconsFactionMonitor.Windows"
+                      xmlns:localbase="clr-namespace:FalconsFactionMonitor.Helpers"
+                      Title="{DynamicResource Options_Title}"
+                      Style="{StaticResource MaterialDesignWindow}"
+                      Width="475"
+                      Height="285"
+                      MinWidth="480"
+                      MinHeight="285">
+
+    <localbase:BaseWindow.Resources>
+        <local:ComboItemNameConverter x:Key="ComboItemNameConverter" />
+        <local:ColorPreviewConverter x:Key="ColorPreviewConverter" />
+        <DataTemplate x:Key="ComboItemTemplate">
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                <Rectangle Width="16" Height="16"
+                           Stroke="Black" StrokeThickness="0.5"
+                           Margin="0,0,5,0"
+                           Fill="{Binding PreviewBrush}"/>
+                <TextBlock Text="{Binding DisplayName}"
+                           VerticalAlignment="Center"/>
+            </StackPanel>
+        </DataTemplate>
+    </localbase:BaseWindow.Resources>
+
+    <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+        <Grid x:Name="MainContentGrid">
+            <Grid Margin="16">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                
+                <!-- Header -->
+                <TextBlock Text="{DynamicResource Options_ThemeOptions}"
+                           x:Name="ThemeLabel"
+                           FontSize="20"
+                           FontWeight="Bold"
+                           Margin="0,0,0,16"
+                           Foreground="{DynamicResource MaterialDesignBody}" />
+                
+                <!-- Theme Selection -->
+                <StackPanel Grid.Row="1"
+                            VerticalAlignment="Top"
+                            HorizontalAlignment="Stretch"
+                            Margin="0,0,0,16"
+                            Orientation="Vertical"
+                            materialDesign:ColorZoneAssist.Mode="PrimaryLight">
+                    <StackPanel Orientation="Horizontal" Margin="0,8,0,0">
+                        <TextBlock Text="{DynamicResource Options_LanguageLabel}"
+                                   VerticalAlignment="Center"
+                                   x:Name="LanguageLabel"
+                                   Width="120"/>
+                        <ComboBox x:Name="LanguageComboBox" SelectedValuePath="Tag" Width="180" Margin="8,0,0,0">
+                            <ComboBoxItem Content="{DynamicResource Options_LanguageOption_Afrikaans}" Tag="af" />
+                            <ComboBoxItem Content="{DynamicResource Options_LanguageOption_Chinese}" Tag="zh" />
+                            <ComboBoxItem Content="{DynamicResource Options_LanguageOption_English}" Tag="en" />
+                            <ComboBoxItem Content="{DynamicResource Options_LanguageOption_French}" Tag="fr" />
+                            <ComboBoxItem Content="{DynamicResource Options_LanguageOption_German}" Tag="de" />
+                            <ComboBoxItem Content="{DynamicResource Options_LanguageOption_Italian}" Tag="it" />
+                            <ComboBoxItem Content="{DynamicResource Options_LanguageOption_Japanese}" Tag="ja" />
+                            <ComboBoxItem Content="{DynamicResource Options_LanguageOption_Russian}" Tag="ru" />
+                            <ComboBoxItem Content="{DynamicResource Options_LanguageOption_Spanish}" Tag="es" />
+                        </ComboBox>
+                    </StackPanel>
+                    
+                    <StackPanel Orientation="Horizontal" Margin="0,8,0,0">
+                        <TextBlock Text="{DynamicResource Options_FontSizeLabel}"
+                                   VerticalAlignment="Center"
+                                   x:Name="FontSizeLabel"
+                                   Width="120"/>
+                        <ComboBox x:Name="FontSizeComboBox" Width="180" Margin="8,0,0,0"/>
+                    </StackPanel>
+                    
+                    <StackPanel Orientation="Horizontal" Margin="0,8,0,0">
+                        <TextBlock Text="{DynamicResource Options_PresetLabel}"
+                                   Width="120"
+                                   x:Name="PresetLabel"
+                                   VerticalAlignment="Center"/>
+                        <ComboBox x:Name="PresetThemeComboBox" Width="180" Margin="8,0,0,0" SelectionChanged="PresetThemeComboBox_SelectionChanged">
+                            <ComboBoxItem Content="{DynamicResource Options_ThemePreset_Light}"/>
+                            <ComboBoxItem Content="{DynamicResource Options_ThemePreset_Dark}"/>
+                            <ComboBoxItem Content="{DynamicResource Options_ThemePreset_HighContrastLight}"/>
+                            <ComboBoxItem Content="{DynamicResource Options_ThemePreset_HighContrastDark}"/>
+                            <ComboBoxItem Content="{DynamicResource Options_ThemePreset_EliteDangerous}"/>
+                            <ComboBoxItem Content="{DynamicResource Options_ThemePreset_SystemDefault}" Tag="System Default" />
+                            <ComboBoxItem Content="{DynamicResource Options_ThemePreset_Custom}"/>
+                        </ComboBox>
+                    </StackPanel>
+                    
+                    
+                    <StackPanel x:Name="CustomThemePanel" Visibility="Collapsed">
+                        <!-- Base Theme -->
+                        <StackPanel Orientation="Horizontal" Margin="0,8,0,0">
+                            <TextBlock Text="{DynamicResource Options_Custom_BaseThemeLabel}"
+                                       x:Name="BaseThemeLabel"
+                                       Width="120" 
+                                       VerticalAlignment="Center"/>
+                            <ComboBox x:Name="BaseThemeComboBox"
+                                      SelectedValuePath="Tag"
+                                      ItemTemplate="{DynamicResource ComboItemTemplate}"
+                                      Width="120"
+                                      Margin="8,0,0,0" 
+                                      SelectedIndex="0"
+                                      materialDesign:HintAssist.Hint="Light or Dark">
+                                <ComboBoxItem Tag="Light"
+                                              Content="{DynamicResource Options_Custom_BaseTheme_Light}"/>
+                                <ComboBoxItem Tag="Dark"
+                                              Content="{DynamicResource Options_Custom_BaseTheme_Dark}"/>
+                            </ComboBox>
+                        </StackPanel>
+                        
+                        <!-- Primary Color -->
+                        <StackPanel Orientation="Horizontal" Margin="0,8,0,0">
+                            <TextBlock Text="{DynamicResource Options_Custom_PrimaryColorLabel}"
+                                       x:Name="PrimaryColorLabel"
+                                       Width="120" 
+                                       VerticalAlignment="Center"/>
+                            <ComboBox x:Name="PrimaryColorComboBox"
+                                      ItemTemplate="{StaticResource ComboItemTemplate}"
+                                      SelectedValuePath=""
+                                      SelectionChanged="ThemeControl_Changed"
+                                      Margin="8,0,0,0" 
+                                      Width="180"
+                                      HorizontalAlignment="Stretch">
+                            </ComboBox>
+                        </StackPanel>
+                        
+                        <!-- Accent Color -->
+                        <StackPanel Orientation="Horizontal" Margin="0,8,0,0">
+                            <TextBlock Text="{DynamicResource Options_Custom_AccentColorLabel}"
+                                       x:Name="AccentColorLabel"
+                                       Width="120" 
+                                       VerticalAlignment="Center"/>
+                            <ComboBox x:Name="AccentColorComboBox"
+                                      ItemTemplate="{StaticResource ComboItemTemplate}"
+                                      SelectionChanged="ThemeControl_Changed"
+                                      Margin="8,0,0,0" 
+                                      Width="180"
+                                      HorizontalAlignment="Stretch">
+                            </ComboBox>
+                        </StackPanel>
+                    </StackPanel>
+                </StackPanel>
+                
+                <!-- Action Buttons -->
+                <Grid Grid.Row="2"
+                      Margin="0,16,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Button Grid.Column="0" 
+                            x:Name="ResetButton"
+                            Content="{DynamicResource Options_ResetButton}"
+                            Click="ResetButton_Click" 
+                            HorizontalAlignment="Left" />
+                    <StackPanel Grid.Column="1"
+                                Orientation="Horizontal"
+                                HorizontalAlignment="Right">
+                        <Button x:Name="ApplyButton"
+                                Content="{DynamicResource Options_ApplyButton}"
+                                Margin="0,0,8,0"
+                                Style="{StaticResource MaterialDesignRaisedButton}"
+                                Click="ApplyButton_Click"/>
+                        <Button x:Name="CancelButton"
+                                Content="{DynamicResource Options_CancelButton}"
+                                Style="{StaticResource MaterialDesignRaisedButton}"
+                                Background="{DynamicResource PrimaryHueDarkBrush}"
+                                Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}"
+                                Click="CancelButton_Click"
+                                Margin="4"
+                                HorizontalAlignment="Right"/>
+                    </StackPanel>
+                </Grid>
+            </Grid>
+        </Grid>
+    </ScrollViewer>
+</localbase:BaseWindow>
