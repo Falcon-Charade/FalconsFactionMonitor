@@ -52,7 +52,7 @@ jobs:
 
       - name: Build project
         run: |
-          dotnet build FalconsFactionMonitor/FalconsFactionMonitor.csproj --configuration Release
+          dotnet build FalconsFactionMonitor/FalconsFactionMonitor/FalconsFactionMonitor.csproj --configuration Release
 
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v3
