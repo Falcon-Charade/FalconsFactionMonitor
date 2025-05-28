@@ -49,6 +49,9 @@ jobs:
           languages: ${{ matrix.language }}
           packs: |
             codeql/csharp-queries
+            
+      - name: Restore NuGet Packages
+        run: dotnet restore FalconsFactionMonitor/FalconsFactionMonitor/FalconsFactionMonitor.csproj
 
       - name: Build project
         run: |
