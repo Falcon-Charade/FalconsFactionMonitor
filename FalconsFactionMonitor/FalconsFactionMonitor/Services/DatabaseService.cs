@@ -18,7 +18,7 @@ namespace FalconsFactionMonitor.Services
             string currentDirectory = AppDomain.CurrentDomain.BaseDirectory;
             if (currentDirectory.Contains(@"\bin\Debug") || currentDirectory.Contains(@"\bin\Release"))
             {
-                solutionRoot = Directory.GetParent(currentDirectory)?.Parent?.Parent?.FullName;
+                solutionRoot = Directory.GetParent(currentDirectory)?.Parent?.Parent?.Parent?.FullName;
             }
             else
             {
@@ -80,7 +80,14 @@ namespace FalconsFactionMonitor.Services
             List<LiveData> allFactions = new List<LiveData>();
             foreach (var faction in factions)
             {
-                DateTime parsedDate = DateTime.ParseExact(faction.LastUpdated, "d/M/yyyy h:m:s tt", CultureInfo.InvariantCulture);
+                string[] formats = { "M/d/yyyy h:mm:ss tt", "M/d/yyyy hh:mm:ss tt" };
+
+                DateTime parsedDate = DateTime.ParseExact(
+                    faction.LastUpdated,
+                    formats,
+                    CultureInfo.InvariantCulture,
+                    DateTimeStyles.None
+                );
                 var lastUpdated = parsedDate.ToString("yyyy-MM-dd HH:mm:ss");
                 allFactions.Add
                     (

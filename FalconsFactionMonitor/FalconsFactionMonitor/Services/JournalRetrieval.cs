@@ -19,7 +19,7 @@ internal class JournalRetrievalService
 
             if (currentDirectory.Contains(@"\bin\Debug") || currentDirectory.Contains(@"\bin\Release"))
             {
-                solutionRoot = Directory.GetParent(currentDirectory)?.Parent?.Parent?.FullName;
+                solutionRoot = Directory.GetParent(currentDirectory)?.Parent?.Parent?.Parent?.FullName;
             }
             else
             {
