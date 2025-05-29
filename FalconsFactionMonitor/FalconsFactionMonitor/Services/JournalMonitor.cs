@@ -1,20 +1,100 @@
 ﻿using FalconsFactionMonitor.Models;
+using Microsoft.Win32.SafeHandles;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using Newtonsoft.Json.Linq;
+using System.Runtime.InteropServices;
+using System.Text;
 
 namespace FalconsFactionMonitor.Services
 {
     internal class JournalMonitor
     {
-        private readonly string journalDirectory = Path.Combine(
-            Environment.GetFolderPath(Environment.SpecialFolder.UserProfile),
-            "Saved Games",
-            "Frontier Developments",
-            "Elite Dangerous"
-        );
+        private string journalDirectory;
+
+        public JournalMonitor()
+        {
+            string defaultPath = Path.Combine(
+                Environment.GetFolderPath(Environment.SpecialFolder.UserProfile),
+                "Saved Games",
+                "Frontier Developments",
+                "Elite Dangerous"
+            );
+
+            journalDirectory = ResolveLinkTarget(defaultPath) ?? defaultPath;
+        }
+
+        // Constants for CreateFile flags
+        private const int FILE_FLAG_BACKUP_SEMANTICS = 0x02000000;
+
+        // Import necessary Windows API functions
+        [DllImport("kernel32.dll", SetLastError = true, CharSet = CharSet.Auto)]
+        private static extern SafeFileHandle CreateFile(
+            string lpFileName,                                          // The name of the file to open
+            int dwDesiredAccess,                                        // Desired access to the file (0 means no access, just open)
+            FileShare dwShareMode,                                      // Sharing mode (allow read/write and delete access)
+            IntPtr lpSecurityAttributes,                                // Security attributes (null means default)
+            FileMode dwCreationDisposition,                             // How to create the file (open existing)
+            int dwFlagsAndAttributes,                                   // Flags and attributes (FILE_FLAG_BACKUP_SEMANTICS allows opening directories)
+            IntPtr hTemplateFile);                                      // Template file handle (null means no template)
+
+        // Import the GetFinalPathNameByHandle function to resolve the final path of a file or directory
+        [DllImport("kernel32.dll", SetLastError = true, CharSet = CharSet.Auto)]
+        private static extern int GetFinalPathNameByHandle(
+            IntPtr hFile,                                               // Handle to the file or directory
+            [Out] StringBuilder lpszFilePath,                           // Output buffer for the final path
+            int cchFilePath,                                            // Size of the output buffer
+            int dwFlags);                                               // Flags for the function (0 means normal path format)
+
+        private string ResolveLinkTarget(string path)
+        {
+            if (!Directory.Exists(path)) return null;
+
+            try
+            {
+                // Use CreateFile with FILE_FLAG_BACKUP_SEMANTICS to open the directory
+                var handle = CreateFile(                        // Use CreateFile to open the directory
+                    path,
+                    0,                                          // No access required, just need to open the directory
+                    FileShare.ReadWrite | FileShare.Delete,     // Allow read/write and delete access
+                    IntPtr.Zero,                                // No security attributes
+                    FileMode.Open,                              // Open the directory
+                    FILE_FLAG_BACKUP_SEMANTICS,                 // This flag allows opening directories
+                    IntPtr.Zero);                               // No template file
+
+                // CreateFile returns a SafeFileHandle, which we can use to get the final path
+                if (handle.IsInvalid)
+                    return null;
+
+                // Use GetFinalPathNameByHandle to get the actual path
+                var buffer = new StringBuilder(512);
+                int result = GetFinalPathNameByHandle(
+                    handle.DangerousGetHandle(),                // Get the handle from SafeFileHandle
+                    buffer,                                     // Output buffer for the path
+                    buffer.Capacity,                            // Size of the buffer
+                    0);                                         // dwFlags, 0 means we want the path in normal format
+
+                // Close the handle to release resources
+                handle.Close();
+
+                // Check if the result is valid
+                if (result < 0 || buffer.Length == 0) return null;
+
+                // Convert the StringBuilder to a string
+                string rawPath = buffer.ToString();
+
+                // Strip prefix like \\?\ if present
+                const string prefix = @"\\?\";
+                return rawPath.StartsWith(prefix) ? rawPath.Substring(prefix.Length) : rawPath;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
         private string latestJournalFile;
         private long lastFilePosition = 0;
         private FileSystemWatcher watcher;
@@ -23,6 +103,22 @@ namespace FalconsFactionMonitor.Services
 
         public void StartMonitoring()
         {
+            if (IsSymlink(journalDirectory))
+            {
+                Console.ForegroundColor = ConsoleColor.Magenta;
+                Console.Write("\n[INFO] ");
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine("Journal directory is a symbolic link or junction.");
+                Console.ForegroundColor = ConsoleColor.White;
+            }
+            else
+            {
+                Console.ForegroundColor = ConsoleColor.Magenta;
+                Console.Write("\n[INFO] ");
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("Using standard journal path.");
+                Console.ForegroundColor = ConsoleColor.White;
+            }
             // Initialize directory watcher to see creation/changes to *any* journal files
             watcher = new FileSystemWatcher(journalDirectory)
             {
@@ -221,5 +317,22 @@ namespace FalconsFactionMonitor.Services
                 Console.WriteLine($" Error processing journal: {ex.Message}");
             }
         }
+        private bool IsSymlink(string path)
+        {
+            try
+            {
+                var attr = File.GetAttributes(path);
+                return attr.HasFlag(FileAttributes.ReparsePoint);
+            }
+            catch (Exception ex)
+            {
+                Console.ForegroundColor = ConsoleColor.DarkRed;
+                Console.Write("\n[ERROR]");
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.WriteLine($" Failed to check symlink status: {ex.Message}");
+                return false;
+            }
+        }
+
     }
 }

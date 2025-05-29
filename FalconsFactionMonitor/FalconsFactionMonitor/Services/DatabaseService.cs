@@ -18,7 +18,7 @@ namespace FalconsFactionMonitor.Services
             string currentDirectory = AppDomain.CurrentDomain.BaseDirectory;
             if (currentDirectory.Contains(@"\bin\Debug") || currentDirectory.Contains(@"\bin\Release"))
             {
-                solutionRoot = Directory.GetParent(currentDirectory)?.Parent?.Parent?.FullName;
+                solutionRoot = Directory.GetParent(currentDirectory)?.Parent?.Parent?.Parent?.FullName;
             }
             else
             {
@@ -26,7 +26,7 @@ namespace FalconsFactionMonitor.Services
             }
             string filePath = Path.Combine(solutionRoot, "Services", "StoredProcInsert.sql");
             string storedProc = File.ReadAllText(filePath);
-            string connectionString = Registry.GetValue(@"HKEY_CURRENT_USER\SOFTWARE\Falcon Charade", "FalconsFactionMonitorDbConnection", null).ToString();
+            string connectionString = Registry.GetValue(@"HKEY_CURRENT_USER\SOFTWARE\FalconCharade\FalconsFactionMonitor", "FalconsFactionMonitorDbConnection", null).ToString();
             SqlConnection connection = new SqlConnection(connectionString);
             for (int i = 1; i <= 5; i++)
             {
@@ -80,7 +80,14 @@ namespace FalconsFactionMonitor.Services
             List<LiveData> allFactions = new List<LiveData>();
             foreach (var faction in factions)
             {
-                DateTime parsedDate = DateTime.ParseExact(faction.LastUpdated, "d/M/yyyy h:m:s tt", CultureInfo.InvariantCulture);
+                string[] formats = { "M/d/yyyy h:mm:ss tt", "M/d/yyyy hh:mm:ss tt" };
+
+                DateTime parsedDate = DateTime.ParseExact(
+                    faction.LastUpdated,
+                    formats,
+                    CultureInfo.InvariantCulture,
+                    DateTimeStyles.None
+                );
                 var lastUpdated = parsedDate.ToString("yyyy-MM-dd HH:mm:ss");
                 allFactions.Add
                     (
