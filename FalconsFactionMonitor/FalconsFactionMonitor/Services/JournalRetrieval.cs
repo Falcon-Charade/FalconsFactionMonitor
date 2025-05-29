@@ -46,18 +46,18 @@ internal class JournalRetrievalService
                 await Task.Delay(2000); // Use await instead of blocking sleep
             }
 
-                // Once Elite closes, we can gracefully shut down (if you had any cleanup)
-                Console.ForegroundColor = ConsoleColor.Cyan;
-                Console.WriteLine("\n\nElite Dangerous has closed. Stopping the journal monitor...");
+            // Once Elite closes, we can gracefully shut down (if you had any cleanup)
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine("\n\nElite Dangerous has closed. Stopping the journal monitor...");
             Console.ResetColor();
             monitor.StopMonitoring(); // Optional if you build a StopMonitoring() method
         }
         catch (Exception ex)
         {
-                Console.ForegroundColor = ConsoleColor.DarkRed;
-                Console.Write("An error occurred: ");
-                Console.ForegroundColor = ConsoleColor.White;
-                Console.WriteLine($"{ex.Message}");
+            Console.ForegroundColor = ConsoleColor.DarkRed;
+            Console.Write("An error occurred: ");
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.WriteLine($"{ex.Message}");
             Console.ResetColor();
         }
     }
