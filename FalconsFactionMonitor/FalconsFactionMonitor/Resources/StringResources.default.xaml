@@ -17,6 +17,8 @@
 	<ns0:String x:Key="Main_Status_StartingWeb">Starting Web Retrieval Service.</ns0:String>
 	<ns0:String x:Key="Main_Status_OpeningOptions">Opening Options.</ns0:String>
 	<ns0:String x:Key="Options_ApplyButton">Apply</ns0:String>
+	<ns0:String x:Key="Options_Button_SetCSVSave">Select CSV Save Path</ns0:String>
+	<ns0:String x:Key="Options_Button_SetJournalSave">Select Journal Folder Location</ns0:String>
 	<ns0:String x:Key="Options_CancelButton">Cancel</ns0:String>
 	<ns0:String x:Key="Options_Custom_BaseThemeLabel">Base Theme</ns0:String>
 	<ns0:String x:Key="Options_Custom_BaseTheme_Light">Light</ns0:String>
@@ -47,6 +49,7 @@
 	<ns0:String x:Key="Options_Custom_ColorSwatch_Grey">Grey</ns0:String>
 	<ns0:String x:Key="Options_Custom_ColorSwatch_BlueGrey">Blue Grey</ns0:String>
 	<ns0:String x:Key="Options_FontSizeLabel">Font Size:</ns0:String>
+	<ns0:String x:Key="Options_JournalSaveLoc">Set Journal Folder Location:</ns0:String>
 	<ns0:String x:Key="Options_LanguageLabel">Language:</ns0:String>
 	<ns0:String x:Key="Options_LanguageOption_Afrikaans">Afrikaans</ns0:String>
 	<ns0:String x:Key="Options_LanguageOption_Chinese">中文</ns0:String>
@@ -59,6 +62,7 @@
 	<ns0:String x:Key="Options_LanguageOption_Spanish">Español</ns0:String>
 	<ns0:String x:Key="Options_PresetLabel">Preset:</ns0:String>
 	<ns0:String x:Key="Options_ResetButton">Reset</ns0:String>
+	<ns0:String x:Key="Options_CSVSaveLoc">Set CSV Save Location:</ns0:String>
 	<ns0:String x:Key="Options_ThemeOptions">Theme Options</ns0:String>
 	<ns0:String x:Key="Options_ThemePreset_Custom">Custom</ns0:String>
 	<ns0:String x:Key="Options_ThemePreset_Dark">Dark</ns0:String>
@@ -71,11 +75,13 @@
 	<ns0:String x:Key="WebRetrieval_Title">Web Service</ns0:String>
 	<ns0:String x:Key="WebRetrieval_Heading">Welcome to Falcon's Web Retrieval.</ns0:String>
 	<ns0:String x:Key="WebRetrieval_CheckInara">Check Inara for Faction Updates?</ns0:String>
+	<ns0:String x:Key="WebRetrieval_CheckBoxInara">Check Inara Checkbox</ns0:String>
 	<ns0:String x:Key="WebRetrieval_SaveCSV">Save Data to CSV?</ns0:String>
+	<ns0:String x:Key="WebRetrieval_SaveCSVBox">Save CSV Checkbox</ns0:String>
 	<ns0:String x:Key="WebRetrieval_FactionCheck">Faction to check:</ns0:String>
 	<ns0:String x:Key="WebRetrieval_FactionPrefill">Faction Name</ns0:String>
 	<ns0:String x:Key="WebRetrieval_Button_StartService">Start Service</ns0:String>
+	<ns0:String x:Key="WebRetrieval_OutputLog">Web Retrieval Output Log</ns0:String>
 	<ns0:String x:Key="WebRetrieval_Button_OpenOutput">Open Output Directory.</ns0:String>
-	<ns0:String x:Key="WebRetrieval_Button_SetSave">Select CSV Save Path</ns0:String>
 	<ns0:String x:Key="WebRetrieval_Button_Exit">Exit Monitor Service</ns0:String>
 </ResourceDictionary>

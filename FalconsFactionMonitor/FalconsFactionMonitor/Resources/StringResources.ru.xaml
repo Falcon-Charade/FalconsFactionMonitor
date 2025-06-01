@@ -17,6 +17,8 @@
 	<ns0:String x:Key="Main_Status_StartingWeb">Запуск службы веб-получения.</ns0:String>
 	<ns0:String x:Key="Main_Status_OpeningOptions">Открытие параметров.</ns0:String>
 	<ns0:String x:Key="Options_ApplyButton">Применить</ns0:String>
+	<ns0:String x:Key="Options_Button_SetCSVSave">Выбрать путь сохранения CSV</ns0:String>
+	<ns0:String x:Key="Options_Button_SetJournalSave">Выбрать расположение папки журнала</ns0:String>
 	<ns0:String x:Key="Options_CancelButton">Отмена</ns0:String>
 	<ns0:String x:Key="Options_Custom_BaseThemeLabel">Базовая тема</ns0:String>
 	<ns0:String x:Key="Options_Custom_BaseTheme_Light">Светлая</ns0:String>
@@ -47,6 +49,7 @@
 	<ns0:String x:Key="Options_Custom_ColorSwatch_Grey">Серый</ns0:String>
 	<ns0:String x:Key="Options_Custom_ColorSwatch_BlueGrey">Сине-серый</ns0:String>
 	<ns0:String x:Key="Options_FontSizeLabel">Размер шрифта:</ns0:String>
+	<ns0:String x:Key="Options_JournalSaveLoc">Задать расположение папки журнала:</ns0:String>
 	<ns0:String x:Key="Options_LanguageLabel">Язык:</ns0:String>
 	<ns0:String x:Key="Options_LanguageOption_Afrikaans">Африкаанс</ns0:String>
 	<ns0:String x:Key="Options_LanguageOption_Chinese">Китайский</ns0:String>
@@ -59,6 +62,7 @@
 	<ns0:String x:Key="Options_LanguageOption_Spanish">Испанский</ns0:String>
 	<ns0:String x:Key="Options_PresetLabel">Пресет:</ns0:String>
 	<ns0:String x:Key="Options_ResetButton">Сбросить</ns0:String>
+	<ns0:String x:Key="Options_CSVSaveLoc">Задать расположение сохранения CSV:</ns0:String>
 	<ns0:String x:Key="Options_ThemeOptions">Параметры темы</ns0:String>
 	<ns0:String x:Key="Options_ThemePreset_Custom">Пользовательская</ns0:String>
 	<ns0:String x:Key="Options_ThemePreset_Dark">Тёмная</ns0:String>
@@ -71,11 +75,13 @@
 	<ns0:String x:Key="WebRetrieval_Title">Веб-сервис</ns0:String>
 	<ns0:String x:Key="WebRetrieval_Heading">Добро пожаловать в веб-извлечение Falcon.</ns0:String>
 	<ns0:String x:Key="WebRetrieval_CheckInara">Проверить Inara на обновления фракций?</ns0:String>
+	<ns0:String x:Key="WebRetrieval_CheckBoxInara">Отметить флажок Inara</ns0:String>
 	<ns0:String x:Key="WebRetrieval_SaveCSV">Сохранить данные в CSV?</ns0:String>
+	<ns0:String x:Key="WebRetrieval_SaveCSVBox">Флажок «Сохранить CSV»</ns0:String>
 	<ns0:String x:Key="WebRetrieval_FactionCheck">Проверяемая фракция:</ns0:String>
 	<ns0:String x:Key="WebRetrieval_FactionPrefill">Название фракции</ns0:String>
 	<ns0:String x:Key="WebRetrieval_Button_StartService">Запустить сервис</ns0:String>
+	<ns0:String x:Key="WebRetrieval_OutputLog">Журнал вывода веб-извлечения</ns0:String>
 	<ns0:String x:Key="WebRetrieval_Button_OpenOutput">Открыть выходной каталог.</ns0:String>
-	<ns0:String x:Key="WebRetrieval_Button_SetSave">Выбрать путь сохранения CSV</ns0:String>
 	<ns0:String x:Key="WebRetrieval_Button_Exit">Выйти из службы мониторинга</ns0:String>
 </ResourceDictionary>

@@ -17,6 +17,8 @@
 	<ns0:String x:Key="Main_Status_StartingWeb">Avvio del servizio di recupero web.</ns0:String>
 	<ns0:String x:Key="Main_Status_OpeningOptions">Apertura delle opzioni.</ns0:String>
 	<ns0:String x:Key="Options_ApplyButton">Applica</ns0:String>
+	<ns0:String x:Key="Options_Button_SetCSVSave">Seleziona percorso salvataggio CSV</ns0:String>
+	<ns0:String x:Key="Options_Button_SetJournalSave">Seleziona la posizione della cartella del registro</ns0:String>
 	<ns0:String x:Key="Options_CancelButton">Annulla</ns0:String>
 	<ns0:String x:Key="Options_Custom_BaseThemeLabel">Tema di base</ns0:String>
 	<ns0:String x:Key="Options_Custom_BaseTheme_Light">Chiaro</ns0:String>
@@ -47,6 +49,7 @@
 	<ns0:String x:Key="Options_Custom_ColorSwatch_Grey">Grigio</ns0:String>
 	<ns0:String x:Key="Options_Custom_ColorSwatch_BlueGrey">Grigio blu</ns0:String>
 	<ns0:String x:Key="Options_FontSizeLabel">Dimensione del carattere:</ns0:String>
+	<ns0:String x:Key="Options_JournalSaveLoc">Imposta la posizione della cartella del registro:</ns0:String>
 	<ns0:String x:Key="Options_LanguageLabel">Lingua:</ns0:String>
 	<ns0:String x:Key="Options_LanguageOption_Afrikaans">Afrikaans</ns0:String>
 	<ns0:String x:Key="Options_LanguageOption_Chinese">Cinese</ns0:String>
@@ -59,6 +62,7 @@
 	<ns0:String x:Key="Options_LanguageOption_Spanish">Spagnolo</ns0:String>
 	<ns0:String x:Key="Options_PresetLabel">Preimpostazione:</ns0:String>
 	<ns0:String x:Key="Options_ResetButton">Ripristina</ns0:String>
+	<ns0:String x:Key="Options_CSVSaveLoc">Imposta la posizione di salvataggio del CSV:</ns0:String>
 	<ns0:String x:Key="Options_ThemeOptions">Opzioni tema</ns0:String>
 	<ns0:String x:Key="Options_ThemePreset_Custom">Personalizzato</ns0:String>
 	<ns0:String x:Key="Options_ThemePreset_Dark">Scuro</ns0:String>
@@ -71,11 +75,13 @@
 	<ns0:String x:Key="WebRetrieval_Title">Servizio web</ns0:String>
 	<ns0:String x:Key="WebRetrieval_Heading">Benvenuto al Recupero Web di Falcon.</ns0:String>
 	<ns0:String x:Key="WebRetrieval_CheckInara">Controllare Inara per aggiornamenti fazione?</ns0:String>
+	<ns0:String x:Key="WebRetrieval_CheckBoxInara">Seleziona la casella Inara</ns0:String>
 	<ns0:String x:Key="WebRetrieval_SaveCSV">Salvare i dati in CSV?</ns0:String>
+	<ns0:String x:Key="WebRetrieval_SaveCSVBox">Casella di controllo Salva CSV</ns0:String>
 	<ns0:String x:Key="WebRetrieval_FactionCheck">Fazione da controllare:</ns0:String>
 	<ns0:String x:Key="WebRetrieval_FactionPrefill">Nome fazione</ns0:String>
 	<ns0:String x:Key="WebRetrieval_Button_StartService">Avvia servizio</ns0:String>
+	<ns0:String x:Key="WebRetrieval_OutputLog">Registro di output del recupero web</ns0:String>
 	<ns0:String x:Key="WebRetrieval_Button_OpenOutput">Apri cartella di output.</ns0:String>
-	<ns0:String x:Key="WebRetrieval_Button_SetSave">Seleziona percorso salvataggio CSV</ns0:String>
 	<ns0:String x:Key="WebRetrieval_Button_Exit">Esci dal servizio di monitoraggio</ns0:String>
 </ResourceDictionary>

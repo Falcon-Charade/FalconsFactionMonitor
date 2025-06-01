@@ -17,6 +17,8 @@
 	<ns0:String x:Key="Main_Status_StartingWeb">ウェブ取得サービスを起動中です。</ns0:String>
 	<ns0:String x:Key="Main_Status_OpeningOptions">オプションを開いています。</ns0:String>
 	<ns0:String x:Key="Options_ApplyButton">適用</ns0:String>
+	<ns0:String x:Key="Options_Button_SetCSVSave">CSV保存先を選択する</ns0:String>
+	<ns0:String x:Key="Options_Button_SetJournalSave">ジャーナルフォルダーの場所を選択</ns0:String>
 	<ns0:String x:Key="Options_CancelButton">キャンセル</ns0:String>
 	<ns0:String x:Key="Options_Custom_BaseThemeLabel">ベーステーマ</ns0:String>
 	<ns0:String x:Key="Options_Custom_BaseTheme_Light">明るい</ns0:String>
@@ -47,6 +49,7 @@
 	<ns0:String x:Key="Options_Custom_ColorSwatch_Grey">灰色</ns0:String>
 	<ns0:String x:Key="Options_Custom_ColorSwatch_BlueGrey">青みがかったグレー</ns0:String>
 	<ns0:String x:Key="Options_FontSizeLabel">フォントサイズ：</ns0:String>
+	<ns0:String x:Key="Options_JournalSaveLoc">ジャーナルフォルダーの場所を設定：</ns0:String>
 	<ns0:String x:Key="Options_LanguageLabel">言語：</ns0:String>
 	<ns0:String x:Key="Options_LanguageOption_Afrikaans">アフリカーンス語</ns0:String>
 	<ns0:String x:Key="Options_LanguageOption_Chinese">中国語</ns0:String>
@@ -59,6 +62,7 @@
 	<ns0:String x:Key="Options_LanguageOption_Spanish">スペイン語</ns0:String>
 	<ns0:String x:Key="Options_PresetLabel">プリセット：</ns0:String>
 	<ns0:String x:Key="Options_ResetButton">リセット</ns0:String>
+	<ns0:String x:Key="Options_CSVSaveLoc">CSV の保存先を設定:</ns0:String>
 	<ns0:String x:Key="Options_ThemeOptions">テーマオプション</ns0:String>
 	<ns0:String x:Key="Options_ThemePreset_Custom">カスタム</ns0:String>
 	<ns0:String x:Key="Options_ThemePreset_Dark">ダーク</ns0:String>
@@ -71,11 +75,13 @@
 	<ns0:String x:Key="WebRetrieval_Title">ウェブサービス</ns0:String>
 	<ns0:String x:Key="WebRetrieval_Heading">ファルコンのウェブ取得へようこそ。</ns0:String>
 	<ns0:String x:Key="WebRetrieval_CheckInara">Inaraで派閥の更新を確認しますか？</ns0:String>
+	<ns0:String x:Key="WebRetrieval_CheckBoxInara">Inaraのチェックボックスをオンにする</ns0:String>
 	<ns0:String x:Key="WebRetrieval_SaveCSV">データをCSVに保存しますか？</ns0:String>
+	<ns0:String x:Key="WebRetrieval_SaveCSVBox">CSVを保存するチェックボックス</ns0:String>
 	<ns0:String x:Key="WebRetrieval_FactionCheck">確認する派閥：</ns0:String>
 	<ns0:String x:Key="WebRetrieval_FactionPrefill">派閥名</ns0:String>
 	<ns0:String x:Key="WebRetrieval_Button_StartService">サービスを開始する</ns0:String>
+	<ns0:String x:Key="WebRetrieval_OutputLog">ウェブ取得出力ログ</ns0:String>
 	<ns0:String x:Key="WebRetrieval_Button_OpenOutput">出力ディレクトリを開く。</ns0:String>
-	<ns0:String x:Key="WebRetrieval_Button_SetSave">CSV保存先を選択する</ns0:String>
 	<ns0:String x:Key="WebRetrieval_Button_Exit">モニターサービスを終了する</ns0:String>
 </ResourceDictionary>

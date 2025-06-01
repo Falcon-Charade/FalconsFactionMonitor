@@ -17,6 +17,8 @@
 	<ns0:String x:Key="Main_Status_StartingWeb">正在启动网络检索服务。</ns0:String>
 	<ns0:String x:Key="Main_Status_OpeningOptions">正在打开选项。</ns0:String>
 	<ns0:String x:Key="Options_ApplyButton">应用</ns0:String>
+	<ns0:String x:Key="Options_Button_SetCSVSave">选择CSV保存路径</ns0:String>
+	<ns0:String x:Key="Options_Button_SetJournalSave">选择日志文件夹位置</ns0:String>
 	<ns0:String x:Key="Options_CancelButton">取消</ns0:String>
 	<ns0:String x:Key="Options_Custom_BaseThemeLabel">基础主题</ns0:String>
 	<ns0:String x:Key="Options_Custom_BaseTheme_Light">浅色</ns0:String>
@@ -47,6 +49,7 @@
 	<ns0:String x:Key="Options_Custom_ColorSwatch_Grey">灰色</ns0:String>
 	<ns0:String x:Key="Options_Custom_ColorSwatch_BlueGrey">蓝灰色</ns0:String>
 	<ns0:String x:Key="Options_FontSizeLabel">字体大小：</ns0:String>
+	<ns0:String x:Key="Options_JournalSaveLoc">设置日志文件夹位置：</ns0:String>
 	<ns0:String x:Key="Options_LanguageLabel">语言：</ns0:String>
 	<ns0:String x:Key="Options_LanguageOption_Afrikaans">南非荷兰语</ns0:String>
 	<ns0:String x:Key="Options_LanguageOption_Chinese">中文</ns0:String>
@@ -59,6 +62,7 @@
 	<ns0:String x:Key="Options_LanguageOption_Spanish">西班牙语</ns0:String>
 	<ns0:String x:Key="Options_PresetLabel">预设：</ns0:String>
 	<ns0:String x:Key="Options_ResetButton">重置</ns0:String>
+	<ns0:String x:Key="Options_CSVSaveLoc">设置 CSV 保存位置：</ns0:String>
 	<ns0:String x:Key="Options_ThemeOptions">主题选项</ns0:String>
 	<ns0:String x:Key="Options_ThemePreset_Custom">自定义</ns0:String>
 	<ns0:String x:Key="Options_ThemePreset_Dark">黑暗</ns0:String>
@@ -71,11 +75,13 @@
 	<ns0:String x:Key="WebRetrieval_Title">网络服务</ns0:String>
 	<ns0:String x:Key="WebRetrieval_Heading">欢迎使用猎鹰的网页检索。</ns0:String>
 	<ns0:String x:Key="WebRetrieval_CheckInara">检查Inara的派系更新？</ns0:String>
+	<ns0:String x:Key="WebRetrieval_CheckBoxInara">选中 Inara 复选框</ns0:String>
 	<ns0:String x:Key="WebRetrieval_SaveCSV">将数据保存为CSV？</ns0:String>
+	<ns0:String x:Key="WebRetrieval_SaveCSVBox">保存 CSV 复选框</ns0:String>
 	<ns0:String x:Key="WebRetrieval_FactionCheck">要检查的派系：</ns0:String>
 	<ns0:String x:Key="WebRetrieval_FactionPrefill">派系名称</ns0:String>
 	<ns0:String x:Key="WebRetrieval_Button_StartService">启动服务</ns0:String>
+	<ns0:String x:Key="WebRetrieval_OutputLog">Web检索输出日志</ns0:String>
 	<ns0:String x:Key="WebRetrieval_Button_OpenOutput">打开输出目录。</ns0:String>
-	<ns0:String x:Key="WebRetrieval_Button_SetSave">选择CSV保存路径</ns0:String>
 	<ns0:String x:Key="WebRetrieval_Button_Exit">退出监控服务</ns0:String>
 </ResourceDictionary>

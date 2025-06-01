@@ -6,10 +6,9 @@
                       xmlns:localbase="clr-namespace:FalconsFactionMonitor.Helpers"
                       Title="{DynamicResource Options_Title}"
                       Style="{StaticResource MaterialDesignWindow}"
-                      Width="475"
-                      Height="285"
-                      MinWidth="480"
-                      MinHeight="285">
+                      SizeToContent="WidthAndHeight"
+                      MinWidth="320"
+                      MinHeight="240">
 
     <localbase:BaseWindow.Resources>
         <local:ComboItemNameConverter x:Key="ComboItemNameConverter" />
@@ -28,34 +27,52 @@
 
     <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
         <Grid x:Name="MainContentGrid">
-            <Grid Margin="16">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="61*"/>
+                <ColumnDefinition Width="35*"/>
+            </Grid.ColumnDefinitions>
+            <Grid Margin="16,16,16,16" Grid.ColumnSpan="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="25*"/>
+                    <ColumnDefinition Width="87*"/>
+                </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
-                
+
                 <!-- Header -->
                 <TextBlock Text="{DynamicResource Options_ThemeOptions}"
+                           AutomationProperties.Name="{DynamicResource Options_ThemeOptions}"
                            x:Name="ThemeLabel"
                            FontSize="20"
                            FontWeight="Bold"
                            Margin="0,0,0,16"
-                           Foreground="{DynamicResource MaterialDesignBody}" />
-                
-                <!-- Theme Selection -->
+                           Foreground="{DynamicResource MaterialDesignBody}" Grid.ColumnSpan="2" />
+
                 <StackPanel Grid.Row="1"
                             VerticalAlignment="Top"
-                            HorizontalAlignment="Stretch"
-                            Margin="0,0,0,16"
                             Orientation="Vertical"
-                            materialDesign:ColorZoneAssist.Mode="PrimaryLight">
-                    <StackPanel Orientation="Horizontal" Margin="0,8,0,0">
+                            materialDesign:ColorZoneAssist.Mode="PrimaryLight"
+                            Grid.IsSharedSizeScope="True" Grid.ColumnSpan="2">
+                    <Grid Margin="0,8,0,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"
+                                              SharedSizeGroup="LabelColumn"/>
+                            <ColumnDefinition Width="Auto"
+                                              SharedSizeGroup="ContentColumn"/>
+                        </Grid.ColumnDefinitions>
                         <TextBlock Text="{DynamicResource Options_LanguageLabel}"
+                                   AutomationProperties.Name="{DynamicResource Options_LanguageLabel}"
                                    VerticalAlignment="Center"
                                    x:Name="LanguageLabel"
-                                   Width="120"/>
-                        <ComboBox x:Name="LanguageComboBox" SelectedValuePath="Tag" Width="180" Margin="8,0,0,0">
+                                   Grid.Column="0"/>
+                        <ComboBox x:Name="LanguageComboBox"
+                                  SelectedValuePath="Tag"
+                                  Width="180"
+                                  Margin="18,0,0,0"
+                                  Grid.Column="1">
                             <ComboBoxItem Content="{DynamicResource Options_LanguageOption_Afrikaans}" Tag="af" />
                             <ComboBoxItem Content="{DynamicResource Options_LanguageOption_Chinese}" Tag="zh" />
                             <ComboBoxItem Content="{DynamicResource Options_LanguageOption_English}" Tag="en" />
@@ -66,90 +83,176 @@
                             <ComboBoxItem Content="{DynamicResource Options_LanguageOption_Russian}" Tag="ru" />
                             <ComboBoxItem Content="{DynamicResource Options_LanguageOption_Spanish}" Tag="es" />
                         </ComboBox>
-                    </StackPanel>
-                    
-                    <StackPanel Orientation="Horizontal" Margin="0,8,0,0">
+                    </Grid>
+                    <Grid Margin="0,8,0,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"
+                                              SharedSizeGroup="LabelColumn"/>
+                            <ColumnDefinition Width="Auto"
+                                              SharedSizeGroup="ContentColumn"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="{DynamicResource Options_CSVSaveLoc}"
+                                   AutomationProperties.Name="{DynamicResource Options_CSVSaveLoc}"
+                                   VerticalAlignment="Center"
+                                   Grid.Column="0"/>
+                        <Button x:Name="CSVPathButton"
+                                  Margin="18,0,0,0"
+                                Click="CSVPathButton_Click"
+                                Content="{DynamicResource Options_Button_SetCSVSave}"
+                                AutomationProperties.Name="{DynamicResource Options_Button_SetCSVSave}" 
+                                Grid.Column="1" />
+                    </Grid>
+                    <Grid Margin="0,8,0,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"
+                                              SharedSizeGroup="LabelColumn"/>
+                            <ColumnDefinition Width="Auto"
+                                              SharedSizeGroup="ContentColumn"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="{DynamicResource Options_JournalSaveLoc}"
+                                   AutomationProperties.Name="{DynamicResource Options_JournalSaveLoc}"
+                                   VerticalAlignment="Center"
+                                   Grid.Column="0"/>
+                        <Button x:Name="JournalPathButton"
+                                  Margin="18,0,0,0"
+                                Click="JournalPathButton_Click"
+                                Content="{DynamicResource Options_Button_SetJournalSave}"
+                                AutomationProperties.Name="{DynamicResource Options_Button_SetJournalSave}"
+                                Grid.Column="1" />
+                    </Grid>
+                    <Grid Margin="0,8,0,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"
+                                              SharedSizeGroup="LabelColumn"/>
+                            <ColumnDefinition Width="Auto"
+                                              SharedSizeGroup="ContentColumn"/>
+                        </Grid.ColumnDefinitions>
                         <TextBlock Text="{DynamicResource Options_FontSizeLabel}"
+                                   AutomationProperties.Name="{DynamicResource Options_FontSizeLabel}"
                                    VerticalAlignment="Center"
                                    x:Name="FontSizeLabel"
-                                   Width="120"/>
-                        <ComboBox x:Name="FontSizeComboBox" Width="180" Margin="8,0,0,0"/>
-                    </StackPanel>
-                    
-                    <StackPanel Orientation="Horizontal" Margin="0,8,0,0">
+                                   Grid.Column="0"/>
+                        <ComboBox x:Name="FontSizeComboBox" 
+                                  Width="180" 
+                                  Margin="18,0,0,0"
+                                  Grid.Column="1"/>
+                    </Grid>
+                    <Grid Margin="0,8,0,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"
+                                              SharedSizeGroup="LabelColumn"/>
+                            <ColumnDefinition Width="Auto"
+                                              SharedSizeGroup="ContentColumn"/>
+                        </Grid.ColumnDefinitions>
                         <TextBlock Text="{DynamicResource Options_PresetLabel}"
-                                   Width="120"
+                                   AutomationProperties.Name="{DynamicResource Options_PresetLabel}"
+                                   Grid.Column="0"
                                    x:Name="PresetLabel"
                                    VerticalAlignment="Center"/>
-                        <ComboBox x:Name="PresetThemeComboBox" Width="180" Margin="8,0,0,0" SelectionChanged="PresetThemeComboBox_SelectionChanged">
-                            <ComboBoxItem Content="{DynamicResource Options_ThemePreset_Light}"/>
-                            <ComboBoxItem Content="{DynamicResource Options_ThemePreset_Dark}"/>
-                            <ComboBoxItem Content="{DynamicResource Options_ThemePreset_HighContrastLight}"/>
-                            <ComboBoxItem Content="{DynamicResource Options_ThemePreset_HighContrastDark}"/>
-                            <ComboBoxItem Content="{DynamicResource Options_ThemePreset_EliteDangerous}"/>
-                            <ComboBoxItem Content="{DynamicResource Options_ThemePreset_SystemDefault}" Tag="System Default" />
-                            <ComboBoxItem Content="{DynamicResource Options_ThemePreset_Custom}"/>
+                        <ComboBox x:Name="PresetThemeComboBox"
+                                  Width="180"
+                                  Margin="18,0,0,0"
+                                  SelectionChanged="PresetThemeComboBox_SelectionChanged"
+                                  Grid.Column="1">
+                            <ComboBoxItem Content="{DynamicResource Options_ThemePreset_Light}"
+                                          AutomationProperties.Name="{DynamicResource Options_ThemePreset_Light}" />
+                            <ComboBoxItem Content="{DynamicResource Options_ThemePreset_Dark}"
+                                          AutomationProperties.Name="{DynamicResource Options_ThemePreset_Dark}"/>
+                            <ComboBoxItem Content="{DynamicResource Options_ThemePreset_HighContrastLight}"
+                                          AutomationProperties.Name="{DynamicResource Options_ThemePreset_HighContrastLight}"/>
+                            <ComboBoxItem Content="{DynamicResource Options_ThemePreset_HighContrastDark}"
+                                          AutomationProperties.Name="{DynamicResource Options_ThemePreset_HighContrastDark}"/>
+                            <ComboBoxItem Content="{DynamicResource Options_ThemePreset_EliteDangerous}"
+                                          AutomationProperties.Name="{DynamicResource Options_ThemePreset_EliteDangerous}"/>
+                            <ComboBoxItem Content="{DynamicResource Options_ThemePreset_SystemDefault}"
+                                          AutomationProperties.Name="{DynamicResource Options_ThemePreset_SystemDefault}"
+                                          Tag="System Default" />
+                            <ComboBoxItem Content="{DynamicResource Options_ThemePreset_Custom}"
+                                          AutomationProperties.Name="{DynamicResource Options_ThemePreset_Custom}"/>
                         </ComboBox>
-                    </StackPanel>
-                    
-                    
-                    <StackPanel x:Name="CustomThemePanel" Visibility="Collapsed">
+                    </Grid>
+
+                    <StackPanel x:Name="CustomThemePanel" 
+                                Visibility="Collapsed">
                         <!-- Base Theme -->
-                        <StackPanel Orientation="Horizontal" Margin="0,8,0,0">
+                        <Grid Margin="0,8,0,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"
+                                              SharedSizeGroup="LabelColumn"/>
+                                <ColumnDefinition Width="Auto"
+                                              SharedSizeGroup="ContentColumn"/>
+                            </Grid.ColumnDefinitions>
                             <TextBlock Text="{DynamicResource Options_Custom_BaseThemeLabel}"
+                                       AutomationProperties.Name="{DynamicResource Options_Custom_BaseThemeLabel}"
                                        x:Name="BaseThemeLabel"
-                                       Width="120" 
+                                       Grid.Column="0" 
                                        VerticalAlignment="Center"/>
                             <ComboBox x:Name="BaseThemeComboBox"
                                       SelectedValuePath="Tag"
                                       ItemTemplate="{DynamicResource ComboItemTemplate}"
-                                      Width="120"
-                                      Margin="8,0,0,0" 
+                                      Grid.Column="1"
+                                      Margin="18,0,0,0"
                                       SelectedIndex="0"
                                       materialDesign:HintAssist.Hint="Light or Dark">
                                 <ComboBoxItem Tag="Light"
-                                              Content="{DynamicResource Options_Custom_BaseTheme_Light}"/>
+                                              Content="{DynamicResource Options_Custom_BaseTheme_Light}"
+                                              AutomationProperties.Name="{DynamicResource Options_Custom_BaseTheme_Light}"/>
                                 <ComboBoxItem Tag="Dark"
-                                              Content="{DynamicResource Options_Custom_BaseTheme_Dark}"/>
+                                              Content="{DynamicResource Options_Custom_BaseTheme_Dark}"
+                                              AutomationProperties.Name="{DynamicResource Options_Custom_BaseTheme_Dark}"/>
                             </ComboBox>
-                        </StackPanel>
-                        
+                        </Grid>
+
                         <!-- Primary Color -->
-                        <StackPanel Orientation="Horizontal" Margin="0,8,0,0">
+                        <Grid Margin="0,8,0,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"
+                                              SharedSizeGroup="LabelColumn"/>
+                                <ColumnDefinition Width="Auto"
+                                              SharedSizeGroup="ContentColumn"/>
+                            </Grid.ColumnDefinitions>
                             <TextBlock Text="{DynamicResource Options_Custom_PrimaryColorLabel}"
+                                       AutomationProperties.Name="{DynamicResource Options_Custom_PrimaryColorLabel}"
                                        x:Name="PrimaryColorLabel"
-                                       Width="120" 
+                                       Grid.Column="0" 
                                        VerticalAlignment="Center"/>
                             <ComboBox x:Name="PrimaryColorComboBox"
                                       ItemTemplate="{StaticResource ComboItemTemplate}"
                                       SelectedValuePath=""
                                       SelectionChanged="ThemeControl_Changed"
-                                      Margin="8,0,0,0" 
-                                      Width="180"
+                                      Margin="18,0,0,0"
+                                      Grid.Column="1"
                                       HorizontalAlignment="Stretch">
                             </ComboBox>
-                        </StackPanel>
-                        
+                        </Grid>
+
                         <!-- Accent Color -->
-                        <StackPanel Orientation="Horizontal" Margin="0,8,0,0">
+                        <Grid Margin="0,8,0,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"
+                                              SharedSizeGroup="LabelColumn"/>
+                                <ColumnDefinition Width="Auto"
+                                              SharedSizeGroup="ContentColumn"/>
+                            </Grid.ColumnDefinitions>
                             <TextBlock Text="{DynamicResource Options_Custom_AccentColorLabel}"
+                                       AutomationProperties.Name="{DynamicResource Options_Custom_AccentColorLabel}"
                                        x:Name="AccentColorLabel"
-                                       Width="120" 
+                                       Grid.Column="0" 
                                        VerticalAlignment="Center"/>
                             <ComboBox x:Name="AccentColorComboBox"
                                       ItemTemplate="{StaticResource ComboItemTemplate}"
                                       SelectionChanged="ThemeControl_Changed"
-                                      Margin="8,0,0,0" 
-                                      Width="180"
+                                      Margin="18,0,0,0"
+                                      Grid.Column="1"
                                       HorizontalAlignment="Stretch">
                             </ComboBox>
-                        </StackPanel>
+                        </Grid>
                     </StackPanel>
                 </StackPanel>
-                
+
                 <!-- Action Buttons -->
                 <Grid Grid.Row="2"
-                      Margin="0,16,0,0">
+                      Margin="0,16,0,0" Grid.ColumnSpan="2">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="Auto"/>
@@ -157,6 +260,7 @@
                     <Button Grid.Column="0" 
                             x:Name="ResetButton"
                             Content="{DynamicResource Options_ResetButton}"
+                            AutomationProperties.Name="{DynamicResource Options_ResetButton}"
                             Click="ResetButton_Click" 
                             HorizontalAlignment="Left" />
                     <StackPanel Grid.Column="1"
@@ -164,11 +268,13 @@
                                 HorizontalAlignment="Right">
                         <Button x:Name="ApplyButton"
                                 Content="{DynamicResource Options_ApplyButton}"
+                                AutomationProperties.Name="{DynamicResource Options_ApplyButton}"
                                 Margin="0,0,8,0"
                                 Style="{StaticResource MaterialDesignRaisedButton}"
                                 Click="ApplyButton_Click"/>
                         <Button x:Name="CancelButton"
                                 Content="{DynamicResource Options_CancelButton}"
+                                AutomationProperties.Name="{DynamicResource Options_CancelButton}"
                                 Style="{StaticResource MaterialDesignRaisedButton}"
                                 Background="{DynamicResource PrimaryHueDarkBrush}"
                                 Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}"

@@ -17,6 +17,8 @@
 	<ns0:String x:Key="Main_Status_StartingWeb">Begin die webherwinningsdiens.</ns0:String>
 	<ns0:String x:Key="Main_Status_OpeningOptions">Maak opsies oop.</ns0:String>
 	<ns0:String x:Key="Options_ApplyButton">Pas toe</ns0:String>
+	<ns0:String x:Key="Options_Button_SetCSVSave">Kies CSV-stoorpad</ns0:String>
+	<ns0:String x:Key="Options_Button_SetJournalSave">Kies joernaalgids-ligging</ns0:String>
 	<ns0:String x:Key="Options_CancelButton">Kanselleer</ns0:String>
 	<ns0:String x:Key="Options_Custom_BaseThemeLabel">Basistema</ns0:String>
 	<ns0:String x:Key="Options_Custom_BaseTheme_Light">Lig</ns0:String>
@@ -47,6 +49,7 @@
 	<ns0:String x:Key="Options_Custom_ColorSwatch_Grey">Grys</ns0:String>
 	<ns0:String x:Key="Options_Custom_ColorSwatch_BlueGrey">Blougrys</ns0:String>
 	<ns0:String x:Key="Options_FontSizeLabel">Lettergrootte:</ns0:String>
+	<ns0:String x:Key="Options_JournalSaveLoc">Stel joernaal vouer ligging in:</ns0:String>
 	<ns0:String x:Key="Options_LanguageLabel">Taal:</ns0:String>
 	<ns0:String x:Key="Options_LanguageOption_Afrikaans">Afrikaans</ns0:String>
 	<ns0:String x:Key="Options_LanguageOption_Chinese">Chinees</ns0:String>
@@ -59,6 +62,7 @@
 	<ns0:String x:Key="Options_LanguageOption_Spanish">Spaans</ns0:String>
 	<ns0:String x:Key="Options_PresetLabel">Voorinstelling:</ns0:String>
 	<ns0:String x:Key="Options_ResetButton">Herstel</ns0:String>
+	<ns0:String x:Key="Options_CSVSaveLoc">Stel CSV-stoorplek in:</ns0:String>
 	<ns0:String x:Key="Options_ThemeOptions">Tema-opsies</ns0:String>
 	<ns0:String x:Key="Options_ThemePreset_Custom">Pasgemaak</ns0:String>
 	<ns0:String x:Key="Options_ThemePreset_Dark">Donker</ns0:String>
@@ -71,11 +75,13 @@
 	<ns0:String x:Key="WebRetrieval_Title">Webdiens</ns0:String>
 	<ns0:String x:Key="WebRetrieval_Heading">Welkom by Falcon se Webherwinning.</ns0:String>
 	<ns0:String x:Key="WebRetrieval_CheckInara">Kyk Inara vir Faksie-opdaterings?</ns0:String>
+	<ns0:String x:Key="WebRetrieval_CheckBoxInara">Merk Inara-kontrolehokkie aan</ns0:String>
 	<ns0:String x:Key="WebRetrieval_SaveCSV">Stoor data na CSV?</ns0:String>
+	<ns0:String x:Key="WebRetrieval_SaveCSVBox">Stoor CSV-kontrolevak</ns0:String>
 	<ns0:String x:Key="WebRetrieval_FactionCheck">Faksie om te kontroleer:</ns0:String>
 	<ns0:String x:Key="WebRetrieval_FactionPrefill">Faksienaam</ns0:String>
 	<ns0:String x:Key="WebRetrieval_Button_StartService">Begin diens</ns0:String>
+	<ns0:String x:Key="WebRetrieval_OutputLog">Webophaling Uitsetlogboek</ns0:String>
 	<ns0:String x:Key="WebRetrieval_Button_OpenOutput">Open Uitsetgids.</ns0:String>
-	<ns0:String x:Key="WebRetrieval_Button_SetSave">Kies CSV-stoorpad</ns0:String>
 	<ns0:String x:Key="WebRetrieval_Button_Exit">Verlaat moniteringsdiens</ns0:String>
 </ResourceDictionary>
