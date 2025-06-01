@@ -3,8 +3,6 @@ using System;
 using System.Windows;
 using System.Diagnostics;
 using System.IO;
-using System.Configuration;
-using System.Windows.Media;
 using FalconsFactionMonitor.Helpers;
 
 namespace FalconsFactionMonitor.Windows
@@ -29,7 +27,7 @@ namespace FalconsFactionMonitor.Windows
             AppendLog("Program starting execution. This may take a few minutes to run.\n");
             AppendLog("\n");
 
-            WebRetrievalService service = new WebRetrievalService();
+            WebRetrievalService service = new();
             await service.WebRetrieval(FactionTextBox.Text, inaraParse: check, CSVSave: CSVSave);
         }
 
@@ -42,45 +40,9 @@ namespace FalconsFactionMonitor.Windows
 
         private void OpenOutputButton_Click(object sender, RoutedEventArgs e)
         {
-            var OutputPath = Path.Combine(GetSavePath(), "Output");
+            var OutputPath = Path.Combine(FolderInteractions.GetSavePath("CSV"), "Output");
             Process.Start("explorer.exe", OutputPath);
         }
-
-        private void CSVPathButton_Click(object sender, RoutedEventArgs e)
-        {
-            var dialog = new System.Windows.Forms.FolderBrowserDialog
-            {
-                Description = "Select Folder to Save CSV Files",
-                SelectedPath = GetSavePath()
-            };
-
-            if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-            {
-                string newPath = dialog.SelectedPath;
-                if (newPath.EndsWith("Output"))
-                    newPath = newPath.Substring(0, newPath.Length - 7);
-
-                SetSavePath(newPath);
-                MessageBox.Show("Save location updated successfully!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
-            }
-        }
-
-        private string GetSavePath()
-        {
-            string path = ConfigurationManager.AppSettings["CsvSavePath"];
-            return string.IsNullOrEmpty(path)
-                ? Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Programs", "YourManufacturer", "YourProduct")
-                : Environment.ExpandEnvironmentVariables(path);
-        }
-
-        private void SetSavePath(string newPath)
-        {
-            Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
-            config.AppSettings.Settings["CsvSavePath"].Value = newPath;
-            config.Save(ConfigurationSaveMode.Modified);
-            ConfigurationManager.RefreshSection("appSettings");
-        }
-
         private void AppendLog(string message)
         {
             WebRetrievalOutputTextBlock.Dispatcher.Invoke(() =>

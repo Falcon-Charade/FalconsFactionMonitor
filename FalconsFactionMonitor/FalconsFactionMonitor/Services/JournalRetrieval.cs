@@ -27,12 +27,12 @@ internal class JournalRetrievalService
             }
 
             string connectionString = Registry.GetValue(@"HKEY_CURRENT_USER\SOFTWARE\Falcon Charade", "FalconsFactionMonitorDbConnection", null).ToString();
-            SqlConnection connection = new SqlConnection(connectionString);
+            SqlConnection connection = new(connectionString);
 
             // Subscribe to the OnFSDJumpDetected event
             monitor.OnFSDJumpDetected += factions =>
             {
-                DatabaseService dbService = new DatabaseService();
+                DatabaseService dbService = new();
                 dbService.SaveData(factions);
             };
 
@@ -61,7 +61,7 @@ internal class JournalRetrievalService
             Console.ResetColor();
         }
     }
-    private bool IsEliteRunning()
+    private static bool IsEliteRunning()
     {
         // Check if EliteDangerous64.exe is in the list of running processes
         var processes = Process.GetProcessesByName("EliteDangerous64");

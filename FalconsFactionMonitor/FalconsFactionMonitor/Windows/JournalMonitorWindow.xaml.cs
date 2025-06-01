@@ -2,7 +2,6 @@
 using FalconsFactionMonitor.Services;
 using System;
 using System.Diagnostics;
-using System.IO;
 using System.Threading.Tasks;
 using System.Windows;
 
@@ -35,7 +34,8 @@ namespace FalconsFactionMonitor.Windows
 
         private void ViewJournalFolderButton_Click(object sender, RoutedEventArgs e)
         {
-            var JournalPath = Path.Combine("C:\\","Users",Environment.UserName, "Saved Games","Frontier Developments","Elite Dangerous");
+            var JournalPath = FolderInteractions.GetSavePath("Journal");
+            //var JournalPath = Path.Combine("C:\\","Users",Environment.UserName, "Saved Games","Frontier Developments","Elite Dangerous");
             Process.Start("explorer.exe", JournalPath);
         }
     }

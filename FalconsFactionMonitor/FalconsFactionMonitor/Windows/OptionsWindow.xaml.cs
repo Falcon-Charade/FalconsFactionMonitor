@@ -1,15 +1,14 @@
-﻿using FalconsFactionMonitor.Themes;
-using FalconsFactionMonitor.Helpers;
+﻿using FalconsFactionMonitor.Helpers;
+using FalconsFactionMonitor.Themes;
 using MaterialDesignColors;
 using MaterialDesignThemes.Wpf;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Threading;
-using System.Threading;
-using System.Collections.Generic;
 
 namespace FalconsFactionMonitor.Windows
 {
@@ -17,8 +16,8 @@ namespace FalconsFactionMonitor.Windows
     {
         private readonly PaletteHelper _paletteHelper = new();
         private readonly SwatchesProvider _swatchesProvider = new();
-        private ITheme _originalTheme;
-        private ITheme _previewTheme;
+        private Theme _originalTheme;
+        private Theme _previewTheme;
         private string _originalLanguage;
         private double _originalFontSize;
         private string _pendingLanguage;
@@ -216,8 +215,8 @@ namespace FalconsFactionMonitor.Windows
             var items = new List<LocalizedSwatch>
             {
                 // for the PrimaryColorComboBox
-                new LocalizedSwatch(Colors.Black, "Options_Custom_PrimaryColor_PureBlack"),
-                new LocalizedSwatch(Colors.White, "Options_Custom_PrimaryColor_PureWhite")
+                new(Colors.Black, "Options_Custom_PrimaryColor_PureBlack"),
+                new(Colors.White, "Options_Custom_PrimaryColor_PureWhite")
             };
             
             // ▲ THEN add all Material swatches
@@ -342,7 +341,7 @@ namespace FalconsFactionMonitor.Windows
         }
 
 
-        private void ForceThemeComboBoxSelections(ITheme theme)
+        private void ForceThemeComboBoxSelections(Theme theme)
         {
             // Match primary color
             foreach (var item in PrimaryColorComboBox.Items)
@@ -390,7 +389,7 @@ namespace FalconsFactionMonitor.Windows
                    _previewTheme.SecondaryMid.Color != _originalTheme.SecondaryMid.Color;
         }
 
-        private ITheme CloneTheme(ITheme original)
+        private static Theme CloneTheme(ITheme original)
         {
             // Extract base theme
             var baseTheme = original.GetBaseTheme(); // This returns BaseTheme enum (Light/Dark)
@@ -444,7 +443,7 @@ namespace FalconsFactionMonitor.Windows
                 mainWindow.Show();
             }
         }
-        private void SetPresetThemeSelectionFromTheme(ITheme theme)
+        private void SetPresetThemeSelectionFromTheme(Theme theme)
         {
             string presetMatch;
 
@@ -515,6 +514,20 @@ namespace FalconsFactionMonitor.Windows
                     textBlock.InvalidateVisual();
                 }
             }
+        }
+        private void CSVPathButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (FolderInteractions.Logic("CSV") == "Changed") 
+            {
+                ApplyButton.IsEnabled = true; // Enable Apply button if CSV path changed
+            };
+        }
+        private void JournalPathButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (FolderInteractions.Logic("Journal") == "Changed")
+            {
+                ApplyButton.IsEnabled = true; // Enable Apply button if Journal path changed
+            };
         }
     }
 }

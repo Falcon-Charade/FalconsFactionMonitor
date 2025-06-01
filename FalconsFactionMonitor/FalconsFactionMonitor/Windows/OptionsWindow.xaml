@@ -55,7 +55,8 @@
                             VerticalAlignment="Top"
                             Orientation="Vertical"
                             materialDesign:ColorZoneAssist.Mode="PrimaryLight"
-                            Grid.IsSharedSizeScope="True" Grid.ColumnSpan="2">
+                            Grid.IsSharedSizeScope="True"
+                            Grid.ColumnSpan="2">
                     <Grid Margin="0,8,0,0">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="Auto"

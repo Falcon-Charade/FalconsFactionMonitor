@@ -1,4 +1,5 @@
-﻿using FalconsFactionMonitor.Models;
+﻿using FalconsFactionMonitor.Helpers;
+using FalconsFactionMonitor.Models;
 using Microsoft.Win32.SafeHandles;
 using Newtonsoft.Json.Linq;
 using System;
@@ -16,12 +17,7 @@ namespace FalconsFactionMonitor.Services
 
         public JournalMonitor()
         {
-            string defaultPath = Path.Combine(
-                Environment.GetFolderPath(Environment.SpecialFolder.UserProfile),
-                "Saved Games",
-                "Frontier Developments",
-                "Elite Dangerous"
-            );
+            string defaultPath = FolderInteractions.GetSavePath("Journal");
 
             journalDirectory = ResolveLinkTarget(defaultPath) ?? defaultPath;
         }
@@ -116,7 +112,7 @@ namespace FalconsFactionMonitor.Services
                 Console.ForegroundColor = ConsoleColor.Magenta;
                 Console.Write("\n[INFO] ");
                 Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine("Using standard journal path.");
+                Console.WriteLine("Using direct journal path.");
                 Console.ForegroundColor = ConsoleColor.White;
             }
             // Initialize directory watcher to see creation/changes to *any* journal files
