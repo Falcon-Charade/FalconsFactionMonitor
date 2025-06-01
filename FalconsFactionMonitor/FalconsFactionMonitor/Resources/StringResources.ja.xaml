@@ -1,6 +1,7 @@
 <ResourceDictionary xmlns:ns0="clr-namespace:System;assembly=mscorlib" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:sys="clr-namespace:System;assembly=mscorlib">
 	<ns0:String x:Key="JournalMonitor_Title">ジャーナルモニター</ns0:String>
 	<ns0:String x:Key="JournalMonitor_Heading">ファルコンのジャーナルモニターへようこそ。</ns0:String>
+	<ns0:String x:Key="JournalMonitor_OutputLog">ジャーナルモニター出力ログ</ns0:String>
 	<ns0:String x:Key="JournalMonitor_Button_StartService">サービスを開始</ns0:String>
 	<ns0:String x:Key="JournalMonitor_Button_OpenFolder">ジャーナルフォルダーを表示</ns0:String>
 	<ns0:String x:Key="JournalMonitor_Button_ExitService">モニターサービスを終了</ns0:String>
@@ -9,6 +10,7 @@
 	<ns0:String x:Key="Main_Heading2">下のボタンをクリックして該当するサービスを起動してください。</ns0:String>
 	<ns0:String x:Key="Main_Button_JournalMonitor">ジャーナルモニターサービス</ns0:String>
 	<ns0:String x:Key="Main_Button_WebService">ウェブ取得サービス</ns0:String>
+	<ns0:String x:Key="Main_OutputLog">メインウィンドウ出力ログ</ns0:String>
 	<ns0:String x:Key="Main_Button_Options">オプション</ns0:String>
 	<ns0:String x:Key="Main_Button_Exit">終了</ns0:String>
 	<ns0:String x:Key="Main_Status_StartingJournal">ジャーナルモニターサービスを起動中です。</ns0:String>

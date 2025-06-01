@@ -24,34 +24,48 @@
         <!-- Header Section -->
         <TextBlock Grid.Row="0"
                    Text="{DynamicResource WebRetrieval_Heading}"
-                   AutomationProperties.Name="Web Retrieval Heading" />
+                   AutomationProperties.Name="{DynamicResource WebRetrieval_Heading}" />
 
         <!-- Content Section -->
         <StackPanel Grid.Row="1" Margin="0,0,0,0" >
             <StackPanel Orientation="Horizontal" Margin="5" HorizontalAlignment="Center">
-                <Label Content="{DynamicResource WebRetrieval_CheckInara}" Target="{Binding ElementName=InaraCheckBox}" />
-                <CheckBox x:Name="InaraCheckBox" IsChecked="False" VerticalAlignment="Center" AutomationProperties.Name="Check Inara for updates" />
+                <Label Content="{DynamicResource WebRetrieval_CheckInara}" 
+                       Target="{Binding ElementName=InaraCheckBox}" 
+                       AutomationProperties.Name="{DynamicResource WebRetrieval_CheckInara}"/>
+                <CheckBox x:Name="InaraCheckBox" 
+                          IsChecked="False" 
+                          VerticalAlignment="Center" 
+                          AutomationProperties.Name="{DynamicResource WebRetrieval_CheckBoxInara}" />
             </StackPanel>
-            <StackPanel Orientation="Horizontal" Margin="5" HorizontalAlignment="Center">
-                <Label Content="{DynamicResource WebRetrieval_SaveCSV}" Target="{Binding ElementName=CSVCheckBox}" />
-                <CheckBox x:Name="CSVCheckBox" IsChecked="False" VerticalAlignment="Center" AutomationProperties.Name="Save data to CSV" />
+            <StackPanel Orientation="Horizontal" 
+                        Margin="5" 
+                        HorizontalAlignment="Center">
+                <Label Content="{DynamicResource WebRetrieval_SaveCSV}" 
+                       Target="{Binding ElementName=CSVCheckBox}" />
+                <CheckBox x:Name="CSVCheckBox" 
+                          IsChecked="False" 
+                          VerticalAlignment="Center" 
+                          AutomationProperties.Name="{DynamicResource WebRetrieval_SaveCSVBox}" />
                 <Button x:Name="CSVPathButton"
-                        Content="{DynamicResource WebRetrieval_Button_SetSave}"
                         Click="CSVPathButton_Click"
-                        AutomationProperties.Name="Select CSV Save Path" />
+                        Content="{DynamicResource WebRetrieval_Button_SetSave}"
+                        AutomationProperties.Name="{DynamicResource WebRetrieval_Button_SetSave}" />
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="5" HorizontalAlignment="Center">
                 <Label Content="{DynamicResource WebRetrieval_FactionCheck}" Target="{Binding ElementName=FactionTextBox}" />
-                <TextBox x:Name="FactionTextBox" Text="{DynamicResource WebRetrieval_FactionPrefill}" Width="200" AutomationProperties.Name="Faction name input" />
+                <TextBox x:Name="FactionTextBox" 
+                         Width="200" 
+                         Text="{DynamicResource WebRetrieval_FactionPrefill}" 
+                         AutomationProperties.Name="WebRetrieval_FactionPrefill" />
             </StackPanel>
 
             <Button x:Name="StartWRServiceButton"
-                    Content="{DynamicResource WebRetrieval_Button_StartService}"
                     Height="30"
                     HorizontalAlignment="Stretch"
                     Click="StartWRServiceButton_Click"
-                    AutomationProperties.Name="Start Web Retrieval Service" />
+                    Content="{DynamicResource WebRetrieval_Button_StartService}"
+                    AutomationProperties.Name="{DynamicResource WebRetrieval_Button_StartService}" />
         </StackPanel>
 
         <!-- Log Output Section -->
@@ -60,7 +74,7 @@
                      IsReadOnly="True"
                      VerticalScrollBarVisibility="Auto"
                      HorizontalScrollBarVisibility="Auto"
-                     AutomationProperties.Name="Web Retrieval Output Log" />
+                     AutomationProperties.Name="{DynamicResource WebRetrieval_OutputLog}" />
 
         <!-- Footer Buttons -->
         <Grid Grid.Row="3">
@@ -70,22 +84,22 @@
             </Grid.ColumnDefinitions>
 
             <Button x:Name="OpenOutputButton"
-                    Content="{DynamicResource WebRetrieval_Button_OpenOutput}"
                     Grid.Column="0"
                     Width="200"
                     Height="30"
                     HorizontalAlignment="Center"
                     Click="OpenOutputButton_Click"
-                    AutomationProperties.Name="Open output directory" />
+                    Content="{DynamicResource WebRetrieval_Button_OpenOutput}"
+                    AutomationProperties.Name="{DynamicResource WebRetrieval_Button_OpenOutput}" />
 
             <Button x:Name="ExitWRServiceButton"
-                    Content="{DynamicResource WebRetrieval_Button_Exit}"
                     Grid.Column="1"
                     Width="200"
                     Height="30"
                     HorizontalAlignment="Center"
                     Click="ExitWRServiceButton_Click"
-                    AutomationProperties.Name="Exit Web Retrieval Service" />
+                    Content="{DynamicResource WebRetrieval_Button_Exit}"
+                    AutomationProperties.Name="{DynamicResource WebRetrieval_Button_Exit}" />
         </Grid>
     </Grid>
 </localbase:BaseWindow>

@@ -23,17 +23,17 @@
         <!-- Header -->
         <TextBlock Grid.Row="0"
                    Text="{DynamicResource JournalMonitor_Heading}"
-                   AutomationProperties.Name="Journal Monitor Heading"
+                   AutomationProperties.Name="{DynamicResource JournalMonitor_Heading}"
                    Margin="0,0,0,10" />
 
         <!-- Start Service Button -->
         <StackPanel Grid.Row="0" Margin="0,40,0,0" HorizontalAlignment="Center">
             <Button x:Name="StartJMServiceButton"
-                    Content="{DynamicResource JournalMonitor_Button_StartService}"
                     Width="400"
                     Height="30"
                     Click="StartJMServiceButton_Click"
-                    AutomationProperties.Name="Start Journal Monitor Service" />
+                    Content="{DynamicResource JournalMonitor_Button_StartService}"
+                    AutomationProperties.Name="{DynamicResource JournalMonitor_Button_StartService}" />
         </StackPanel>
 
         <!-- Output Log -->
@@ -42,7 +42,7 @@
                      IsReadOnly="True"
                      VerticalScrollBarVisibility="Auto"
                      HorizontalScrollBarVisibility="Auto"
-                     AutomationProperties.Name="Journal Monitor Output Log" />
+                     AutomationProperties.Name="{DynamicResource JournalMonitor_OutputLog}" />
 
         <!-- Footer Buttons -->
         <Grid Grid.Row="2">
@@ -58,7 +58,7 @@
                     Height="30"
                     HorizontalAlignment="Center"
                     Click="ViewJournalFolderButton_Click"
-                    AutomationProperties.Name="View Journal Folder" />
+                    AutomationProperties.Name="{DynamicResource JournalMonitor_Button_OpenFolder}" />
 
             <Button x:Name="ExitJMServiceButton"
                     Content="{DynamicResource JournalMonitor_Button_ExitService}"
@@ -67,7 +67,7 @@
                     Height="30"
                     HorizontalAlignment="Center"
                     Click="ExitJMServiceButton_Click"
-                    AutomationProperties.Name="Exit Journal Monitor Service" />
+                    AutomationProperties.Name="{DynamicResource JournalMonitor_Button_ExitService}" />
         </Grid>
     </Grid>
 </localbase:BaseWindow>

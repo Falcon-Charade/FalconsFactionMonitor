@@ -1,6 +1,7 @@
 <ResourceDictionary xmlns:ns0="clr-namespace:System;assembly=mscorlib" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:sys="clr-namespace:System;assembly=mscorlib">
 	<ns0:String x:Key="JournalMonitor_Title">Journalmonitor</ns0:String>
 	<ns0:String x:Key="JournalMonitor_Heading">Willkommen beim Journalmonitor von Falcon.</ns0:String>
+	<ns0:String x:Key="JournalMonitor_OutputLog">Journal-Monitor-Ausgabeprotokoll</ns0:String>
 	<ns0:String x:Key="JournalMonitor_Button_StartService">Dienst starten</ns0:String>
 	<ns0:String x:Key="JournalMonitor_Button_OpenFolder">Journalordner anzeigen</ns0:String>
 	<ns0:String x:Key="JournalMonitor_Button_ExitService">Überwachungsdienst beenden</ns0:String>
@@ -9,6 +10,7 @@
 	<ns0:String x:Key="Main_Heading2">Klicken Sie unten auf eine Schaltfläche, um den entsprechenden Dienst zu starten.</ns0:String>
 	<ns0:String x:Key="Main_Button_JournalMonitor">Journalüberwachungsdienst</ns0:String>
 	<ns0:String x:Key="Main_Button_WebService">Webabrufdienst</ns0:String>
+	<ns0:String x:Key="Main_OutputLog">Hauptfenster-Ausgabeprotokoll</ns0:String>
 	<ns0:String x:Key="Main_Button_Options">Optionen</ns0:String>
 	<ns0:String x:Key="Main_Button_Exit">Beenden</ns0:String>
 	<ns0:String x:Key="Main_Status_StartingJournal">Journalüberwachungsdienst wird gestartet.</ns0:String>

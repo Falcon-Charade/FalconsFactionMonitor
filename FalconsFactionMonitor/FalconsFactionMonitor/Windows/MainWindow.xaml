@@ -23,37 +23,37 @@
 
         <!-- Header -->
         <TextBlock Grid.Row="0"
-                   Text="{DynamicResource Main_Heading1}"
                    FontWeight="Bold"
                    FontSize="20"
                    TextWrapping="Wrap"
-                   AutomationProperties.Name="Main heading"
+                   Text="{DynamicResource Main_Heading1}"
+                   AutomationProperties.Name="{DynamicResource Main_Heading1}"
                    Margin="0,0,0,0" />
         <TextBlock Grid.Row="1"
                    HorizontalAlignment="Center"
                    FontSize="{DynamicResource GlobalFontSize}"
                    Text="{DynamicResource Main_Heading2}"
-                   AutomationProperties.Name="Service selection heading"
+                   AutomationProperties.Name="{DynamicResource Main_Heading2}"
                    Margin="0,10,0,10" />
 
         <!-- Service Buttons -->
         <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,0">
             <Button x:Name="JournalMonitorServiceButton"
-                    Content="{DynamicResource Main_Button_JournalMonitor}"
                     Width="200"
                     FontSize="{DynamicResource GlobalFontSize}"
                     Height="30"
                     Margin="0,0,20,0"
                     Click="JournalMonitorServiceButton_Click"
-                    AutomationProperties.Name="Launch Journal Monitor Service" />
+                    Content="{DynamicResource Main_Button_JournalMonitor}"
+                    AutomationProperties.Name="{DynamicResource Main_Button_JournalMonitor}" />
 
             <Button x:Name="WebRetrievalServiceButton"
-                    Content="{DynamicResource Main_Button_WebService}"
                     FontSize="{DynamicResource GlobalFontSize}"
                     Width="200"
                     Height="30"
                     Click="WebRetrievalServiceButton_Click"
-                    AutomationProperties.Name="Launch Web Retrieval Service" />
+                    Content="{DynamicResource Main_Button_WebService}"
+                    AutomationProperties.Name="{DynamicResource Main_Button_WebService}" />
         </StackPanel>
 
         <!-- Output Log -->
@@ -62,12 +62,11 @@
                      IsReadOnly="True"
                      VerticalScrollBarVisibility="Auto"
                      HorizontalScrollBarVisibility="Auto"
-                     AutomationProperties.Name="Main Window Output Log" />
+                     AutomationProperties.Name="{DynamicResource Main_OutputLog}" />
         
         <!-- Footer Buttons -->
         <StackPanel Grid.Row="4" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,0">
             <Button x:Name="OptionsButton"
-                    Content="{DynamicResource Main_Button_Options}"
                     FontSize="{DynamicResource GlobalFontSize}"
                     Grid.Row="4"
                     Width="200"
@@ -75,18 +74,19 @@
                     Margin="0,0,20,0"
                     HorizontalAlignment="Center"
                     Click="OptionsButton_Click"
-                    AutomationProperties.Name="Options Button" />
+                    Content="{DynamicResource Main_Button_Options}"
+                    AutomationProperties.Name="{DynamicResource Main_Button_Options}" />
 
             <!-- Exit Button -->
             <Button x:Name="ExitButton"
-                    Content="{DynamicResource Main_Button_Exit}"
                     FontSize="{DynamicResource GlobalFontSize}"
                     Grid.Row="4"
                     Width="200"
                     Height="30"
                     HorizontalAlignment="Center"
                     Click="ExitButton_Click"
-                    AutomationProperties.Name="Exit Program Button" />
+                    Content="{DynamicResource Main_Button_Exit}"
+                    AutomationProperties.Name="{DynamicResource Main_Button_Exit}" />
         </StackPanel>
     </Grid>
 </Window>
