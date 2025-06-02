@@ -1,16 +1,18 @@
-﻿using FalconsFactionMonitor.Services;
+﻿using FalconsFactionMonitor.Helpers;
+using FalconsFactionMonitor.Services;
 using System;
+using System.Diagnostics;
 using System.Threading.Tasks;
 using System.Windows;
 
 namespace FalconsFactionMonitor.Windows
 {
-    public partial class JournalMonitorWindow : Window
+    public partial class JournalMonitorWindow : BaseWindow
     {
         public JournalMonitorWindow()
         {
             InitializeComponent();
-            RichTextBoxWriter writer = new RichTextBoxWriter(JournalOutputTextBlock);
+            RichTextBoxWriter writer = new(JournalOutputTextBlock);
             Console.SetOut(writer);
             Console.SetError(writer);
         }
@@ -18,16 +20,23 @@ namespace FalconsFactionMonitor.Windows
         private async void StartJMServiceButton_Click(object sender, RoutedEventArgs e)
         {
             JournalOutputTextBlock.Document.Blocks.Clear();
-            JournalRetrievalService service = new JournalRetrievalService();
+            JournalRetrievalService service = new();
 
             await Task.Run(() => service.JournalRetrieval());
         }
 
-        private void ExitJMServiceButton_Click(object sender, RoutedEventArgs e)
+        private async void ExitJMServiceButton_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow mainWindow = new MainWindow();
-            mainWindow.Show();
-            Close();
+            // Hide window
+            await Animations.FadeWindowAsync(this, 1.0, 0.0, 300); // Fade out
+            this.Close();
+        }
+
+        private void ViewJournalFolderButton_Click(object sender, RoutedEventArgs e)
+        {
+            var JournalPath = FolderInteractions.GetSavePath("Journal");
+            //var JournalPath = Path.Combine("C:\\","Users",Environment.UserName, "Saved Games","Frontier Developments","Elite Dangerous");
+            Process.Start("explorer.exe", JournalPath);
         }
     }
 }

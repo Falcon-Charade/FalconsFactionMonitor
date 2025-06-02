@@ -19,7 +19,7 @@ internal class JournalRetrievalService
 
             if (currentDirectory.Contains(@"\bin\Debug") || currentDirectory.Contains(@"\bin\Release"))
             {
-                solutionRoot = Directory.GetParent(currentDirectory)?.Parent?.Parent?.FullName;
+                solutionRoot = Directory.GetParent(currentDirectory)?.Parent?.Parent?.Parent?.FullName;
             }
             else
             {
@@ -27,12 +27,12 @@ internal class JournalRetrievalService
             }
 
             string connectionString = Registry.GetValue(@"HKEY_CURRENT_USER\SOFTWARE\Falcon Charade", "FalconsFactionMonitorDbConnection", null).ToString();
-            SqlConnection connection = new SqlConnection(connectionString);
+            SqlConnection connection = new(connectionString);
 
             // Subscribe to the OnFSDJumpDetected event
             monitor.OnFSDJumpDetected += factions =>
             {
-                DatabaseService dbService = new DatabaseService();
+                DatabaseService dbService = new();
                 dbService.SaveData(factions);
             };
 
@@ -46,22 +46,22 @@ internal class JournalRetrievalService
                 await Task.Delay(2000); // Use await instead of blocking sleep
             }
 
-                // Once Elite closes, we can gracefully shut down (if you had any cleanup)
-                Console.ForegroundColor = ConsoleColor.Cyan;
-                Console.WriteLine("\n\nElite Dangerous has closed. Stopping the journal monitor...");
+            // Once Elite closes, we can gracefully shut down (if you had any cleanup)
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine("\n\nElite Dangerous has closed. Stopping the journal monitor...");
             Console.ResetColor();
             monitor.StopMonitoring(); // Optional if you build a StopMonitoring() method
         }
         catch (Exception ex)
         {
-                Console.ForegroundColor = ConsoleColor.DarkRed;
-                Console.Write("An error occurred: ");
-                Console.ForegroundColor = ConsoleColor.White;
-                Console.WriteLine($"{ex.Message}");
+            Console.ForegroundColor = ConsoleColor.DarkRed;
+            Console.Write("An error occurred: ");
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.WriteLine($"{ex.Message}");
             Console.ResetColor();
         }
     }
-    private bool IsEliteRunning()
+    private static bool IsEliteRunning()
     {
         // Check if EliteDangerous64.exe is in the list of running processes
         var processes = Process.GetProcessesByName("EliteDangerous64");

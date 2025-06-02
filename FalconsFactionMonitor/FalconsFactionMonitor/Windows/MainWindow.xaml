@@ -1,0 +1,92 @@
+﻿<Window x:Class="FalconsFactionMonitor.Windows.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="{DynamicResource Main_Title}"
+        Style="{StaticResource MaterialDesignWindow}"
+        Height="220"
+        Width="480"
+        MinWidth="480"
+        MinHeight="220">
+
+    <!--<Window.Background>
+        <SolidColorBrush Color="White" Opacity="1" />
+    </Window.Background>-->
+
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <!-- Header -->
+        <TextBlock Grid.Row="0"
+                   FontWeight="Bold"
+                   FontSize="20"
+                   TextWrapping="Wrap"
+                   Text="{DynamicResource Main_Heading1}"
+                   AutomationProperties.Name="{DynamicResource Main_Heading1}"
+                   Margin="0,0,0,0" />
+        <TextBlock Grid.Row="1"
+                   HorizontalAlignment="Center"
+                   FontSize="{DynamicResource GlobalFontSize}"
+                   Text="{DynamicResource Main_Heading2}"
+                   AutomationProperties.Name="{DynamicResource Main_Heading2}"
+                   Margin="0,10,0,10" />
+
+        <!-- Service Buttons -->
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,0">
+            <Button x:Name="JournalMonitorServiceButton"
+                    Width="200"
+                    FontSize="{DynamicResource GlobalFontSize}"
+                    Height="30"
+                    Margin="0,0,20,0"
+                    Click="JournalMonitorServiceButton_Click"
+                    Content="{DynamicResource Main_Button_JournalMonitor}"
+                    AutomationProperties.Name="{DynamicResource Main_Button_JournalMonitor}" />
+
+            <Button x:Name="WebRetrievalServiceButton"
+                    FontSize="{DynamicResource GlobalFontSize}"
+                    Width="200"
+                    Height="30"
+                    Click="WebRetrievalServiceButton_Click"
+                    Content="{DynamicResource Main_Button_WebService}"
+                    AutomationProperties.Name="{DynamicResource Main_Button_WebService}" />
+        </StackPanel>
+
+        <!-- Output Log -->
+        <RichTextBox x:Name="ResultTextBlock"
+                     Grid.Row="3"
+                     IsReadOnly="True"
+                     VerticalScrollBarVisibility="Auto"
+                     HorizontalScrollBarVisibility="Auto"
+                     AutomationProperties.Name="{DynamicResource Main_OutputLog}" />
+        
+        <!-- Footer Buttons -->
+        <StackPanel Grid.Row="4" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,0">
+            <Button x:Name="OptionsButton"
+                    FontSize="{DynamicResource GlobalFontSize}"
+                    Grid.Row="4"
+                    Width="200"
+                    Height="30"
+                    Margin="0,0,20,0"
+                    HorizontalAlignment="Center"
+                    Click="OptionsButton_Click"
+                    Content="{DynamicResource Main_Button_Options}"
+                    AutomationProperties.Name="{DynamicResource Main_Button_Options}" />
+
+            <!-- Exit Button -->
+            <Button x:Name="ExitButton"
+                    FontSize="{DynamicResource GlobalFontSize}"
+                    Grid.Row="4"
+                    Width="200"
+                    Height="30"
+                    HorizontalAlignment="Center"
+                    Click="ExitButton_Click"
+                    Content="{DynamicResource Main_Button_Exit}"
+                    AutomationProperties.Name="{DynamicResource Main_Button_Exit}" />
+        </StackPanel>
+    </Grid>
+</Window>
