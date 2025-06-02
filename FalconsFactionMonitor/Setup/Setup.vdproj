@@ -15,56 +15,164 @@
     {
         "Entry"
         {
-        "MsmKey" = "8:_03EE5CD37985FBEF224AAAA3574E9E15"
+        "MsmKey" = "8:_07FCAC0B116852FDABB68C5456835039"
+        "OwnerKey" = "8:_C81BB59B5C2F4B1695EB5237C46F63EF"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_138472975F7203F76EB9391E867CE87F"
+        "OwnerKey" = "8:_C81BB59B5C2F4B1695EB5237C46F63EF"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_138472975F7203F76EB9391E867CE87F"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_08DCBEA4C65B4235A5BDDD3886744CEB"
+        "MsmKey" = "8:_1C3A00A0E601356CBB3A08FB94A036C7"
+        "OwnerKey" = "8:_C81BB59B5C2F4B1695EB5237C46F63EF"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_231C2EEEDA4946209CBB8CB3105705F2"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_35D18CB66D85025E83EA5F73E390D0E1"
+        "MsmKey" = "8:_4CC55E6C3BA94192A53E82D9AF3DDCE0"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_4183665E5661D8B602643AFB08E27B90"
+        "MsmKey" = "8:_50D126578E7C484D81A3A40BDEA92A6F"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_46FA1E65394742A382728BF219FDACE0"
+        "MsmKey" = "8:_74D242A0BEB55049C7EF4C69E1452D1A"
+        "OwnerKey" = "8:_C81BB59B5C2F4B1695EB5237C46F63EF"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_76BD9BBB49F5A37169B6CE82B26CDBB9"
+        "OwnerKey" = "8:_AED6042BF192588F6EB9C404144AC771"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_7D8ED31DB4E849A7A67786239D9A9E26"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_623440FD231E39A6FB06CF43EA4B41A6"
+        "MsmKey" = "8:_93CD73B3779A4C0A829ADBD1D3568784"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_B29072A31A5F4747B451C0FFBB07D1E6"
+        "MsmKey" = "8:_968E575D1F77448E8845645536EBDB80"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_DEB81C6A8D5040F8B7251530553E4A2C"
+        "MsmKey" = "8:_A40DAD2DE1E74E1F8A422A1A8CA585BF"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_DFA7ED9D2DCC1C66A91E32CF034E8BA7"
+        "MsmKey" = "8:_A96408EA3CCC430F8BA2A9683D88FFE2"
         "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_AED6042BF192588F6EB9C404144AC771"
+        "OwnerKey" = "8:_C81BB59B5C2F4B1695EB5237C46F63EF"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_B2A89B6A3FDBB02C6E3A1E97EED4C845"
+        "OwnerKey" = "8:_AED6042BF192588F6EB9C404144AC771"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_BC86EA6FC5EA49C09C4AF21D91270601"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_C81BB59B5C2F4B1695EB5237C46F63EF"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_CA402B967E4C47BF86FC41DFB6801DEC"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_D6F48B4FFA0F46DAA470231627F50F19"
+        "OwnerKey" = "8:_C81BB59B5C2F4B1695EB5237C46F63EF"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_D88E5AB764BF4ABCABE5C39E630ACCCC"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_FB93B219454E47768E51F29185E48A3E"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_C81BB59B5C2F4B1695EB5237C46F63EF"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_BC86EA6FC5EA49C09C4AF21D91270601"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_1C3A00A0E601356CBB3A08FB94A036C7"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_1C3A00A0E601356CBB3A08FB94A036C7"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_138472975F7203F76EB9391E867CE87F"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -158,19 +266,34 @@
                 "AllowLaterVersions" = "11:FALSE"
                 "InstallUrl" = "8:http://go.microsoft.com/fwlink/?LinkId=863262"
                 }
+                "{A06ECF26-33A3-4562-8140-9B0E340D4F24}:_CFEDE1F47DD94B8F9ED8C53A6FA2334A"
+                {
+                "Name" = "8:.NET Core"
+                "Message" = "8:[VSDNETCOREMSG]"
+                "AllowLaterVersions" = "11:FALSE"
+                "InstallUrl" = "8:https://dotnet.microsoft.com/download/dotnet-core/[NetCoreVerMajorDotMinor]"
+                "IsNETCore" = "11:TRUE"
+                "Architecture" = "2:0"
+                "Runtime" = "2:0"
+                }
             }
         }
         "File"
         {
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_03EE5CD37985FBEF224AAAA3574E9E15"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_07FCAC0B116852FDABB68C5456835039"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:System.Runtime.CompilerServices.Unsafe, Version=6.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:HtmlAgilityPack, Version=1.12.1.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
+                    "_07FCAC0B116852FDABB68C5456835039"
+                    {
+                    "Name" = "8:HtmlAgilityPack.dll"
+                    "Attributes" = "3:512"
+                    }
                 }
-            "SourcePath" = "8:System.Runtime.CompilerServices.Unsafe.dll"
+            "SourcePath" = "8:HtmlAgilityPack.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_E23A176BA40D42C69EFB67129FDDAC75"
@@ -188,16 +311,72 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_08DCBEA4C65B4235A5BDDD3886744CEB"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_138472975F7203F76EB9391E867CE87F"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:FalconsFactionMonitor, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:MaterialDesignColors, Version=2.0.9.0, Culture=neutral, PublicKeyToken=df2a72020bd7962a, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
+                    "_138472975F7203F76EB9391E867CE87F"
+                    {
+                    "Name" = "8:MaterialDesignColors.dll"
+                    "Attributes" = "3:512"
+                    }
                 }
-            "SourcePath" = "8:..\\FalconsFactionMonitor\\bin\\Release\\FalconsFactionMonitor.exe"
+            "SourcePath" = "8:MaterialDesignColors.dll"
             "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_E23A176BA40D42C69EFB67129FDDAC75"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_1C3A00A0E601356CBB3A08FB94A036C7"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:MaterialDesignThemes.Wpf, Version=4.5.0.0, Culture=neutral, PublicKeyToken=df2a72020bd7962a, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_1C3A00A0E601356CBB3A08FB94A036C7"
+                    {
+                    "Name" = "8:MaterialDesignThemes.Wpf.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:MaterialDesignThemes.Wpf.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_E23A176BA40D42C69EFB67129FDDAC75"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_231C2EEEDA4946209CBB8CB3105705F2"
+            {
+            "SourcePath" = "8:..\\FalconsFactionMonitor\\bin\\Release\\net8.0-windows\\FalconsFactionMonitor.runtimeconfig.json"
+            "TargetName" = "8:FalconsFactionMonitor.runtimeconfig.json"
             "Tag" = "8:"
             "Folder" = "8:_E23A176BA40D42C69EFB67129FDDAC75"
             "Condition" = "8:"
@@ -214,18 +393,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_35D18CB66D85025E83EA5F73E390D0E1"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_4CC55E6C3BA94192A53E82D9AF3DDCE0"
             {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:System.Threading.Tasks.Extensions, Version=4.2.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                }
-            "SourcePath" = "8:System.Threading.Tasks.Extensions.dll"
-            "TargetName" = "8:"
+            "SourcePath" = "8:..\\FalconsFactionMonitor\\bin\\Release\\net8.0-windows\\runtimes\\win-arm64\\native\\sni.dll"
+            "TargetName" = "8:sni.dll"
             "Tag" = "8:"
-            "Folder" = "8:_E23A176BA40D42C69EFB67129FDDAC75"
+            "Folder" = "8:_16ED854BA2804811A2D38EEE38233315"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -237,38 +410,12 @@
             "PackageAs" = "3:1"
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
+            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_4183665E5661D8B602643AFB08E27B90"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_50D126578E7C484D81A3A40BDEA92A6F"
             {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:System.Buffers, Version=4.0.4.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                }
-            "SourcePath" = "8:System.Buffers.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_E23A176BA40D42C69EFB67129FDDAC75"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_46FA1E65394742A382728BF219FDACE0"
-            {
-            "SourcePath" = "8:..\\falconsfactionmonitor\\services\\StoredProcInsert.sql"
+            "SourcePath" = "8:..\\FalconsFactionMonitor\\bin\\Release\\net8.0-windows\\Services\\StoredProcInsert.sql"
             "TargetName" = "8:StoredProcInsert.sql"
             "Tag" = "8:"
             "Folder" = "8:_25AC3B97F9FE4DD48A26A506889AF6E8"
@@ -286,15 +433,20 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_623440FD231E39A6FB06CF43EA4B41A6"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_74D242A0BEB55049C7EF4C69E1452D1A"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:System.Memory, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:System.Data.SqlClient, Version=4.6.1.6, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
+                    "_74D242A0BEB55049C7EF4C69E1452D1A"
+                    {
+                    "Name" = "8:System.Data.SqlClient.dll"
+                    "Attributes" = "3:512"
+                    }
                 }
-            "SourcePath" = "8:System.Memory.dll"
+            "SourcePath" = "8:System.Data.SqlClient.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_E23A176BA40D42C69EFB67129FDDAC75"
@@ -312,10 +464,72 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_B29072A31A5F4747B451C0FFBB07D1E6"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_76BD9BBB49F5A37169B6CE82B26CDBB9"
             {
-            "SourcePath" = "8:..\\FalconsFactionMonitor\\bin\\Release\\FalconsFactionMonitor.exe.config"
-            "TargetName" = "8:FalconsFactionMonitor.exe.config"
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:System.Text.Encodings.Web, Version=9.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_76BD9BBB49F5A37169B6CE82B26CDBB9"
+                    {
+                    "Name" = "8:System.Text.Encodings.Web.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:System.Text.Encodings.Web.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_E23A176BA40D42C69EFB67129FDDAC75"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_7D8ED31DB4E849A7A67786239D9A9E26"
+            {
+            "SourcePath" = "8:..\\FalconsFactionMonitor\\bin\\Release\\net8.0-windows\\runtimes\\win-x64\\native\\sni.dll"
+            "TargetName" = "8:sni.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_B713556DE39F413FA0E31D767DC2F0AB"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_93CD73B3779A4C0A829ADBD1D3568784"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:Microsoft.Bcl.AsyncInterfaces, Version=9.0.0.4, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_93CD73B3779A4C0A829ADBD1D3568784"
+                    {
+                    "Name" = "8:Microsoft.Bcl.AsyncInterfaces.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:..\\FalconsFactionMonitor\\bin\\Release\\net8.0-windows\\Microsoft.Bcl.AsyncInterfaces.dll"
+            "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_E23A176BA40D42C69EFB67129FDDAC75"
             "Condition" = "8:"
@@ -332,9 +546,275 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_DEB81C6A8D5040F8B7251530553E4A2C"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_968E575D1F77448E8845645536EBDB80"
             {
-            "SourcePath" = "8:C:\\Users\\conra\\Downloads\\icon.ico"
+            "SourcePath" = "8:..\\FalconsFactionMonitor\\bin\\Release\\net8.0-windows\\runtimes\\win-x86\\native\\sni.dll"
+            "TargetName" = "8:sni.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_6A4541D3BCDD4CA4898922676BB84225"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_A40DAD2DE1E74E1F8A422A1A8CA585BF"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:System.Data.SqlClient, Version=4.6.1.6, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_A40DAD2DE1E74E1F8A422A1A8CA585BF"
+                    {
+                    "Name" = "8:System.Data.SqlClient.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:..\\FalconsFactionMonitor\\bin\\Release\\net8.0-windows\\runtimes\\win\\lib\\netcoreapp2.1\\System.Data.SqlClient.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_C5C223BCFCC3483AAAF0A77A2EA866EC"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_A96408EA3CCC430F8BA2A9683D88FFE2"
+            {
+            "SourcePath" = "8:..\\FalconsFactionMonitor\\bin\\Release\\net8.0-windows\\FalconsFactionMonitor.dll.config"
+            "TargetName" = "8:FalconsFactionMonitor.dll.config"
+            "Tag" = "8:"
+            "Folder" = "8:_E23A176BA40D42C69EFB67129FDDAC75"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_AED6042BF192588F6EB9C404144AC771"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:System.Text.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_AED6042BF192588F6EB9C404144AC771"
+                    {
+                    "Name" = "8:System.Text.Json.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:System.Text.Json.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_E23A176BA40D42C69EFB67129FDDAC75"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_B2A89B6A3FDBB02C6E3A1E97EED4C845"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:System.IO.Pipelines, Version=9.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_B2A89B6A3FDBB02C6E3A1E97EED4C845"
+                    {
+                    "Name" = "8:System.IO.Pipelines.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:System.IO.Pipelines.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_E23A176BA40D42C69EFB67129FDDAC75"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_BC86EA6FC5EA49C09C4AF21D91270601"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:Microsoft.Xaml.Behaviors, Version=1.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_BC86EA6FC5EA49C09C4AF21D91270601"
+                    {
+                    "Name" = "8:Microsoft.Xaml.Behaviors.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:..\\FalconsFactionMonitor\\bin\\Release\\net8.0-windows\\Microsoft.Xaml.Behaviors.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_E23A176BA40D42C69EFB67129FDDAC75"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_C81BB59B5C2F4B1695EB5237C46F63EF"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:FalconsFactionMonitor, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_C81BB59B5C2F4B1695EB5237C46F63EF"
+                    {
+                    "Name" = "8:FalconsFactionMonitor.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:..\\FalconsFactionMonitor\\bin\\Release\\net8.0-windows\\FalconsFactionMonitor.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_E23A176BA40D42C69EFB67129FDDAC75"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_CA402B967E4C47BF86FC41DFB6801DEC"
+            {
+            "SourcePath" = "8:..\\FalconsFactionMonitor\\bin\\Release\\net8.0-windows\\FalconsFactionMonitor.deps.json"
+            "TargetName" = "8:FalconsFactionMonitor.deps.json"
+            "Tag" = "8:"
+            "Folder" = "8:_E23A176BA40D42C69EFB67129FDDAC75"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_D6F48B4FFA0F46DAA470231627F50F19"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_D6F48B4FFA0F46DAA470231627F50F19"
+                    {
+                    "Name" = "8:Newtonsoft.Json.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:Newtonsoft.Json.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_E23A176BA40D42C69EFB67129FDDAC75"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_D88E5AB764BF4ABCABE5C39E630ACCCC"
+            {
+            "SourcePath" = "8:..\\FalconsFactionMonitor\\bin\\Release\\net8.0-windows\\FalconsFactionMonitor.exe"
+            "TargetName" = "8:FalconsFactionMonitor.exe"
+            "Tag" = "8:"
+            "Folder" = "8:_E23A176BA40D42C69EFB67129FDDAC75"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_FB93B219454E47768E51F29185E48A3E"
+            {
+            "SourcePath" = "8:..\\FalconsFactionMonitor\\bin\\Release\\net8.0-windows\\icon.ico"
             "TargetName" = "8:icon.ico"
             "Tag" = "8:"
             "Folder" = "8:_E23A176BA40D42C69EFB67129FDDAC75"
@@ -350,32 +830,6 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_DFA7ED9D2DCC1C66A91E32CF034E8BA7"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:System.Numerics.Vectors, Version=4.1.5.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                }
-            "SourcePath" = "8:System.Numerics.Vectors.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_E23A176BA40D42C69EFB67129FDDAC75"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
         }
@@ -427,6 +881,116 @@
                         {
                         }
                     }
+                    "{9EF0B969-E518-4E46-987F-47570745A589}:_30D9C50274184ADDB5BFC7DA972DA0C1"
+                    {
+                    "Name" = "8:runtimes"
+                    "AlwaysCreate" = "11:FALSE"
+                    "Condition" = "8:"
+                    "Transitive" = "11:FALSE"
+                    "Property" = "8:_C68286DFD03447AB88A85F10F1290808"
+                        "Folders"
+                        {
+                            "{9EF0B969-E518-4E46-987F-47570745A589}:_08C5D54FC67846819CACDFDAABF75572"
+                            {
+                            "Name" = "8:win"
+                            "AlwaysCreate" = "11:FALSE"
+                            "Condition" = "8:"
+                            "Transitive" = "11:FALSE"
+                            "Property" = "8:_4EB7DF66DCF7444C83DC852D42B9C41B"
+                                "Folders"
+                                {
+                                    "{9EF0B969-E518-4E46-987F-47570745A589}:_A4504F7D692249629464DE42A8C864CE"
+                                    {
+                                    "Name" = "8:lib"
+                                    "AlwaysCreate" = "11:FALSE"
+                                    "Condition" = "8:"
+                                    "Transitive" = "11:FALSE"
+                                    "Property" = "8:_E55BD97F3B6B4E8DA2CADEE68F67CEE8"
+                                        "Folders"
+                                        {
+                                            "{9EF0B969-E518-4E46-987F-47570745A589}:_C5C223BCFCC3483AAAF0A77A2EA866EC"
+                                            {
+                                            "Name" = "8:netcoreapp2.1"
+                                            "AlwaysCreate" = "11:FALSE"
+                                            "Condition" = "8:"
+                                            "Transitive" = "11:FALSE"
+                                            "Property" = "8:_5DA7BF26A6AA4708AD666D08774271C3"
+                                                "Folders"
+                                                {
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            "{9EF0B969-E518-4E46-987F-47570745A589}:_2707BEA84CA84B388AB60BC39B9AA922"
+                            {
+                            "Name" = "8:win-x64"
+                            "AlwaysCreate" = "11:FALSE"
+                            "Condition" = "8:"
+                            "Transitive" = "11:FALSE"
+                            "Property" = "8:_68E0B34F7EFD44B68CE2BD45DC4AC7CA"
+                                "Folders"
+                                {
+                                    "{9EF0B969-E518-4E46-987F-47570745A589}:_B713556DE39F413FA0E31D767DC2F0AB"
+                                    {
+                                    "Name" = "8:native"
+                                    "AlwaysCreate" = "11:FALSE"
+                                    "Condition" = "8:"
+                                    "Transitive" = "11:FALSE"
+                                    "Property" = "8:_EF00667F87DA4677B6C77B9CEBA1BAC3"
+                                        "Folders"
+                                        {
+                                        }
+                                    }
+                                }
+                            }
+                            "{9EF0B969-E518-4E46-987F-47570745A589}:_87BF65A4944C409E8AE22877E5FA81F7"
+                            {
+                            "Name" = "8:win-arm64"
+                            "AlwaysCreate" = "11:FALSE"
+                            "Condition" = "8:"
+                            "Transitive" = "11:FALSE"
+                            "Property" = "8:_CECED5720FEC4819B3CB07C8169D58B7"
+                                "Folders"
+                                {
+                                    "{9EF0B969-E518-4E46-987F-47570745A589}:_16ED854BA2804811A2D38EEE38233315"
+                                    {
+                                    "Name" = "8:native"
+                                    "AlwaysCreate" = "11:FALSE"
+                                    "Condition" = "8:"
+                                    "Transitive" = "11:FALSE"
+                                    "Property" = "8:_6413FF8E6B5A44D6AD957BF7A48589AB"
+                                        "Folders"
+                                        {
+                                        }
+                                    }
+                                }
+                            }
+                            "{9EF0B969-E518-4E46-987F-47570745A589}:_D35EDCCE5AB54B18A1EE914ED54147FD"
+                            {
+                            "Name" = "8:win-x86"
+                            "AlwaysCreate" = "11:FALSE"
+                            "Condition" = "8:"
+                            "Transitive" = "11:FALSE"
+                            "Property" = "8:_F0770E79FF7940479507766C15CBCEEC"
+                                "Folders"
+                                {
+                                    "{9EF0B969-E518-4E46-987F-47570745A589}:_6A4541D3BCDD4CA4898922676BB84225"
+                                    {
+                                    "Name" = "8:native"
+                                    "AlwaysCreate" = "11:FALSE"
+                                    "Condition" = "8:"
+                                    "Transitive" = "11:FALSE"
+                                    "Property" = "8:_E8C55C499729438A868BF83800116A0B"
+                                        "Folders"
+                                        {
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
                 }
             }
         }
@@ -445,15 +1009,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:FalconsFactionMonitor"
-        "ProductCode" = "8:{C43EC19E-5E06-423E-A1AC-73A6E74A019C}"
-        "PackageCode" = "8:{84B67465-8DE9-47CB-BC99-3FF7B974AFC0}"
+        "ProductCode" = "8:{7B3F2E40-8B18-4914-B7E2-ABA013ED49C6}"
+        "PackageCode" = "8:{DB0DBC89-AECF-4160-A6E2-51BEB1F12C38}"
         "UpgradeCode" = "8:{5EE3A9CE-2A7D-4841-87CE-7EE38C61B1EB}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:3.0.0"
+        "ProductVersion" = "8:4.0.0"
         "Manufacturer" = "8:FalconCharade"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:https://github.com/Falcon-Charade/FalconsFactionMonitor/issues"
@@ -463,7 +1027,7 @@
         "Keywords" = "8:"
         "ARPCOMMENTS" = "8:"
         "ARPURLINFOABOUT" = "8:"
-        "ARPPRODUCTICON" = "8:_DEB81C6A8D5040F8B7251530553E4A2C"
+        "ARPPRODUCTICON" = "8:_FB93B219454E47768E51F29185E48A3E"
         "ARPIconIndex" = "3:0"
         "SearchPath" = "8:"
         "UseSystemSearchPath" = "11:TRUE"
@@ -588,7 +1152,7 @@
         }
         "Shortcut"
         {
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_7AD86CC41C8B4422A5AED0608EEE68F2"
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_B1E6D42D90FA4E628E00059FEBA85E70"
             {
             "Name" = "8:Falcons Faction Monitor"
             "Arguments" = "8:"
@@ -596,24 +1160,24 @@
             "ShowCmd" = "3:1"
             "IconIndex" = "3:0"
             "Transitive" = "11:FALSE"
-            "Target" = "8:_08DCBEA4C65B4235A5BDDD3886744CEB"
-            "Folder" = "8:_A3EB7FE88346404FAFD07074A362D107"
-            "WorkingFolder" = "8:_E23A176BA40D42C69EFB67129FDDAC75"
-            "Icon" = "8:_DEB81C6A8D5040F8B7251530553E4A2C"
-            "Feature" = "8:"
-            }
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_F909493855F442CDAC281CDB32D5C0F2"
-            {
-            "Name" = "8:Falcons Faction Monitor"
-            "Arguments" = "8:"
-            "Description" = "8:"
-            "ShowCmd" = "3:1"
-            "IconIndex" = "3:0"
-            "Transitive" = "11:FALSE"
-            "Target" = "8:_08DCBEA4C65B4235A5BDDD3886744CEB"
+            "Target" = "8:_D88E5AB764BF4ABCABE5C39E630ACCCC"
             "Folder" = "8:_1FD5AD79BD904236BEC753CFF209BCE0"
             "WorkingFolder" = "8:_E23A176BA40D42C69EFB67129FDDAC75"
-            "Icon" = "8:_DEB81C6A8D5040F8B7251530553E4A2C"
+            "Icon" = "8:_FB93B219454E47768E51F29185E48A3E"
+            "Feature" = "8:"
+            }
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_C678B59FD94F4BDAB1C61AEBD16DFEB1"
+            {
+            "Name" = "8:Falcons Faction Monitor"
+            "Arguments" = "8:"
+            "Description" = "8:"
+            "ShowCmd" = "3:1"
+            "IconIndex" = "3:0"
+            "Transitive" = "11:FALSE"
+            "Target" = "8:_D88E5AB764BF4ABCABE5C39E630ACCCC"
+            "Folder" = "8:_A3EB7FE88346404FAFD07074A362D107"
+            "WorkingFolder" = "8:_E23A176BA40D42C69EFB67129FDDAC75"
+            "Icon" = "8:_FB93B219454E47768E51F29185E48A3E"
             "Feature" = "8:"
             }
         }
