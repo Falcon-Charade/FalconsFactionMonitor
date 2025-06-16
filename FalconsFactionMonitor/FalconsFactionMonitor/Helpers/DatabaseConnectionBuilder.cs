@@ -1,16 +1,9 @@
-﻿using Microsoft.Win32;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
 
 namespace FalconsFactionMonitor.Helpers
 {
     internal class DatabaseConnectionBuilder
     {
-        /// The registry path for the theme settings
-        private const string RegistryPath = @"HKEY_CURRENT_USER\Software\FalconCharade\FalconsFactionMonitor";
         internal static string BuildConnectionString()
         {
             string userId = RegistryHelper.Get("UserId");//Registry.GetValue(RegistryPath, "UserId", null).ToString();

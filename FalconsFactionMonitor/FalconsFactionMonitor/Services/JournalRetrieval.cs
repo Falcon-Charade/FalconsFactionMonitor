@@ -1,5 +1,4 @@
 ﻿using FalconsFactionMonitor.Helpers;
-using Microsoft.Win32;
 using System;
 using System.Data.SqlClient;
 using System.Diagnostics;

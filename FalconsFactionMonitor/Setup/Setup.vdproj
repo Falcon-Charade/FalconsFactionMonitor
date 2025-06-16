@@ -148,6 +148,18 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_1C3A00A0E601356CBB3A08FB94A036C7"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_1C3A00A0E601356CBB3A08FB94A036C7"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_C81BB59B5C2F4B1695EB5237C46F63EF"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -155,24 +167,6 @@
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_BC86EA6FC5EA49C09C4AF21D91270601"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_1C3A00A0E601356CBB3A08FB94A036C7"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_1C3A00A0E601356CBB3A08FB94A036C7"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_138472975F7203F76EB9391E867CE87F"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -318,11 +312,6 @@
             "AssemblyAsmDisplayName" = "8:MaterialDesignColors, Version=2.0.9.0, Culture=neutral, PublicKeyToken=df2a72020bd7962a, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_138472975F7203F76EB9391E867CE87F"
-                    {
-                    "Name" = "8:MaterialDesignColors.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:MaterialDesignColors.dll"
             "TargetName" = "8:"
@@ -1099,20 +1088,82 @@
                                     "Name" = "8:[ProductName]"
                                     "Condition" = "8:"
                                     "AlwaysCreate" = "11:FALSE"
-                                    "DeleteAtUninstall" = "11:FALSE"
+                                    "DeleteAtUninstall" = "11:TRUE"
                                     "Transitive" = "11:FALSE"
                                         "Keys"
                                         {
+                                            "{60EA8692-D2D5-43EB-80DC-7906BF13D6EF}:_0957242511A74144AA8321343094A3AE"
+                                            {
+                                            "Name" = "8:Theme"
+                                            "Condition" = "8:"
+                                            "AlwaysCreate" = "11:FALSE"
+                                            "DeleteAtUninstall" = "11:FALSE"
+                                            "Transitive" = "11:FALSE"
+                                                "Keys"
+                                                {
+                                                }
+                                                "Values"
+                                                {
+                                                    "{ADCFDA98-8FDD-45E4-90BC-E3D20B029870}:_4A3B2ECA2EA74BCC9924616435B4DDBB"
+                                                    {
+                                                    "Name" = "8:SecondaryColor"
+                                                    "Condition" = "8:"
+                                                    "Transitive" = "11:FALSE"
+                                                    "ValueTypes" = "3:1"
+                                                    "Value" = "8:#FFD3D3D3"
+                                                    }
+                                                    "{ADCFDA98-8FDD-45E4-90BC-E3D20B029870}:_658F46CFA4CC469CB04A7F30B60600BC"
+                                                    {
+                                                    "Name" = "8:BaseTheme"
+                                                    "Condition" = "8:"
+                                                    "Transitive" = "11:FALSE"
+                                                    "ValueTypes" = "3:1"
+                                                    "Value" = "8:Light"
+                                                    }
+                                                    "{ADCFDA98-8FDD-45E4-90BC-E3D20B029870}:_7B22B3F6E5CB4513A84F1DB3AAC9BB14"
+                                                    {
+                                                    "Name" = "8:PrimaryColor"
+                                                    "Condition" = "8:"
+                                                    "Transitive" = "11:FALSE"
+                                                    "ValueTypes" = "3:1"
+                                                    "Value" = "8:#FF7B1FA2"
+                                                    }
+                                                }
+                                            }
                                         }
                                         "Values"
                                         {
-                                            "{ADCFDA98-8FDD-45E4-90BC-E3D20B029870}:_E6FD33EC4AB3457283A609BDE0B890A7"
+                                            "{ADCFDA98-8FDD-45E4-90BC-E3D20B029870}:_888D8E05F4D74B758E005FD15BBAC125"
                                             {
-                                            "Name" = "8:FalconsFactionMonitorDbConnection"
+                                            "Name" = "8:FontSize"
                                             "Condition" = "8:"
                                             "Transitive" = "11:FALSE"
                                             "ValueTypes" = "3:1"
-                                            "Value" = "8:Server=tcp:falcons-sql.database.windows.net,1433;Database=FalconsFactionMonitor;Persist Security Info=True;User Id=ProgramUser;Password=Password1;Encrypt=True;TrustServerCertificate=True;Connection Timeout=60;"
+                                            "Value" = "8:14"
+                                            }
+                                            "{ADCFDA98-8FDD-45E4-90BC-E3D20B029870}:_93CC9C2E1F8C4AA1AF631CC6850BC8AD"
+                                            {
+                                            "Name" = "8:UserId"
+                                            "Condition" = "8:"
+                                            "Transitive" = "11:FALSE"
+                                            "ValueTypes" = "3:1"
+                                            "Value" = "8:ProgramUser"
+                                            }
+                                            "{ADCFDA98-8FDD-45E4-90BC-E3D20B029870}:_948C56D112B94442A76A7FA6047DFA53"
+                                            {
+                                            "Name" = "8:Password"
+                                            "Condition" = "8:"
+                                            "Transitive" = "11:FALSE"
+                                            "ValueTypes" = "3:1"
+                                            "Value" = "8:Password1"
+                                            }
+                                            "{ADCFDA98-8FDD-45E4-90BC-E3D20B029870}:_E329FEEE1B0445BEB54DCD6D13A2DED1"
+                                            {
+                                            "Name" = "8:Language"
+                                            "Condition" = "8:"
+                                            "Transitive" = "11:FALSE"
+                                            "ValueTypes" = "3:1"
+                                            "Value" = "8:en"
                                             }
                                         }
                                     }
