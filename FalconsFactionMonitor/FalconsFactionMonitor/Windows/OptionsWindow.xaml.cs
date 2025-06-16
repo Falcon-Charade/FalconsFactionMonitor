@@ -22,6 +22,10 @@ namespace FalconsFactionMonitor.Windows
         private double _originalFontSize;
         private string _pendingLanguage;
         private double _pendingFontSize;
+        private string _originalUsername;
+        private string _originalPassword;
+        private string _pendingUsername;
+        private string _pendingPassword;
 
 
         public OptionsWindow()
@@ -35,6 +39,12 @@ namespace FalconsFactionMonitor.Windows
             LanguageComboBox.SelectionChanged += LanguageComboBox_SelectionChanged;
             PresetThemeComboBox.SelectionChanged += PresetThemeComboBox_SelectionChanged;
             FontSizeComboBox.SelectionChanged += ControlChanged;
+
+            // Retrieve original Login from registry
+            _originalUsername = RegistryHelper.Get("UserId", "");
+            _originalPassword = RegistryHelper.Get("Password", "");
+            _pendingUsername = _originalUsername;
+            _pendingPassword = _originalPassword;
 
             LoadColorOptions();
             SetCurrentThemeValues();
@@ -60,6 +70,17 @@ namespace FalconsFactionMonitor.Windows
 
             ApplyButton.IsEnabled = false;
             AdjustWindowSize();
+        }
+        private void CredentialControl_Changed(object sender, RoutedEventArgs e)
+        {
+            _pendingUsername = UsernameTextBox.Text;
+            _pendingPassword = PasswordBox.Password;
+            ApplyButton.IsEnabled = IsThemeChanged() || IsLanguageFontChanged() || AreCredentialsChanged();
+        }
+
+        private bool AreCredentialsChanged()
+        {
+            return _pendingUsername != _originalUsername || _pendingPassword != _originalPassword;
         }
 
         private void PresetThemeComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -261,6 +282,14 @@ namespace FalconsFactionMonitor.Windows
                 _originalTheme = CloneTheme(_previewTheme); // Track new original
             }
 
+            if (AreCredentialsChanged())
+            {
+                RegistryHelper.Set("UserId", _pendingUsername);
+                RegistryHelper.Set("Password", _pendingPassword);
+                _originalUsername = _pendingUsername;
+                _originalPassword = _pendingPassword;
+            }
+
             if (IsLanguageFontChanged())
             {
                 LanguageHelper.SetLanguageToRegistry(_pendingLanguage); // ✅ Store to registry
@@ -307,6 +336,11 @@ namespace FalconsFactionMonitor.Windows
 
         private void ResetButton_Click(object sender, RoutedEventArgs e)
         {
+            // Reset Account to default
+            UsernameTextBox.Text = "ProgramUser";
+            PasswordBox.Password = "Password1";
+
+            // Reset theme to system defaults
             var systemBase = AppTheme.GetSystemTheme() ?? BaseTheme.Light;
             var systemPrimary = AppTheme.GetPrimaryColor(systemBase);
             var systemAccent = AppTheme.GetSystemAccentColor();

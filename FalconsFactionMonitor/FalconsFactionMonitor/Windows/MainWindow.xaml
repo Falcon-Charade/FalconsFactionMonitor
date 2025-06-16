@@ -3,10 +3,10 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="{DynamicResource Main_Title}"
         Style="{StaticResource MaterialDesignWindow}"
-        Height="220"
+        Height="230"
         Width="480"
         MinWidth="480"
-        MinHeight="220">
+        MinHeight="230">
 
     <!--<Window.Background>
         <SolidColorBrush Color="White" Opacity="1" />
@@ -37,7 +37,18 @@
                    Margin="0,10,0,10" />
 
         <!-- Service Buttons -->
-        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,0">
+        <Menu Grid.Row="2" HorizontalAlignment="Center">
+            <MenuItem Header="Open a Service">
+                <MenuItem Header="Influence History"
+                          Command="{Binding OpenInfluenceHistoryCommand}" />
+                <Separator />
+                <MenuItem Header="{DynamicResource Main_Button_JournalMonitor}"
+                          Click="JournalMonitorServiceButton_Click" />
+                <MenuItem Header="{DynamicResource Main_Button_WebService}"
+                          Click="WebRetrievalServiceButton_Click" />
+            </MenuItem>
+        </Menu>
+        <!--<StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,0">
             <Button x:Name="JournalMonitorServiceButton"
                     Width="200"
                     FontSize="{DynamicResource GlobalFontSize}"
@@ -54,7 +65,7 @@
                     Click="WebRetrievalServiceButton_Click"
                     Content="{DynamicResource Main_Button_WebService}"
                     AutomationProperties.Name="{DynamicResource Main_Button_WebService}" />
-        </StackPanel>
+        </StackPanel>-->
 
         <!-- Output Log -->
         <RichTextBox x:Name="ResultTextBlock"

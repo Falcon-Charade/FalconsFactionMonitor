@@ -1,9 +1,10 @@
-﻿using Microsoft.Win32;
+﻿using FalconsFactionMonitor.Helpers;
+using Microsoft.Win32;
+using System;
 using System.Data.SqlClient;
 using System.Diagnostics;
 using System.IO;
 using System.Threading.Tasks;
-using System;
 
 namespace FalconsFactionMonitor.Services
 {
@@ -26,14 +27,14 @@ internal class JournalRetrievalService
                 solutionRoot = currentDirectory;
             }
 
-            string connectionString = Registry.GetValue(@"HKEY_CURRENT_USER\SOFTWARE\Falcon Charade", "FalconsFactionMonitorDbConnection", null).ToString();
+            string connectionString = DatabaseConnectionBuilder.BuildConnectionString();
             SqlConnection connection = new(connectionString);
 
             // Subscribe to the OnFSDJumpDetected event
             monitor.OnFSDJumpDetected += factions =>
             {
                 DatabaseService dbService = new();
-                dbService.SaveData(factions);
+                DatabaseService.SaveData(factions);
             };
 
             // Start monitoring
