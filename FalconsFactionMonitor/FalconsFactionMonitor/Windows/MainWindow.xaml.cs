@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FalconsFactionMonitor.Helpers;
+using System;
 using System.Threading.Tasks;
 using System.Windows;
 
@@ -6,11 +7,14 @@ namespace FalconsFactionMonitor.Windows
 {
     public partial class MainWindow : Window
     {
+        public RelayCommand OpenInfluenceHistoryCommand { get; }
         public bool SuppressRestoreAfterOptions { get; set; } = false;
         public MainWindow()
         {
             InitializeComponent();
             Console.SetOut(new RichTextBoxWriter(ResultTextBlock));
+            OpenInfluenceHistoryCommand = new RelayCommand(OpenInfluenceHistory);
+            DataContext = this;
         }
 
         private async void JournalMonitorServiceButton_Click(object sender, RoutedEventArgs e)
@@ -85,6 +89,17 @@ namespace FalconsFactionMonitor.Windows
         private void ExitButton_Click(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();
+        }
+
+        private void OpenInfluenceHistory()
+        {
+            if (RegistryHelper.Get("UserId").ToLower() == "programuser")
+            {
+                MessageBox.Show("You are not authorised to access the analysis features.\nPlease ensure you have set your username and password in the options menu.", "401 - Unauthorised", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+            var view = new InfluenceHistoryView { Owner = this };
+            view.ShowDialog();
         }
     }
 }

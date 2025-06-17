@@ -16,13 +16,12 @@ namespace FalconsFactionMonitor.Windows
             LanguageHelper.SetLanguage(cultureCode);
 
             // 🔹 Apply saved font size
-            if (double.TryParse(AppSettings.Get("FontSize", "12"), out double fontSize))
+            if (double.TryParse(RegistryHelper.Get("FontSize", "12"), out double fontSize))
             {
                 Current.Resources["GlobalFontSize"] = fontSize;
             }
 
             var paletteHelper = new PaletteHelper();
-            ITheme theme = paletteHelper.GetTheme();
 
             var (savedTheme, primary, secondary) = AppTheme.LoadThemeFromRegistry();
             if (savedTheme != null && primary.HasValue && secondary.HasValue)

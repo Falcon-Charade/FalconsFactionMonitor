@@ -138,6 +138,37 @@
                                   Margin="18,0,0,0"
                                   Grid.Column="1"/>
                     </Grid>
+                    <!-- Username -->
+                    <Grid Margin="0,8,0,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" SharedSizeGroup="LabelColumn"/>
+                            <ColumnDefinition Width="Auto" SharedSizeGroup="ContentColumn"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="Username:"
+                                   VerticalAlignment="Center"
+                                   Grid.Column="0"/>
+                        <TextBox x:Name="UsernameTextBox"
+                                 Width="180"
+                                 Margin="18,0,0,0"
+                                 Grid.Column="1"
+                                 TextChanged="CredentialControl_Changed"/>
+                    </Grid>
+
+                    <!-- Password -->
+                    <Grid Margin="0,8,0,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" SharedSizeGroup="LabelColumn"/>
+                            <ColumnDefinition Width="Auto" SharedSizeGroup="ContentColumn"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="Password:"
+                                   VerticalAlignment="Center"
+                                   Grid.Column="0"/>
+                        <PasswordBox x:Name="PasswordBox"
+                                     Width="180"
+                                     Margin="18,0,0,0"
+                                     Grid.Column="1"
+                                     PasswordChanged="CredentialControl_Changed"/>
+                    </Grid>
                     <Grid Margin="0,8,0,0">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="Auto"

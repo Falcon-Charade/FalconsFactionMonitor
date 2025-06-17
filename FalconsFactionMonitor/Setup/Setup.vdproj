@@ -15,20 +15,38 @@
     {
         "Entry"
         {
+        "MsmKey" = "8:_013A78160FED48D3AAB54120BB5F750D"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_04CB3ADFDFDA411386A0F8D26E641B9E"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_07FCAC0B116852FDABB68C5456835039"
         "OwnerKey" = "8:_C81BB59B5C2F4B1695EB5237C46F63EF"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_138472975F7203F76EB9391E867CE87F"
-        "OwnerKey" = "8:_C81BB59B5C2F4B1695EB5237C46F63EF"
+        "MsmKey" = "8:_09D7A96ADC3B403A91D3AF231F94F3E9"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_0F593C0ED0AF4D6E90CB9709732CA365"
+        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_138472975F7203F76EB9391E867CE87F"
-        "OwnerKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_C81BB59B5C2F4B1695EB5237C46F63EF"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -51,7 +69,7 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_50D126578E7C484D81A3A40BDEA92A6F"
+        "MsmKey" = "8:_63214185D1254956ACF337C4739CD51F"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -87,6 +105,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_9EBBB5DC93194BA98A82308A66677AB6"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_A40DAD2DE1E74E1F8A422A1A8CA585BF"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -117,6 +141,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_C513341508A34399BF4487E1E161F3B6"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_C81BB59B5C2F4B1695EB5237C46F63EF"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -141,14 +171,32 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_FB93B219454E47768E51F29185E48A3E"
-        "OwnerKey" = "8:_UNDEFINED"
+        "MsmKey" = "8:_E33ADF28D50BECEA209E034BEDB2167D"
+        "OwnerKey" = "8:_C81BB59B5C2F4B1695EB5237C46F63EF"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_C81BB59B5C2F4B1695EB5237C46F63EF"
+        "MsmKey" = "8:_E33ADF28D50BECEA209E034BEDB2167D"
+        "OwnerKey" = "8:_EB568469EFA47B98D0BCA3282829096A"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_E33ADF28D50BECEA209E034BEDB2167D"
+        "OwnerKey" = "8:_04CB3ADFDFDA411386A0F8D26E641B9E"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_EB568469EFA47B98D0BCA3282829096A"
+        "OwnerKey" = "8:_04CB3ADFDFDA411386A0F8D26E641B9E"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_FB93B219454E47768E51F29185E48A3E"
+        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -160,7 +208,19 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_1C3A00A0E601356CBB3A08FB94A036C7"
+        "OwnerKey" = "8:_EB568469EFA47B98D0BCA3282829096A"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_04CB3ADFDFDA411386A0F8D26E641B9E"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_9EBBB5DC93194BA98A82308A66677AB6"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -172,7 +232,13 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_138472975F7203F76EB9391E867CE87F"
+        "OwnerKey" = "8:_1C3A00A0E601356CBB3A08FB94A036C7"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_C81BB59B5C2F4B1695EB5237C46F63EF"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -280,6 +346,68 @@
         }
         "File"
         {
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_013A78160FED48D3AAB54120BB5F750D"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:System.Data.SqlClient, Version=4.6.1.6, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_013A78160FED48D3AAB54120BB5F750D"
+                    {
+                    "Name" = "8:System.Data.SqlClient.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:..\\FalconsFactionMonitor\\bin\\Release\\net8.0-windows\\runtimes\\unix\\lib\\netcoreapp2.1\\System.Data.SqlClient.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_6B3CD27989CF429884B632BA8EADD64A"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_04CB3ADFDFDA411386A0F8D26E641B9E"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:OxyPlot.Wpf, Version=2.2.0.0, Culture=neutral, PublicKeyToken=75e952ba404cdbb0, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_04CB3ADFDFDA411386A0F8D26E641B9E"
+                    {
+                    "Name" = "8:OxyPlot.Wpf.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:..\\FalconsFactionMonitor\\bin\\Release\\net8.0-windows\\OxyPlot.Wpf.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_E23A176BA40D42C69EFB67129FDDAC75"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_07FCAC0B116852FDABB68C5456835039"
             {
             "AssemblyRegister" = "3:1"
@@ -311,23 +439,12 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_138472975F7203F76EB9391E867CE87F"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_09D7A96ADC3B403A91D3AF231F94F3E9"
             {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:MaterialDesignColors, Version=2.0.9.0, Culture=neutral, PublicKeyToken=df2a72020bd7962a, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_138472975F7203F76EB9391E867CE87F"
-                    {
-                    "Name" = "8:MaterialDesignColors.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:MaterialDesignColors.dll"
-            "TargetName" = "8:"
+            "SourcePath" = "8:..\\FalconsFactionMonitor\\bin\\Release\\net8.0-windows\\Services\\Queries\\SystemSearch.sql"
+            "TargetName" = "8:SystemSearch.sql"
             "Tag" = "8:"
-            "Folder" = "8:_E23A176BA40D42C69EFB67129FDDAC75"
+            "Folder" = "8:_96907E4EE1CF4C9AB4E2C40784965897"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -339,7 +456,38 @@
             "PackageAs" = "3:1"
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_0F593C0ED0AF4D6E90CB9709732CA365"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:System.Text.Encodings.Web, Version=9.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_0F593C0ED0AF4D6E90CB9709732CA365"
+                    {
+                    "Name" = "8:System.Text.Encodings.Web.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:..\\FalconsFactionMonitor\\bin\\Release\\net8.0-windows\\runtimes\\browser\\lib\\net8.0\\System.Text.Encodings.Web.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_1850D59882B24C0DBFB921D01002E6CD"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_1C3A00A0E601356CBB3A08FB94A036C7"
@@ -413,12 +561,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_50D126578E7C484D81A3A40BDEA92A6F"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_63214185D1254956ACF337C4739CD51F"
             {
-            "SourcePath" = "8:..\\FalconsFactionMonitor\\bin\\Release\\net8.0-windows\\Services\\StoredProcInsert.sql"
-            "TargetName" = "8:StoredProcInsert.sql"
+            "SourcePath" = "8:..\\FalconsFactionMonitor\\bin\\Release\\net8.0-windows\\Services\\Queries\\FactionSearch.sql"
+            "TargetName" = "8:FactionSearch.sql"
             "Tag" = "8:"
-            "Folder" = "8:_25AC3B97F9FE4DD48A26A506889AF6E8"
+            "Folder" = "8:_96907E4EE1CF4C9AB4E2C40784965897"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -552,6 +700,37 @@
             "TargetName" = "8:sni.dll"
             "Tag" = "8:"
             "Folder" = "8:_6A4541D3BCDD4CA4898922676BB84225"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_9EBBB5DC93194BA98A82308A66677AB6"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:MaterialDesignColors, Version=2.0.9.0, Culture=neutral, PublicKeyToken=df2a72020bd7962a, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_9EBBB5DC93194BA98A82308A66677AB6"
+                    {
+                    "Name" = "8:MaterialDesignColors.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:..\\FalconsFactionMonitor\\bin\\Release\\net8.0-windows\\MaterialDesignColors.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_E23A176BA40D42C69EFB67129FDDAC75"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -710,6 +889,26 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_C513341508A34399BF4487E1E161F3B6"
+            {
+            "SourcePath" = "8:..\\FalconsFactionMonitor\\bin\\Release\\net8.0-windows\\Services\\Queries\\StoredProcInsert.sql"
+            "TargetName" = "8:StoredProcInsert.sql"
+            "Tag" = "8:"
+            "Folder" = "8:_96907E4EE1CF4C9AB4E2C40784965897"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_C81BB59B5C2F4B1695EB5237C46F63EF"
             {
             "AssemblyRegister" = "3:1"
@@ -812,6 +1011,68 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_E33ADF28D50BECEA209E034BEDB2167D"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:OxyPlot, Version=2.2.0.0, Culture=neutral, PublicKeyToken=638079a8f0bd61e9, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_E33ADF28D50BECEA209E034BEDB2167D"
+                    {
+                    "Name" = "8:OxyPlot.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:OxyPlot.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_E23A176BA40D42C69EFB67129FDDAC75"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_EB568469EFA47B98D0BCA3282829096A"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:OxyPlot.Wpf.Shared, Version=2.2.0.0, Culture=neutral, PublicKeyToken=75e952ba404cdbb0, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_EB568469EFA47B98D0BCA3282829096A"
+                    {
+                    "Name" = "8:OxyPlot.Wpf.Shared.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:OxyPlot.Wpf.Shared.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_E23A176BA40D42C69EFB67129FDDAC75"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_FB93B219454E47768E51F29185E48A3E"
             {
             "SourcePath" = "8:..\\FalconsFactionMonitor\\bin\\Release\\net8.0-windows\\icon.ico"
@@ -879,6 +1140,17 @@
                     "Property" = "8:_2355A7479F9E4CF49CB9E9FC64652BA0"
                         "Folders"
                         {
+                            "{9EF0B969-E518-4E46-987F-47570745A589}:_96907E4EE1CF4C9AB4E2C40784965897"
+                            {
+                            "Name" = "8:Queries"
+                            "AlwaysCreate" = "11:FALSE"
+                            "Condition" = "8:"
+                            "Transitive" = "11:FALSE"
+                            "Property" = "8:_860E89F5DA33405B86C9802AE92D78A4"
+                                "Folders"
+                                {
+                                }
+                            }
                         }
                     }
                     "{9EF0B969-E518-4E46-987F-47570745A589}:_30D9C50274184ADDB5BFC7DA972DA0C1"
@@ -890,6 +1162,39 @@
                     "Property" = "8:_C68286DFD03447AB88A85F10F1290808"
                         "Folders"
                         {
+                            "{9EF0B969-E518-4E46-987F-47570745A589}:_06F67AF2971D456DB118E220E4C71598"
+                            {
+                            "Name" = "8:unix"
+                            "AlwaysCreate" = "11:FALSE"
+                            "Condition" = "8:"
+                            "Transitive" = "11:FALSE"
+                            "Property" = "8:_B8FA4D7AF5BD4F8CA03CC12BC5B2C73A"
+                                "Folders"
+                                {
+                                    "{9EF0B969-E518-4E46-987F-47570745A589}:_5F32181632A541BAAF64CF3E091F52A7"
+                                    {
+                                    "Name" = "8:lib"
+                                    "AlwaysCreate" = "11:FALSE"
+                                    "Condition" = "8:"
+                                    "Transitive" = "11:FALSE"
+                                    "Property" = "8:_547E3BA657154BD290E008C2861BC43C"
+                                        "Folders"
+                                        {
+                                            "{9EF0B969-E518-4E46-987F-47570745A589}:_6B3CD27989CF429884B632BA8EADD64A"
+                                            {
+                                            "Name" = "8:netcoreapp2.1"
+                                            "AlwaysCreate" = "11:FALSE"
+                                            "Condition" = "8:"
+                                            "Transitive" = "11:FALSE"
+                                            "Property" = "8:_D622E69771DB41A18A893AC8B83CCF21"
+                                                "Folders"
+                                                {
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
                             "{9EF0B969-E518-4E46-987F-47570745A589}:_08C5D54FC67846819CACDFDAABF75572"
                             {
                             "Name" = "8:win"
@@ -915,6 +1220,39 @@
                                             "Condition" = "8:"
                                             "Transitive" = "11:FALSE"
                                             "Property" = "8:_5DA7BF26A6AA4708AD666D08774271C3"
+                                                "Folders"
+                                                {
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            "{9EF0B969-E518-4E46-987F-47570745A589}:_1632249EF918411589923657757DB034"
+                            {
+                            "Name" = "8:browser"
+                            "AlwaysCreate" = "11:FALSE"
+                            "Condition" = "8:"
+                            "Transitive" = "11:FALSE"
+                            "Property" = "8:_D5064ABD5AB04DA59A3696D630DE374F"
+                                "Folders"
+                                {
+                                    "{9EF0B969-E518-4E46-987F-47570745A589}:_D949045E6BFB43198A1E0ED235377143"
+                                    {
+                                    "Name" = "8:lib"
+                                    "AlwaysCreate" = "11:FALSE"
+                                    "Condition" = "8:"
+                                    "Transitive" = "11:FALSE"
+                                    "Property" = "8:_851144EBE1AA4EAA8D6E3E19AFE6D2A2"
+                                        "Folders"
+                                        {
+                                            "{9EF0B969-E518-4E46-987F-47570745A589}:_1850D59882B24C0DBFB921D01002E6CD"
+                                            {
+                                            "Name" = "8:net8.0"
+                                            "AlwaysCreate" = "11:FALSE"
+                                            "Condition" = "8:"
+                                            "Transitive" = "11:FALSE"
+                                            "Property" = "8:_38DD16CBB5EB4E9F864DCCFB2DB16F0E"
                                                 "Folders"
                                                 {
                                                 }
@@ -1009,15 +1347,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:FalconsFactionMonitor"
-        "ProductCode" = "8:{7B3F2E40-8B18-4914-B7E2-ABA013ED49C6}"
-        "PackageCode" = "8:{DB0DBC89-AECF-4160-A6E2-51BEB1F12C38}"
+        "ProductCode" = "8:{B0297F87-2385-4877-B83B-0AAB010FCC1C}"
+        "PackageCode" = "8:{93B43791-16DB-4BCF-982E-DD781300C8C5}"
         "UpgradeCode" = "8:{5EE3A9CE-2A7D-4841-87CE-7EE38C61B1EB}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:4.0.0"
+        "ProductVersion" = "8:4.1.0"
         "Manufacturer" = "8:FalconCharade"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:https://github.com/Falcon-Charade/FalconsFactionMonitor/issues"
@@ -1099,20 +1437,82 @@
                                     "Name" = "8:[ProductName]"
                                     "Condition" = "8:"
                                     "AlwaysCreate" = "11:FALSE"
-                                    "DeleteAtUninstall" = "11:FALSE"
+                                    "DeleteAtUninstall" = "11:TRUE"
                                     "Transitive" = "11:FALSE"
                                         "Keys"
                                         {
+                                            "{60EA8692-D2D5-43EB-80DC-7906BF13D6EF}:_0957242511A74144AA8321343094A3AE"
+                                            {
+                                            "Name" = "8:Theme"
+                                            "Condition" = "8:"
+                                            "AlwaysCreate" = "11:FALSE"
+                                            "DeleteAtUninstall" = "11:FALSE"
+                                            "Transitive" = "11:FALSE"
+                                                "Keys"
+                                                {
+                                                }
+                                                "Values"
+                                                {
+                                                    "{ADCFDA98-8FDD-45E4-90BC-E3D20B029870}:_4A3B2ECA2EA74BCC9924616435B4DDBB"
+                                                    {
+                                                    "Name" = "8:SecondaryColor"
+                                                    "Condition" = "8:"
+                                                    "Transitive" = "11:FALSE"
+                                                    "ValueTypes" = "3:1"
+                                                    "Value" = "8:FFD3D3D3"
+                                                    }
+                                                    "{ADCFDA98-8FDD-45E4-90BC-E3D20B029870}:_658F46CFA4CC469CB04A7F30B60600BC"
+                                                    {
+                                                    "Name" = "8:BaseTheme"
+                                                    "Condition" = "8:"
+                                                    "Transitive" = "11:FALSE"
+                                                    "ValueTypes" = "3:1"
+                                                    "Value" = "8:Light"
+                                                    }
+                                                    "{ADCFDA98-8FDD-45E4-90BC-E3D20B029870}:_7B22B3F6E5CB4513A84F1DB3AAC9BB14"
+                                                    {
+                                                    "Name" = "8:PrimaryColor"
+                                                    "Condition" = "8:"
+                                                    "Transitive" = "11:FALSE"
+                                                    "ValueTypes" = "3:1"
+                                                    "Value" = "8:FF7B1FA2"
+                                                    }
+                                                }
+                                            }
                                         }
                                         "Values"
                                         {
-                                            "{ADCFDA98-8FDD-45E4-90BC-E3D20B029870}:_E6FD33EC4AB3457283A609BDE0B890A7"
+                                            "{ADCFDA98-8FDD-45E4-90BC-E3D20B029870}:_888D8E05F4D74B758E005FD15BBAC125"
                                             {
-                                            "Name" = "8:FalconsFactionMonitorDbConnection"
+                                            "Name" = "8:FontSize"
                                             "Condition" = "8:"
                                             "Transitive" = "11:FALSE"
                                             "ValueTypes" = "3:1"
-                                            "Value" = "8:Server=tcp:falcons-sql.database.windows.net,1433;Database=FalconsFactionMonitor;Persist Security Info=True;User Id=ProgramUser;Password=Password1;Encrypt=True;TrustServerCertificate=True;Connection Timeout=60;"
+                                            "Value" = "8:14"
+                                            }
+                                            "{ADCFDA98-8FDD-45E4-90BC-E3D20B029870}:_93CC9C2E1F8C4AA1AF631CC6850BC8AD"
+                                            {
+                                            "Name" = "8:UserId"
+                                            "Condition" = "8:"
+                                            "Transitive" = "11:FALSE"
+                                            "ValueTypes" = "3:1"
+                                            "Value" = "8:ProgramUser"
+                                            }
+                                            "{ADCFDA98-8FDD-45E4-90BC-E3D20B029870}:_948C56D112B94442A76A7FA6047DFA53"
+                                            {
+                                            "Name" = "8:Password"
+                                            "Condition" = "8:"
+                                            "Transitive" = "11:FALSE"
+                                            "ValueTypes" = "3:1"
+                                            "Value" = "8:Password1"
+                                            }
+                                            "{ADCFDA98-8FDD-45E4-90BC-E3D20B029870}:_E329FEEE1B0445BEB54DCD6D13A2DED1"
+                                            {
+                                            "Name" = "8:Language"
+                                            "Condition" = "8:"
+                                            "Transitive" = "11:FALSE"
+                                            "ValueTypes" = "3:1"
+                                            "Value" = "8:en"
                                             }
                                         }
                                     }

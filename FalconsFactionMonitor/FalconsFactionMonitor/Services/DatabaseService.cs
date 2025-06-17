@@ -1,5 +1,5 @@
-﻿using FalconsFactionMonitor.Models;
-using Microsoft.Win32;
+﻿using FalconsFactionMonitor.Helpers;
+using FalconsFactionMonitor.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -12,7 +12,7 @@ namespace FalconsFactionMonitor.Services
 {
     class DatabaseService
     {
-        public void SaveData(List<LiveData> factions)
+        public static void SaveData(List<LiveData> factions)
         {
             var solutionRoot = Directory.GetCurrentDirectory();
             string currentDirectory = AppDomain.CurrentDomain.BaseDirectory;
@@ -24,10 +24,10 @@ namespace FalconsFactionMonitor.Services
             {
                 solutionRoot = currentDirectory;
             }
-            string filePath = Path.Combine(solutionRoot, "Services", "StoredProcInsert.sql");
+            string filePath = Path.Combine(solutionRoot, "Services", "Queries", "StoredProcInsert.sql");
             string storedProc = File.ReadAllText(filePath);
-            string connectionString = Registry.GetValue(@"HKEY_CURRENT_USER\SOFTWARE\FalconCharade\FalconsFactionMonitor", "FalconsFactionMonitorDbConnection", null).ToString();
-            SqlConnection connection = new SqlConnection(connectionString);
+            string connectionString = DatabaseConnectionBuilder.BuildConnectionString();
+            SqlConnection connection = new(connectionString);
             for (int i = 1; i <= 5; i++)
             {
                 try
@@ -61,7 +61,7 @@ namespace FalconsFactionMonitor.Services
                     Console.WriteLine($"{faction.InfluencePercent}% influence");
 
 
-                    using SqlCommand command = new SqlCommand(storedProc, connection);
+                    using SqlCommand command = new(storedProc, connection);
                     {
                         command.Parameters.AddWithValue("@SystemName", faction.SystemName);
                         command.Parameters.AddWithValue("@FactionName", faction.FactionName);
@@ -77,10 +77,10 @@ namespace FalconsFactionMonitor.Services
         }
         internal static void WebServicePublish(List<FactionDetail> factions)
         {
-            List<LiveData> allFactions = new List<LiveData>();
+            List<LiveData> allFactions = [];
             foreach (var faction in factions)
             {
-                string[] formats = { "M/d/yyyy h:mm:ss tt", "M/d/yyyy hh:mm:ss tt" };
+                string[] formats = ["M/d/yyyy h:mm:ss tt", "M/d/yyyy hh:mm:ss tt"];
 
                 DateTime parsedDate = DateTime.ParseExact(
                     faction.LastUpdated,
@@ -102,8 +102,9 @@ namespace FalconsFactionMonitor.Services
                         }
                     );
             }
-            DatabaseService dbService = new DatabaseService();
-            dbService.SaveData(allFactions);
+
+            _ = new DatabaseService();
+            SaveData(allFactions);
         }
     }
 }

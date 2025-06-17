@@ -24,7 +24,7 @@ namespace FalconsFactionMonitor.Services
 
             try
             {
-                List<FactionSystem> systems = new List<FactionSystem>();
+                List<FactionSystem> systems = [];
                 var solutionRoot = GetSavePath();
                 List<FactionDetail> previousFactions;
                 if (solutionRoot == null)
