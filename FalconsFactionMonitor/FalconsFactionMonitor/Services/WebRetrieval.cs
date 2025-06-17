@@ -92,7 +92,7 @@ namespace FalconsFactionMonitor.Services
                         faction.Difference = -1;
                     }
                 }
-                DatabaseService.WebServicePublish(allFactions);
+                await DatabaseService.WebServicePublishAsync(allFactions);
                 if (CSVSave)
                 {
                     SaveToCSV.SystemFactions(allFactions, factionsFilePath);
@@ -117,7 +117,7 @@ namespace FalconsFactionMonitor.Services
         }
 
         // Get save path from App.config
-        public string GetSavePath()
+        public static string GetSavePath()
         {
             string path = ConfigurationManager.AppSettings["CsvSavePath"];
 

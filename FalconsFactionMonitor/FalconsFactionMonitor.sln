@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FalconsFactionMonitor", "Fa
 EndProject
 Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup", "Setup\Setup.vdproj", "{CE3264EB-54B8-4BE0-A29D-B9C7A6ECB490}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FalconsFactionMonitor.Tests", "FalconsFactionMonitor.Tests\FalconsFactionMonitor.Tests.csproj", "{AF99D984-6AFF-4B45-B6D9-CE1EE1185646}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,18 @@ Global
 		{CE3264EB-54B8-4BE0-A29D-B9C7A6ECB490}.Release|x64.Build.0 = Release
 		{CE3264EB-54B8-4BE0-A29D-B9C7A6ECB490}.Release|x86.ActiveCfg = Release
 		{CE3264EB-54B8-4BE0-A29D-B9C7A6ECB490}.Release|x86.Build.0 = Release
+		{AF99D984-6AFF-4B45-B6D9-CE1EE1185646}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF99D984-6AFF-4B45-B6D9-CE1EE1185646}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF99D984-6AFF-4B45-B6D9-CE1EE1185646}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{AF99D984-6AFF-4B45-B6D9-CE1EE1185646}.Debug|x64.Build.0 = Debug|Any CPU
+		{AF99D984-6AFF-4B45-B6D9-CE1EE1185646}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{AF99D984-6AFF-4B45-B6D9-CE1EE1185646}.Debug|x86.Build.0 = Debug|Any CPU
+		{AF99D984-6AFF-4B45-B6D9-CE1EE1185646}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AF99D984-6AFF-4B45-B6D9-CE1EE1185646}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AF99D984-6AFF-4B45-B6D9-CE1EE1185646}.Release|x64.ActiveCfg = Release|Any CPU
+		{AF99D984-6AFF-4B45-B6D9-CE1EE1185646}.Release|x64.Build.0 = Release|Any CPU
+		{AF99D984-6AFF-4B45-B6D9-CE1EE1185646}.Release|x86.ActiveCfg = Release|Any CPU
+		{AF99D984-6AFF-4B45-B6D9-CE1EE1185646}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
