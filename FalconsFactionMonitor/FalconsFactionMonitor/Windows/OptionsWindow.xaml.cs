@@ -58,7 +58,7 @@ namespace FalconsFactionMonitor.Windows
             _pendingLanguage = _originalLanguage;
 
 
-            _originalFontSize = double.TryParse(AppSettings.Get("FontSize", "12"), out var size) ? size : 12;
+            _originalFontSize = double.TryParse(RegistryHelper.Get("FontSize", "12"), out var size) ? size : 12;
             FontSizeComboBox.ItemsSource = new[] { "10", "12", "14", "16", "18", "20" };
             FontSizeComboBox.SelectedItem = _originalFontSize.ToString();
 
@@ -293,7 +293,7 @@ namespace FalconsFactionMonitor.Windows
             if (IsLanguageFontChanged())
             {
                 LanguageHelper.SetLanguageToRegistry(_pendingLanguage); // ✅ Store to registry
-                AppSettings.Set("FontSize", _pendingFontSize.ToString());
+                RegistryHelper.Set("FontSize", _pendingFontSize.ToString());
                 Application.Current.Resources["GlobalFontSize"] = _pendingFontSize;
                 _originalLanguage = _pendingLanguage;
                 _originalFontSize = _pendingFontSize;
