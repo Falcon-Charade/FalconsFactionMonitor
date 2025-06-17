@@ -3,9 +3,9 @@
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
     <TargetFramework>net8.0-windows</TargetFramework>
-	<AssemblyVersion>4.0.0.0</AssemblyVersion>
-	<FileVersion>4.0.0.0</FileVersion>
-	<InformationalVersion>4.0.0 (NET8 Upgrade)</InformationalVersion>
+	<AssemblyVersion>4.1.0.0</AssemblyVersion>
+	<FileVersion>4.1.0.0</FileVersion>
+	<InformationalVersion>4.1.0 (Trendline Implementation)</InformationalVersion>
     <UseWPF>true</UseWPF>
 	<UseWindowsForms>true</UseWindowsForms>
     <RootNamespace>FalconsFactionMonitor</RootNamespace>
