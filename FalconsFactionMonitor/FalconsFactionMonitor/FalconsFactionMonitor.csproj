@@ -3,9 +3,9 @@
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
     <TargetFramework>net8.0-windows</TargetFramework>
-	<AssemblyVersion>4.1.0.0</AssemblyVersion>
-	<FileVersion>4.1.0.0</FileVersion>
-	<InformationalVersion>4.1.0 (Trendline Implementation)</InformationalVersion>
+	<AssemblyVersion>4.1.1.0</AssemblyVersion>
+	<FileVersion>4.1.1.0</FileVersion>
+	<InformationalVersion>4.1.1 (Services Response Colour Update)</InformationalVersion>
     <UseWPF>true</UseWPF>
 	<UseWindowsForms>true</UseWindowsForms>
     <RootNamespace>FalconsFactionMonitor</RootNamespace>
@@ -25,11 +25,11 @@
     <PackageReference Include="MaterialDesignColors" Version="2.1.4" />
     <PackageReference Include="MaterialDesignThemes" Version="4.9.0" />
     <PackageReference Include="Microsoft.Bcl.AsyncInterfaces" Version="9.0.6" />
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="6.0.2" />
     <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.39" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="OxyPlot.Wpf" Version="2.2.0" />
     <PackageReference Include="System.Buffers" Version="4.6.1" />
-	<PackageReference Include="System.Data.SqlClient" Version="4.9.0" />
     <PackageReference Include="System.IO.Pipelines" Version="9.0.6" />
     <PackageReference Include="System.Memory" Version="4.6.3" />
     <PackageReference Include="System.Numerics.Vectors" Version="4.6.1" />
