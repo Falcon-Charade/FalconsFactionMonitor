@@ -3,9 +3,9 @@
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
     <TargetFramework>net8.0-windows</TargetFramework>
-	<AssemblyVersion>4.1.1.0</AssemblyVersion>
-	<FileVersion>4.1.1.0</FileVersion>
-	<InformationalVersion>4.1.1 (Services Response Colour Update)</InformationalVersion>
+	<AssemblyVersion>4.1.2.0</AssemblyVersion>
+	<FileVersion>4.1.2.0</FileVersion>
+	<InformationalVersion>4.1.2 (Setup Wizard Update)</InformationalVersion>
     <UseWPF>true</UseWPF>
 	<UseWindowsForms>true</UseWindowsForms>
     <RootNamespace>FalconsFactionMonitor</RootNamespace>
