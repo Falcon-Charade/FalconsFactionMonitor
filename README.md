@@ -22,12 +22,14 @@ The main menu provides several options to interact with the program:
 - **Web Retrieval Service**: Opens the Web Retrieval Service window to fetch faction data from the web.
 - **Options**: Opens the settings window to configure various options for the program.
 - **Exit**: Closes the program.
+
 ![Main Menu](./Resources/MainMenu.png)
 
 ### Journal Monitor Service
 The program includes a Journal Monitor Service that runs in the background to monitor your Elite Dangerous journal files.
 The service will automatically detect changes in the journal files and update the faction data accordingly.
 You can view the folder where the journal files are stored via the "View Journal Folder" button.
+
 ![Journal Monitor Service](./Resources/JournalMonitor.png)
 
 ### Web Retrieval Service
@@ -39,6 +41,7 @@ There is also an option to save the retrieved data to a file for later use. You 
 You can view this data by clicking the "Open Output Directory" button, which will open the folder where the data is saved.
 
 To use the Web Retrieval Service, simply supply the faction name you want to retrieve data for and click the "Start Service" button.
+
 ![Web Retrieval Service](./Resources/WebRetrieval.png)
 
 ### Influence History
@@ -54,6 +57,7 @@ You can filter the influence history data by:
 - **Minimum Influence**: Set a minimum influence percentage to filter factions.
 - **Maximum Influence**: Set a maximum influence percentage to filter factions.
 - **Returned Results**: You can click the items in the list to show/hide them from the graph.
+
 ![Influence History](./Resources/InfluenceHistory.png)
 
 ### Options
@@ -68,6 +72,7 @@ The Options window allows you to configure various settings for the program:
 	- Japanese
 	- Russian
 	- Spanish
+ 
 ![Language Options](./Resources/OptionsLanguage.png)
 - **Select CSV Save Path**: Specify the folder where the Web Retrieval Service will save the retrieved data.
 - **Select Journal Folder Location**: Specify the folder where your Elite Dangerous journal files are stored.
@@ -78,6 +83,7 @@ The Options window allows you to configure various settings for the program:
 	- 16
 	- 18
 	- 20
+ 
 ![Font Size Options](./Resources/OptionsFontSize.png)
 - **Username and Password**: Set the username and password for accessing the Influence History window.
 - **Preset**: Options for changing the theme of the program interface. The following presets are available:
@@ -88,9 +94,12 @@ The Options window allows you to configure various settings for the program:
 	- Elite: Dangerous
 	- System Default
 	- Custom
+ 
 ![Theme Options](./Resources/OptionsPresets.png)
-	- **Custom Theme**: If you select the Custom preset, you can customize the theme colors by selecting the options from the dropdown lists.
-		- Base Theme Color: The background of the program interface.
-		- Primary Color: The primary color used for buttons.
-		- Accent Color: Currently unused, but can be used for future features.
+
+  - **Custom Theme**: If you select the Custom preset, you can customize the theme colors by selecting the options from the dropdown lists.
+	- Base Theme Color: The background of the program interface.
+	- Primary Color: The primary color used for buttons.
+	- Accent Color: Currently unused, but can be used for future features.
+
 ![Custom Theme Options](./Resources/OptionsCustom.png)
