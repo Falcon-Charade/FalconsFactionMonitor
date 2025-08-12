@@ -14,7 +14,7 @@
     <ROW Property="ARPURLUPDATEINFO" Value="https://github.com/Falcon-Charade/FalconsFactionMonitor/releases/latest"/>
     <ROW Property="CTRLS" Value="2"/>
     <ROW Property="Manufacturer" Value="FalconCharade"/>
-    <ROW Property="ProductCode" Value="1033:{DD3DC0D1-E1F6-4476-B807-3CDE224A8C09} " Type="16"/>
+    <ROW Property="ProductCode" Value="1033:{70FC4AE9-AF38-45C4-BBAB-88DFA1637A30} " Type="16"/>
     <ROW Property="ProductLanguage" Value="1033"/>
     <ROW Property="ProductName" Value="FalconsFactionMonitor"/>
     <ROW Property="ProductVersion" Value="4.1.3.0" Options="32"/>
