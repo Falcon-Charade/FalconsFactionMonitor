@@ -144,7 +144,7 @@
                             <ColumnDefinition Width="Auto" SharedSizeGroup="LabelColumn"/>
                             <ColumnDefinition Width="Auto" SharedSizeGroup="ContentColumn"/>
                         </Grid.ColumnDefinitions>
-                        <TextBlock Text="Username:"
+                        <TextBlock Text="{DynamicResource Options_Username}"
                                    VerticalAlignment="Center"
                                    Grid.Column="0"/>
                         <TextBox x:Name="UsernameTextBox"
@@ -160,7 +160,7 @@
                             <ColumnDefinition Width="Auto" SharedSizeGroup="LabelColumn"/>
                             <ColumnDefinition Width="Auto" SharedSizeGroup="ContentColumn"/>
                         </Grid.ColumnDefinitions>
-                        <TextBlock Text="Password:"
+                        <TextBlock Text="{DynamicResource Options_Password}"
                                    VerticalAlignment="Center"
                                    Grid.Column="0"/>
                         <PasswordBox x:Name="PasswordBox"

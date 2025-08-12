@@ -38,13 +38,13 @@
 
         <!-- Service Buttons -->
         <Menu Grid.Row="2" HorizontalAlignment="Center">
-            <MenuItem Header="Open a Service">
-                <MenuItem Header="Influence History"
+            <MenuItem Header="{DynamicResource Main_ServiceButton}">
+                <MenuItem Header="{DynamicResource Main_ServiceButton_InfluenceHistory}"
                           Command="{Binding OpenInfluenceHistoryCommand}" />
                 <Separator />
-                <MenuItem Header="{DynamicResource Main_Button_JournalMonitor}"
+                <MenuItem Header="{DynamicResource Main_ServiceButton_JournalMonitor}"
                           Click="JournalMonitorServiceButton_Click" />
-                <MenuItem Header="{DynamicResource Main_Button_WebService}"
+                <MenuItem Header="{DynamicResource Main_ServiceButton_WebService}"
                           Click="WebRetrievalServiceButton_Click" />
             </MenuItem>
         </Menu>
