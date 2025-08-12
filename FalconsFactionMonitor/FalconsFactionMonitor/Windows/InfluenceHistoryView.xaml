@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:local="clr-namespace:FalconsFactionMonitor.Windows"
         xmlns:oxy="http://oxyplot.org/wpf"
-        Title="Influence History"
+        Title="{DynamicResource InfluenceHistory_Title}"
         Style="{StaticResource MaterialDesignWindow}"
         Height="480"
         Width="854">
@@ -15,11 +15,11 @@
         </Grid.RowDefinitions>
         <!-- Search Controls -->
         <StackPanel Orientation="Horizontal" Margin="0,0,0,10" Grid.Row="0" VerticalAlignment="Center">
-            <RadioButton Content="Faction"
+            <RadioButton Content="{DynamicResource InfluenceHistory_Faction}"
                          FontSize="{DynamicResource GlobalFontSize}"
                          IsChecked="{Binding IsFactionSearch, Mode=TwoWay}"
                          Margin="0,0,10,0"/>
-            <RadioButton Content="System"
+            <RadioButton Content="{DynamicResource InfluenceHistory_System}"
                          FontSize="{DynamicResource GlobalFontSize}"
                          IsChecked="{Binding IsSystemSearch, Mode=TwoWay}"
                          Margin="0,0,10,0"/>
@@ -30,21 +30,21 @@
                      ToolTip="Enter faction or system name..."/>
         </StackPanel>
         <StackPanel Orientation="Horizontal" Margin="0,0,0,10" Grid.Row="1" VerticalAlignment="Center">
-            <Label Content="Start Date:"
+            <Label Content="{DynamicResource InfluenceHistory_Start}"
                    FontSize="{DynamicResource GlobalFontSize}"
                    VerticalAlignment="Center"/>
             <DatePicker SelectedDate="{Binding StartDate}"
                         FontSize="{DynamicResource GlobalFontSize}"
                         Width="120"
                         Margin="5,0,10,0"/>
-            <Label Content="End Date:"
+            <Label Content="{DynamicResource InfluenceHistory_End}"
                    FontSize="{DynamicResource GlobalFontSize}"
                    VerticalAlignment="Center"/>
             <DatePicker SelectedDate="{Binding EndDate}"
                         FontSize="{DynamicResource GlobalFontSize}"
                         Width="120"
                         Margin="5,0,10,0"/>
-            <TextBlock Text="Min Influence:"
+            <TextBlock Text="{DynamicResource InfluenceHistory_Min}"
                        FontSize="{DynamicResource GlobalFontSize}"
                        VerticalAlignment="Center" 
                        Margin="10,0,2,0"/>
@@ -53,7 +53,7 @@
                      Text="{Binding MinInfluence, UpdateSourceTrigger=PropertyChanged}"
                      ToolTip="Enter minimum influence (0–100)"
                      Margin="0,0,10,0"/>
-            <TextBlock Text="Max Influence:"
+            <TextBlock Text="{DynamicResource InfluenceHistory_Max}"
                        FontSize="{DynamicResource GlobalFontSize}"
                        VerticalAlignment="Center"
                        Margin="0,0,2,0"/>
@@ -61,7 +61,7 @@
                      FontSize="{DynamicResource GlobalFontSize}"
                      Text="{Binding MaxInfluence, UpdateSourceTrigger=PropertyChanged}"
                      ToolTip="Enter maximum influence (0–100)" />
-            <Button Content="Search"
+            <Button Content="{DynamicResource InfluenceHistory_Button_Search}"
                     Margin="10,0,0,0"
                     FontSize="{DynamicResource GlobalFontSize}"
                     Command="{Binding SearchCommand}"/>

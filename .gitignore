@@ -363,3 +363,4 @@ MigrationBackup/
 FodyWeavers.xsd
 /FalconsFactionMonitor/FalconsFactionMonitor/Output
 /FalconsFactionMonitor/FactionMonitorSetup/Setup.msi
+/FalconsFactionMonitor/FactionMonitorSetup/FactionMonitorSetup-cache

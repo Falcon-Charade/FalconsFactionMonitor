@@ -11,6 +11,8 @@ namespace FalconsFactionMonitor.Windows
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
+            if (value is LocalizedSwatch ls)
+                return new SolidColorBrush(ls.PrimaryColor);
             if (value is Color c)
                 return new SolidColorBrush(c);
             if (value is Swatch sw)

@@ -1,17 +1,22 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
     <TargetFramework>net8.0-windows</TargetFramework>
-	<AssemblyVersion>4.1.2.0</AssemblyVersion>
-	<FileVersion>4.1.2.0</FileVersion>
-	<InformationalVersion>4.1.2 (Setup Wizard Update)</InformationalVersion>
+    <AssemblyVersion>4.1.3.0</AssemblyVersion>
+    <FileVersion>4.1.3.0</FileVersion>
+    <InformationalVersion>4.1.3 (Localisation and Theme Fix)</InformationalVersion>
+	<EnableWindowsTargeting>true</EnableWindowsTargeting>
     <UseWPF>true</UseWPF>
-	<UseWindowsForms>true</UseWindowsForms>
+    <UseWindowsForms>true</UseWindowsForms>
     <RootNamespace>FalconsFactionMonitor</RootNamespace>
     <AssemblyName>FalconsFactionMonitor</AssemblyName>
     <ApplicationIcon>icon.ico</ApplicationIcon>
     <LangVersion>12.0</LangVersion>
+    <PackageIcon>icon.ico</PackageIcon>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <RepositoryUrl>https://github.com/Falcon-Charade/FalconsFactionMonitor</RepositoryUrl>
+    <Title>Falcon's Faction Monitor</Title>
   </PropertyGroup>
 
   <ItemGroup>
@@ -55,6 +60,20 @@
     <Content Include="Services\Queries\SystemSearch.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="icon.ico">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>
