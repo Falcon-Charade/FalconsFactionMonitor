@@ -23,7 +23,7 @@
 	<ns0:String x:Key="Main_OutputLog">Hoofvenster -uitsetlogboek</ns0:String>
 	<ns0:String x:Key="Main_Button_Options">Opsies</ns0:String>
 	<ns0:String x:Key="Main_Button_Exit">Uitgaan</ns0:String>
-	<ns0:String x:Key="Main_Status_StartingJournal">Begin Journal Monitor -diens.</ns0:String>
+	<ns0:String x:Key="Main_Status_StartingJournal">Begin Journal Monitor Service.</ns0:String>
 	<ns0:String x:Key="Main_Status_StartingWeb">Begin webherwiningsdiens.</ns0:String>
 	<ns0:String x:Key="Main_Status_OpeningOptions">Openingsopsies.</ns0:String>
 	<ns0:String x:Key="Options_ApplyButton">Aansoek doen</ns0:String>
@@ -70,8 +70,8 @@
 	<ns0:String x:Key="Options_LanguageOption_Japanese">日本語</ns0:String>
 	<ns0:String x:Key="Options_LanguageOption_Russian">Русский</ns0:String>
 	<ns0:String x:Key="Options_LanguageOption_Spanish">Español</ns0:String>
-	<ns0:String x:Key="Options_Password">Gebruikersnaam:</ns0:String>
-	<ns0:String x:Key="Options_PresetLabel">Vooraf ingestelde:</ns0:String>
+	<ns0:String x:Key="Options_Password">Wagwoord:</ns0:String>
+	<ns0:String x:Key="Options_PresetLabel">Voorafbepaling:</ns0:String>
 	<ns0:String x:Key="Options_ResetButton">Herstel</ns0:String>
 	<ns0:String x:Key="Options_CSVSaveLoc">Stel CSV -stoorplek in:</ns0:String>
 	<ns0:String x:Key="Options_ThemeOptions">Tema -opsies</ns0:String>
@@ -94,6 +94,6 @@
 	<ns0:String x:Key="WebRetrieval_FactionPrefill">Faksie naam</ns0:String>
 	<ns0:String x:Key="WebRetrieval_Button_StartService">Begin diens</ns0:String>
 	<ns0:String x:Key="WebRetrieval_OutputLog">Web herwin uitsetlogboek</ns0:String>
-	<ns0:String x:Key="WebRetrieval_Button_OpenOutput">Oop uitsetgids.</ns0:String>
+	<ns0:String x:Key="WebRetrieval_Button_OpenOutput">Oop Uitsetgids.</ns0:String>
 	<ns0:String x:Key="WebRetrieval_Button_Exit">Uitgangsmonitordiens</ns0:String>
 </ResourceDictionary>

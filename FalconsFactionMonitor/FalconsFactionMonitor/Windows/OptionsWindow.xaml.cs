@@ -46,11 +46,22 @@ namespace FalconsFactionMonitor.Windows
             _pendingUsername = _originalUsername;
             _pendingPassword = _originalPassword;
 
+            // Prefer saved theme from registry; fallback to current palette; then to default
+            var(rb, rp, rs) = AppTheme.LoadThemeFromRegistry();
+            if (rb.HasValue && rp.HasValue && rs.HasValue)
+            {
+                _originalTheme = AppTheme.Create(rb.Value, rp.Value, rs.Value);
+            }
+            else
+            {
+                var currentTheme = _paletteHelper.GetTheme();
+                _originalTheme = currentTheme != null
+                    ? CloneTheme(currentTheme)
+                    : AppTheme.Create(BaseTheme.Light, Colors.Purple, Colors.Blue);
+            }
+            
             LoadColorOptions();
-            SetCurrentThemeValues();
-
-            var currentTheme = _paletteHelper.GetTheme();
-            _originalTheme = currentTheme != null ? CloneTheme(currentTheme) : AppTheme.Create(BaseTheme.Light, Colors.Purple, Colors.Blue);
+            SetCurrentThemeValues(_originalTheme);
             SetPresetThemeSelectionFromTheme(_originalTheme);
 
             _originalLanguage = LanguageHelper.GetLanguageFromRegistry();
@@ -71,7 +82,74 @@ namespace FalconsFactionMonitor.Windows
             ApplyButton.IsEnabled = false;
             AdjustWindowSize();
         }
-        private void CredentialControl_Changed(object sender, RoutedEventArgs e)
+
+        private void SetCustomPanelState(bool isCustom)
+        {
+            CustomThemePanel.Visibility = isCustom ? Visibility.Visible : Visibility.Collapsed;
+            CustomThemePanel.IsEnabled = isCustom;
+
+            // harden children too, in case XAML has local IsEnabled bindings
+            PrimaryColorComboBox.IsEnabled = isCustom;
+            AccentColorComboBox.IsEnabled = isCustom;
+        }
+
+        // ---- helper extraction so "Custom" works with more selection shapes ----
+        private Color GetPrimaryFrom(object sel)
+        {
+            // tolerate null (startup / template churn)
+            if (sel is null)
+                return (_paletteHelper.GetTheme() ?? AppTheme.Create(BaseTheme.Light, Colors.Purple, Colors.Blue)).PrimaryMid.Color;
+
+            // our wrapper
+            if (sel is LocalizedSwatch ls) return ls.PrimaryColor;
+            // direct color
+            if (sel is Color c) return c;
+            // Material swatch
+            if (sel is Swatch sw) return sw.ExemplarHue.Color;
+            // Some XAMLs provide ComboBoxItem (Tag or Content may hold data)
+            if (sel is ComboBoxItem cbi)
+            {
+                if (cbi.Tag is Color tc) return tc;
+                if (cbi.Tag is Swatch tsw) return tsw.ExemplarHue.Color;
+                if (cbi.Tag is LocalizedSwatch tls) return tls.PrimaryColor;
+                if (cbi.Content is Color cc) return cc;
+                if (cbi.Content is Swatch csw) return csw.ExemplarHue.Color;
+                if (cbi.Content is LocalizedSwatch cls) return cls.PrimaryColor;
+                
+                // attempt parse if content is a hex string like "#FF7000"
+                if (cbi.Content is string s && s.StartsWith("#"))
+                {
+                    var parsed = (Color?)ColorConverter.ConvertFromString(s);
+                    if (parsed.HasValue) return parsed.Value;
+                }
+            }
+            // fallback to current theme primary to avoid exceptions
+            return (_paletteHelper.GetTheme() ?? AppTheme.Create(BaseTheme.Light, Colors.Purple, Colors.Blue)).PrimaryMid.Color;
+        }
+
+        private Color GetAccentFrom(object sel, Color fallbackPrimary)
+        {
+            if (sel is null) return fallbackPrimary;
+            if (sel is LocalizedSwatch ls) return ls.AccentColor ?? fallbackPrimary;
+            if (sel is Color c) return c;
+            if (sel is Swatch sw) return sw.AccentExemplarHue?.Color ?? fallbackPrimary;
+            if (sel is ComboBoxItem cbi)
+            {
+                if (cbi.Tag is Color tc) return tc;
+                if (cbi.Tag is Swatch tsw) return tsw.AccentExemplarHue?.Color ?? fallbackPrimary;
+                if (cbi.Tag is LocalizedSwatch tls) return tls.AccentColor ?? fallbackPrimary;
+                if (cbi.Content is Color cc) return cc;
+                if (cbi.Content is Swatch csw) return csw.AccentExemplarHue?.Color ?? fallbackPrimary;
+                if (cbi.Content is LocalizedSwatch cls) return cls.AccentColor ?? fallbackPrimary;
+                if (cbi.Content is string s && s.StartsWith("#"))
+                {
+                    var parsed = (Color?)ColorConverter.ConvertFromString(s);
+                    if (parsed.HasValue) return parsed.Value;
+                }
+            }
+            return fallbackPrimary;
+        }
+private void CredentialControl_Changed(object sender, RoutedEventArgs e)
         {
             _pendingUsername = UsernameTextBox.Text;
             _pendingPassword = PasswordBox.Password;
@@ -86,8 +164,8 @@ namespace FalconsFactionMonitor.Windows
         private void PresetThemeComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             string selectedPreset = (PresetThemeComboBox.SelectedItem as ComboBoxItem)?.Content as string;
-            string customLocalized = (string)FindResource("Options_ThemePreset_Custom");
-            CustomThemePanel.Visibility = selectedPreset == customLocalized ? Visibility.Visible : Visibility.Collapsed;
+            string L(string key) => (string)FindResource(key);
+            string customLocalized = L("Options_ThemePreset_Custom");
 
             // Build theme based on preset
             BaseTheme baseTheme;
@@ -96,70 +174,61 @@ namespace FalconsFactionMonitor.Windows
 
             switch (selectedPreset)
             {
-                case "System Default":
+                case var _ when selectedPreset == L("Options_ThemePreset_SystemDefault"):
                     baseTheme = AppTheme.GetSystemTheme() ?? BaseTheme.Light;
                     primary = (Color)AppTheme.GetPrimaryColor(baseTheme);
                     accent = (Color)AppTheme.GetSystemAccentColor();
                     break;
-                case "Light":
+                case var _ when selectedPreset == L("Options_ThemePreset_Light"):
                     baseTheme = BaseTheme.Light;
                     primary = (Color)ColorConverter.ConvertFromString("#7B1FA2");
                     accent = Colors.LightGray;
                     break;
-                case "Dark":
+                case var _ when selectedPreset == L("Options_ThemePreset_Dark"):
                     baseTheme = BaseTheme.Dark;
                     primary = (Color)ColorConverter.ConvertFromString("#64B5F6");
                     accent = Colors.Gray;
                     break;
-                case "High Contrast Light":
+                case var _ when selectedPreset == L("Options_ThemePreset_HighContrastLight"):
                     baseTheme = BaseTheme.Light;
                     primary = Colors.White;
                     accent = Colors.Black;
                     break;
-                case "High Contrast Dark":
+                case var _ when selectedPreset == L("Options_ThemePreset_HighContrastDark"):
                     baseTheme = BaseTheme.Dark;
                     primary = Colors.Black;
                     accent = Colors.Yellow;
                     break;
-                case "Elite: Dangerous":
+                case var _ when selectedPreset == L("Options_ThemePreset_EliteDangerous"):
                     baseTheme = BaseTheme.Dark;
                     primary = (Color)ColorConverter.ConvertFromString("#FF7000");
                     accent = (Color)ColorConverter.ConvertFromString("#FFD000");
                     break;
-                case "Custom":
-                    CustomThemePanel.Visibility = Visibility.Visible;
+                case var _ when selectedPreset == customLocalized:
                     baseTheme = BaseThemeComboBox.SelectedIndex == 0 ? BaseTheme.Light : BaseTheme.Dark;
-                    object psel = PrimaryColorComboBox.SelectedItem;
-                    if (psel is Color pc)
-                        primary = pc;
-                    else if (psel is Swatch psw)
-                        primary = psw.ExemplarHue.Color;
-                    else
-                        primary = Colors.Purple;
-
-                    object asel = AccentColorComboBox.SelectedItem;
-                    if (asel is Color ac)
-                        accent = ac;
-                    else if (asel is Swatch asw)
-                        accent = asw.AccentExemplarHue?.Color ?? primary;
-                    else
-                        accent = primary;
+                    primary = GetPrimaryFrom(PrimaryColorComboBox.SelectedItem);
+                    accent = GetAccentFrom(AccentColorComboBox.SelectedItem, primary);
                     break;
                 default:
+                    // If we can't match (shouldn't happen), keep panel state and bail gracefully.
+                    ApplyButton.IsEnabled = IsThemeChanged();
+                    SetCustomPanelState(selectedPreset == customLocalized);
+                    AdjustWindowSize();
                     return;
             }
 
             _previewTheme = AppTheme.Create(baseTheme, primary, accent);
             _paletteHelper.SetTheme(_previewTheme);
             ApplyButton.IsEnabled = true;
-            bool isCustom = selectedPreset == customLocalized;
-            CustomThemePanel.IsEnabled = isCustom;
+            bool isCustom = selectedPreset == (string)FindResource("Options_ThemePreset_Custom");
+            SetCustomPanelState(selectedPreset == customLocalized);
             AdjustWindowSize();
         }
 
         private void AdjustWindowSize()
         {
-            if (PresetThemeComboBox.SelectedItem is ComboBoxItem item && (item.Content as string) == "Custom")
+            var customLocalized = (string)FindResource("Options_ThemePreset_Custom");
+            if (PresetThemeComboBox.SelectedItem is ComboBoxItem item && (item.Content as string) == customLocalized)
             {
                 this.MinHeight = 420; // Adjust as needed for full custom panel visibility
             }
@@ -175,23 +244,9 @@ namespace FalconsFactionMonitor.Windows
                             ? BaseTheme.Light
                             : BaseTheme.Dark;
 
-            Color primary, accent;
-
-            object sel = PrimaryColorComboBox.SelectedItem;
-            if (sel is Color c)
-                primary = c;
-            else if (sel is Swatch sw)
-                primary = sw.ExemplarHue.Color;
-            else
-                return;
-
-            object sel2 = AccentColorComboBox.SelectedItem;
-            if (sel2 is Color c2)
-                accent = c2;
-            else if (sel2 is Swatch sw2)
-                accent = sw2.AccentExemplarHue?.Color ?? primary;
-            else
-                accent = primary;
+            // tolerate LocalizedSwatch, Color, Swatch, ComboBoxItem, or null for both selectors
+            var primary = GetPrimaryFrom(PrimaryColorComboBox.SelectedItem);
+            var accent = GetAccentFrom(AccentColorComboBox.SelectedItem, primary);
 
             _previewTheme = AppTheme.Create(baseTheme, primary, accent);
             _paletteHelper.SetTheme(_previewTheme);  // Preview only
@@ -211,7 +266,24 @@ namespace FalconsFactionMonitor.Windows
 
                 // ③ force the color pickers back through LoadColorOptions
                 LoadColorOptions();
-                SetCurrentThemeValues();
+                // keep whatever theme the user is previewing; else original; else current
+                var themeForSelection = _previewTheme ?? _originalTheme ?? _paletteHelper.GetTheme();
+                if (themeForSelection != null)
+                {
+                    SetCurrentThemeValues(themeForSelection);
+                    SetPresetThemeSelectionFromTheme(themeForSelection); // reselect preset with localized label
+                    SetCustomPanelState(((PresetThemeComboBox.SelectedItem as ComboBoxItem)?.Content as string)
+                        == (string)FindResource("Options_ThemePreset_Custom"));
+                }
+                    SetCurrentThemeValues(themeForSelection);
+
+                // Update preset combo to localized labels and re-apply panel enable/visibility
+                if (themeForSelection != null)
+                    SetPresetThemeSelectionFromTheme(themeForSelection);
+                
+                var customLocalized = (string)FindResource("Options_ThemePreset_Custom");
+                SetCustomPanelState(((PresetThemeComboBox.SelectedItem as ComboBoxItem)?.Content as string) == customLocalized);
+
 
                 // ④ force the selected item to re-template
                 PrimaryColorComboBox.Items.Refresh();
@@ -252,25 +324,25 @@ namespace FalconsFactionMonitor.Windows
             AccentColorComboBox.ItemsSource = items;
         }
 
-
-        private void SetCurrentThemeValues()
+        private void SetCurrentThemeValues(ITheme theme)
         {
-            ITheme theme = _paletteHelper.GetTheme();
+            if (theme is null) return;
 
             // Set BaseTheme ComboBox
-            BaseThemeComboBox.SelectedIndex = theme.GetBaseTheme() == BaseTheme.Light ? 0 : 1;
+            BaseThemeComboBox.SelectedIndex = theme.GetBaseTheme() == BaseTheme.Light? 0 : 1;
 
-            // Set current primary and accent colors
-            var swatches = _swatchesProvider.Swatches.ToList();
+            // Find matching LocalizedSwatch items in the bound ItemsSource
+            var primaryItem = PrimaryColorComboBox.Items
+                .OfType<LocalizedSwatch>()
+                .FirstOrDefault(i => i.PrimaryColor == theme.PrimaryMid.Color);
 
-            var currentPrimary = swatches.FirstOrDefault(s => s.ExemplarHue.Color == theme.PrimaryMid.Color);
-            var currentAccent = swatches.FirstOrDefault(s => s.AccentExemplarHue?.Color == theme.SecondaryMid.Color);
+            var accentItem = AccentColorComboBox.Items
+                .OfType<LocalizedSwatch>()
+                .FirstOrDefault(i => (i.AccentColor ?? i.PrimaryColor) == theme.SecondaryMid.Color);
 
-            if (currentPrimary != null)
-                PrimaryColorComboBox.SelectedItem = currentPrimary;
-
-            if (currentAccent != null)
-                AccentColorComboBox.SelectedItem = currentAccent;
+            if (primaryItem != null) PrimaryColorComboBox.SelectedItem = primaryItem;
+            if (accentItem  != null) AccentColorComboBox.SelectedItem  = accentItem;
+            AccentColorComboBox.SelectedItem ??= PrimaryColorComboBox.SelectedItem;
         }
 
         private async void ApplyButton_Click(object sender, RoutedEventArgs e)
@@ -377,39 +449,29 @@ namespace FalconsFactionMonitor.Windows
 
         private void ForceThemeComboBoxSelections(Theme theme)
         {
-            // Match primary color
-            foreach (var item in PrimaryColorComboBox.Items)
+            // Match primary
+            foreach (var item in PrimaryColorComboBox.Items.OfType<LocalizedSwatch>())
             {
-                if (item is ComboBoxItem comboItem && ((Color)comboItem.Tag) == theme.PrimaryMid.Color)
+                if (item.PrimaryColor == theme.PrimaryMid.Color)
                 {
-                    PrimaryColorComboBox.SelectedItem = comboItem;
-                    break;
-                }
-                else if (item is Swatch swatch && swatch.ExemplarHue.Color == theme.PrimaryMid.Color)
-                {
-                    PrimaryColorComboBox.SelectedItem = swatch;
+                    PrimaryColorComboBox.SelectedItem = item;
                     break;
                 }
             }
-
-            // Match accent color
-            foreach (var item in AccentColorComboBox.Items)
+            
+            // Match accent
+            foreach (var item in AccentColorComboBox.Items.OfType<LocalizedSwatch>())
             {
-                if (item is ComboBoxItem comboItem && ((Color)comboItem.Tag) == theme.SecondaryMid.Color)
+                if ((item.AccentColor ?? item.PrimaryColor) == theme.SecondaryMid.Color)
                 {
-                    AccentColorComboBox.SelectedItem = comboItem;
-                    break;
-                }
-                else if (item is Swatch swatch && swatch.AccentExemplarHue?.Color == theme.SecondaryMid.Color)
-                {
-                    AccentColorComboBox.SelectedItem = swatch;
+                    AccentColorComboBox.SelectedItem = item;
                     break;
                 }
             }
 
             // Fallback if no accent match
             AccentColorComboBox.SelectedItem ??= PrimaryColorComboBox.SelectedItem;
-
+            
             BaseThemeComboBox.SelectedIndex = theme.GetBaseTheme() == BaseTheme.Light ? 0 : 1;
         }
 
@@ -477,8 +539,10 @@ namespace FalconsFactionMonitor.Windows
                 mainWindow.Show();
             }
         }
-        private void SetPresetThemeSelectionFromTheme(Theme theme)
+        private void SetPresetThemeSelectionFromTheme(ITheme theme)
         {
+            // Use localized labels so selection works in all languages
+            string L(string key) => (string)FindResource(key);
             string presetMatch;
 
             // Detect "System Default"
@@ -492,35 +556,35 @@ namespace FalconsFactionMonitor.Windows
                 theme.PrimaryMid.Color == systemTheme.PrimaryMid.Color &&
                 theme.SecondaryMid.Color == systemTheme.SecondaryMid.Color)
             {
-                presetMatch = "System Default";
+                presetMatch = L("Options_ThemePreset_SystemDefault");
             }
             else if (theme.GetBaseTheme() == BaseTheme.Light &&
                 theme.PrimaryMid.Color == (Color)ColorConverter.ConvertFromString("#7B1FA2") &&
                 theme.SecondaryMid.Color == Colors.LightGray)
-                presetMatch = "Light";
+                presetMatch = L("Options_ThemePreset_Light");
 
             else if (theme.GetBaseTheme() == BaseTheme.Dark &&
                      theme.PrimaryMid.Color == (Color)ColorConverter.ConvertFromString("#64B5F6") &&
                      theme.SecondaryMid.Color == Colors.Gray)
-                presetMatch = "Dark";
+                presetMatch = L("Options_ThemePreset_Dark");
 
             else if (theme.GetBaseTheme() == BaseTheme.Light &&
                      theme.PrimaryMid.Color == Colors.White &&
                      theme.SecondaryMid.Color == Colors.Black)
-                presetMatch = "High Contrast Light";
+                presetMatch = L("Options_ThemePreset_HighContrastLight");
 
             else if (theme.GetBaseTheme() == BaseTheme.Dark &&
                      theme.PrimaryMid.Color == Colors.Black &&
                      theme.SecondaryMid.Color == Colors.Yellow)
-                presetMatch = "High Contrast Dark";
+                presetMatch = L("Options_ThemePreset_HighContrastDark");
 
             else if (theme.GetBaseTheme() == BaseTheme.Dark &&
                      theme.PrimaryMid.Color == (Color)ColorConverter.ConvertFromString("#FF7000") &&
                      theme.SecondaryMid.Color == (Color)ColorConverter.ConvertFromString("#FFD000"))
-                presetMatch = "Elite: Dangerous";
+                presetMatch = L("Options_ThemePreset_EliteDangerous");
 
             else
-                presetMatch = (string)FindResource("Options_ThemePreset_Custom");
+                presetMatch = L("Options_ThemePreset_Custom");
 
             foreach (ComboBoxItem item in PresetThemeComboBox.Items)
             {
@@ -531,7 +595,9 @@ namespace FalconsFactionMonitor.Windows
                 }
             }
 
-            CustomThemePanel.Visibility = presetMatch == (string)FindResource("Options_ThemePreset_Custom") ? Visibility.Visible : Visibility.Collapsed;
+            bool isCustom = presetMatch == (string)FindResource("Options_ThemePreset_Custom");
+            SetCustomPanelState(isCustom);
+            AdjustWindowSize();
         }
         private void UpdateLocalizedText()
         {

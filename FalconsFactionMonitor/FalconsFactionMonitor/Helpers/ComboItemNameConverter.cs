@@ -1,9 +1,10 @@
-﻿using System;
+﻿using MaterialDesignColors;
+using System;
 using System.Globalization;
 using System.Windows;
 using System.Windows.Data;
+using System.Windows.Input;
 using System.Windows.Media;
-using MaterialDesignColors;
 
 namespace FalconsFactionMonitor.Windows
 {
@@ -11,6 +12,8 @@ namespace FalconsFactionMonitor.Windows
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
+            // 0) LocalizedSwatch: single source of truth
+            if (value is LocalizedSwatch ls) return ls.DisplayName;
             // 1) a System.Windows.Media.Color
             if (value is Color c)
             {

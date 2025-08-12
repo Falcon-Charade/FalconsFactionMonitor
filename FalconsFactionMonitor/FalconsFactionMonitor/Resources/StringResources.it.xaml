@@ -3,7 +3,7 @@
     <ns0:String x:Key="InfluenceHistory_End">Data di fine:</ns0:String>
     <ns0:String x:Key="InfluenceHistory_Faction">Fazione</ns0:String>
     <ns0:String x:Key="InfluenceHistory_Max">Influenza massima:</ns0:String>
-    <ns0:String x:Key="InfluenceHistory_Min">Influenza min:</ns0:String>
+    <ns0:String x:Key="InfluenceHistory_Min">Min influenza:</ns0:String>
     <ns0:String x:Key="InfluenceHistory_Start">Data di inizio:</ns0:String>
     <ns0:String x:Key="InfluenceHistory_System">Sistema</ns0:String>
 	<ns0:String x:Key="InfluenceHistory_Title">Influenzare la storia</ns0:String>
@@ -70,7 +70,7 @@
 	<ns0:String x:Key="Options_LanguageOption_Japanese">日本語</ns0:String>
 	<ns0:String x:Key="Options_LanguageOption_Russian">Русский</ns0:String>
 	<ns0:String x:Key="Options_LanguageOption_Spanish">Español</ns0:String>
-	<ns0:String x:Key="Options_Password">Nome utente:</ns0:String>
+	<ns0:String x:Key="Options_Password">Password:</ns0:String>
 	<ns0:String x:Key="Options_PresetLabel">Preimpostazione:</ns0:String>
 	<ns0:String x:Key="Options_ResetButton">Reset</ns0:String>
 	<ns0:String x:Key="Options_CSVSaveLoc">Imposta la posizione di salvataggio CSV:</ns0:String>
@@ -88,7 +88,7 @@
 	<ns0:String x:Key="WebRetrieval_Heading">Benvenuti nel recupero web di Falcon.</ns0:String>
 	<ns0:String x:Key="WebRetrieval_CheckInara">Controlla Inara per gli aggiornamenti della fazione?</ns0:String>
 	<ns0:String x:Key="WebRetrieval_CheckBoxInara">Controlla la casella di controllo Inara</ns0:String>
-	<ns0:String x:Key="WebRetrieval_SaveCSV">Salvare i dati in CSV?</ns0:String>
+	<ns0:String x:Key="WebRetrieval_SaveCSV">Salva i dati in CSV?</ns0:String>
 	<ns0:String x:Key="WebRetrieval_SaveCSVBox">Salva casella di controllo CSV</ns0:String>
 	<ns0:String x:Key="WebRetrieval_FactionCheck">Fazione da controllare:</ns0:String>
 	<ns0:String x:Key="WebRetrieval_FactionPrefill">Nome fazione</ns0:String>
