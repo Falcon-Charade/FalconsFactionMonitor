@@ -14,7 +14,7 @@
 	<ns0:String x:Key="JournalMonitor_Button_OpenFolder">Посмотреть папку журнала</ns0:String>
 	<ns0:String x:Key="JournalMonitor_Button_ExitService">ВЫХОДНЫЙ СЛУЖБА</ns0:String>
 	<ns0:String x:Key="Main_Title">Соколиные фракционные мониторы</ns0:String>
-	<ns0:String x:Key="Main_Heading1">Добро пожаловать в монитор фракции Falcon.</ns0:String>
+	<ns0:String x:Key="Main_Heading1">Добро пожаловать на монитор фракции Falcon.</ns0:String>
 	<ns0:String x:Key="Main_Heading2">Нажмите кнопку ниже, чтобы запустить соответствующую службу.</ns0:String>
 	<ns0:String x:Key="Main_ServiceButton">Откройте сервис</ns0:String>
 	<ns0:String x:Key="Main_ServiceButton_InfluenceHistory">Влиять на историю</ns0:String>
@@ -23,8 +23,8 @@
 	<ns0:String x:Key="Main_OutputLog">Основное окно окна</ns0:String>
 	<ns0:String x:Key="Main_Button_Options">Параметры</ns0:String>
 	<ns0:String x:Key="Main_Button_Exit">Выход</ns0:String>
-	<ns0:String x:Key="Main_Status_StartingJournal">Служба начального журнала монитора.</ns0:String>
-	<ns0:String x:Key="Main_Status_StartingWeb">Начало сервиса поиска веб -сайта.</ns0:String>
+	<ns0:String x:Key="Main_Status_StartingJournal">Служба монитора стартового журнала.</ns0:String>
+	<ns0:String x:Key="Main_Status_StartingWeb">Служба начала веб -поиска.</ns0:String>
 	<ns0:String x:Key="Main_Status_OpeningOptions">Варианты открытия.</ns0:String>
 	<ns0:String x:Key="Options_ApplyButton">Применять</ns0:String>
 	<ns0:String x:Key="Options_Button_SetCSVSave">Выберите путь сохранения CSV</ns0:String>
@@ -59,7 +59,7 @@
 	<ns0:String x:Key="Options_Custom_ColorSwatch_Grey">Серый</ns0:String>
 	<ns0:String x:Key="Options_Custom_ColorSwatch_BlueGrey">Синий серый</ns0:String>
 	<ns0:String x:Key="Options_FontSizeLabel">Размер шрифта:</ns0:String>
-	<ns0:String x:Key="Options_JournalSaveLoc">Установите местоположение папки журнала:</ns0:String>
+	<ns0:String x:Key="Options_JournalSaveLoc">Установить местоположение папки журнала:</ns0:String>
 	<ns0:String x:Key="Options_LanguageLabel">Язык:</ns0:String>
 	<ns0:String x:Key="Options_LanguageOption_Afrikaans">Afrikaans</ns0:String>
 	<ns0:String x:Key="Options_LanguageOption_Chinese">中文</ns0:String>
@@ -70,10 +70,10 @@
 	<ns0:String x:Key="Options_LanguageOption_Japanese">日本語</ns0:String>
 	<ns0:String x:Key="Options_LanguageOption_Russian">Русский</ns0:String>
 	<ns0:String x:Key="Options_LanguageOption_Spanish">Español</ns0:String>
-	<ns0:String x:Key="Options_Password">Имя пользователя:</ns0:String>
-	<ns0:String x:Key="Options_PresetLabel">ПРЕДУПРЕТНАЯ:</ns0:String>
+	<ns0:String x:Key="Options_Password">Пароль:</ns0:String>
+	<ns0:String x:Key="Options_PresetLabel">Предустановка:</ns0:String>
 	<ns0:String x:Key="Options_ResetButton">Перезагрузить</ns0:String>
-	<ns0:String x:Key="Options_CSVSaveLoc">Установите место для сохранения CSV:</ns0:String>
+	<ns0:String x:Key="Options_CSVSaveLoc">Установите место сохранения CSV:</ns0:String>
 	<ns0:String x:Key="Options_ThemeOptions">Варианты темы</ns0:String>
 	<ns0:String x:Key="Options_ThemePreset_Custom">Обычай</ns0:String>
 	<ns0:String x:Key="Options_ThemePreset_Dark">Темный</ns0:String>
@@ -85,12 +85,12 @@
 	<ns0:String x:Key="Options_Title">Параметры</ns0:String>
 	<ns0:String x:Key="Options_Username">Имя пользователя:</ns0:String>
 	<ns0:String x:Key="WebRetrieval_Title">Веб -сервис</ns0:String>
-	<ns0:String x:Key="WebRetrieval_Heading">Добро пожаловать в Falcon's Web -поиск.</ns0:String>
+	<ns0:String x:Key="WebRetrieval_Heading">Добро пожаловать в веб -поиск Falcon.</ns0:String>
 	<ns0:String x:Key="WebRetrieval_CheckInara">Проверьте INARA для обновлений фракции?</ns0:String>
 	<ns0:String x:Key="WebRetrieval_CheckBoxInara">Проверьте флажок INARA</ns0:String>
 	<ns0:String x:Key="WebRetrieval_SaveCSV">Сохранить данные в CSV?</ns0:String>
 	<ns0:String x:Key="WebRetrieval_SaveCSVBox">Сохранить флажок CSV</ns0:String>
-	<ns0:String x:Key="WebRetrieval_FactionCheck">Фракция для проверки:</ns0:String>
+	<ns0:String x:Key="WebRetrieval_FactionCheck">Фракция, чтобы проверить:</ns0:String>
 	<ns0:String x:Key="WebRetrieval_FactionPrefill">Имя фракции</ns0:String>
 	<ns0:String x:Key="WebRetrieval_Button_StartService">Начало обслуживания</ns0:String>
 	<ns0:String x:Key="WebRetrieval_OutputLog">Журнал вывода веб -поиска</ns0:String>

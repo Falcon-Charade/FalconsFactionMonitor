@@ -23,7 +23,7 @@
 	<ns0:String x:Key="Main_OutputLog">Hauptfenster Ausgangsprotokoll</ns0:String>
 	<ns0:String x:Key="Main_Button_Options">Optionen</ns0:String>
 	<ns0:String x:Key="Main_Button_Exit">Ausfahrt</ns0:String>
-	<ns0:String x:Key="Main_Status_StartingJournal">Journal Monitor Service starten.</ns0:String>
+	<ns0:String x:Key="Main_Status_StartingJournal">Journal Monitor -Service starten.</ns0:String>
 	<ns0:String x:Key="Main_Status_StartingWeb">Starten des Webabrufservice.</ns0:String>
 	<ns0:String x:Key="Main_Status_OpeningOptions">Öffnungsmöglichkeiten.</ns0:String>
 	<ns0:String x:Key="Options_ApplyButton">Anwenden</ns0:String>
@@ -59,7 +59,7 @@
 	<ns0:String x:Key="Options_Custom_ColorSwatch_Grey">Grau</ns0:String>
 	<ns0:String x:Key="Options_Custom_ColorSwatch_BlueGrey">Blaugrau</ns0:String>
 	<ns0:String x:Key="Options_FontSizeLabel">Schriftgröße:</ns0:String>
-	<ns0:String x:Key="Options_JournalSaveLoc">Set Journal Ordner Standort:</ns0:String>
+	<ns0:String x:Key="Options_JournalSaveLoc">Setzen Sie den Ordner des Journalordners Standort:</ns0:String>
 	<ns0:String x:Key="Options_LanguageLabel">Sprache:</ns0:String>
 	<ns0:String x:Key="Options_LanguageOption_Afrikaans">Afrikaans</ns0:String>
 	<ns0:String x:Key="Options_LanguageOption_Chinese">中文</ns0:String>
@@ -70,10 +70,10 @@
 	<ns0:String x:Key="Options_LanguageOption_Japanese">日本語</ns0:String>
 	<ns0:String x:Key="Options_LanguageOption_Russian">Русский</ns0:String>
 	<ns0:String x:Key="Options_LanguageOption_Spanish">Español</ns0:String>
-	<ns0:String x:Key="Options_Password">Benutzername:</ns0:String>
+	<ns0:String x:Key="Options_Password">Passwort:</ns0:String>
 	<ns0:String x:Key="Options_PresetLabel">Voreinstellung:</ns0:String>
 	<ns0:String x:Key="Options_ResetButton">Zurücksetzen</ns0:String>
-	<ns0:String x:Key="Options_CSVSaveLoc">Setzen Sie CSV Speicherort:</ns0:String>
+	<ns0:String x:Key="Options_CSVSaveLoc">Setzen Sie den CSV -Speicherort speichern:</ns0:String>
 	<ns0:String x:Key="Options_ThemeOptions">Themenoptionen</ns0:String>
 	<ns0:String x:Key="Options_ThemePreset_Custom">Brauch</ns0:String>
 	<ns0:String x:Key="Options_ThemePreset_Dark">Dunkel</ns0:String>
@@ -86,11 +86,11 @@
 	<ns0:String x:Key="Options_Username">Benutzername:</ns0:String>
 	<ns0:String x:Key="WebRetrieval_Title">Webdienst</ns0:String>
 	<ns0:String x:Key="WebRetrieval_Heading">Willkommen bei Falcon's Web Abruf.</ns0:String>
-	<ns0:String x:Key="WebRetrieval_CheckInara">Inara nach Fraktionsaktualisierungen überprüfen?</ns0:String>
+	<ns0:String x:Key="WebRetrieval_CheckInara">Überprüfen Sie Inara auf Fraktionsaktualisierungen?</ns0:String>
 	<ns0:String x:Key="WebRetrieval_CheckBoxInara">Überprüfen Sie das Kontrollkästchen Inara</ns0:String>
 	<ns0:String x:Key="WebRetrieval_SaveCSV">Daten in CSV speichern?</ns0:String>
 	<ns0:String x:Key="WebRetrieval_SaveCSVBox">Speichern Sie das CSV -Kontrollkästchen</ns0:String>
-	<ns0:String x:Key="WebRetrieval_FactionCheck">Fraktion zum Überprüfen:</ns0:String>
+	<ns0:String x:Key="WebRetrieval_FactionCheck">Fraktion zu überprüfen:</ns0:String>
 	<ns0:String x:Key="WebRetrieval_FactionPrefill">Fraktionsname</ns0:String>
 	<ns0:String x:Key="WebRetrieval_Button_StartService">Service starten</ns0:String>
 	<ns0:String x:Key="WebRetrieval_OutputLog">Web -Abrufausgabeprotokollprotokoll</ns0:String>

@@ -70,8 +70,8 @@
 	<ns0:String x:Key="Options_LanguageOption_Japanese">日本語</ns0:String>
 	<ns0:String x:Key="Options_LanguageOption_Russian">Русский</ns0:String>
 	<ns0:String x:Key="Options_LanguageOption_Spanish">Español</ns0:String>
-	<ns0:String x:Key="Options_Password">Nom d'utilisateur:</ns0:String>
-	<ns0:String x:Key="Options_PresetLabel">Préréglage:</ns0:String>
+	<ns0:String x:Key="Options_Password">Mot de passe:</ns0:String>
+	<ns0:String x:Key="Options_PresetLabel">Prérégler:</ns0:String>
 	<ns0:String x:Key="Options_ResetButton">Réinitialiser</ns0:String>
 	<ns0:String x:Key="Options_CSVSaveLoc">Définir l'emplacement de CSV Save:</ns0:String>
 	<ns0:String x:Key="Options_ThemeOptions">Options à thème</ns0:String>

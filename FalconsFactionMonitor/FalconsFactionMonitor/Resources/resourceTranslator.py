@@ -15,6 +15,7 @@ from pathlib import Path
 
 # Keys to skip translating (endonyms for language selection)
 SKIP_KEY_REGEX = re.compile(r'^Options_LanguageOption_')
+PUNCT_TAIL_RE = re.compile(r'^(.*?)([:：。.!?;…]+)$', re.DOTALL)
 
 # Manual per-string overrides (use EN text as keys; values per target lang)
 MANUAL_OVERRIDES = {
@@ -66,6 +67,15 @@ PLACEHOLDER_PATTERNS = [
     r'&[a-zA-Z]+;', r'&#\d+;', r'&#x[0-9A-Fa-f]+;',  # XML entities
 ]
 PROTECTED_RE = re.compile('(' + '|'.join(PLACEHOLDER_PATTERNS) + ')')
+
+def _split_trailing_punct(s: str):
+    """
+    Returns (core_without_trailing_punct, trailing_punct_or_empty)
+    """
+    m = PUNCT_TAIL_RE.match(s)
+    if m:
+        return m.group(1), m.group(2)
+    return s, ""
 
 def normalize_lang_for_provider(provider: str, lang: str) -> str:
     L = lang.lower()
@@ -129,6 +139,8 @@ def try_azure_batch(lines, target_lang):
 
 def _allow_unchanged(text: str) -> bool:
     s = text.strip()
+    # NEW: ignore trailing punctuation when judging "unchanged is acceptable"
+    s_np, _punct = _split_trailing_punct(s)
 
     # Common cases that are often identical across languages
     NONTRANSLATABLE_COLORS = {
@@ -140,24 +152,26 @@ def _allow_unchanged(text: str) -> bool:
         "Mustard", "Azure", "Gray", "Grey", "Blue Grey", "Deep Purple", "Deep Orange"
     }
 
+    t = s_np  # evaluate rules on the no-punct version
+    
     # 1) Exact color names
-    if s in NONTRANSLATABLE_COLORS:
+    if t in NONTRANSLATABLE_COLORS:
         return True
 
     # 2) Very short tokens or pure numbers often don't translate
-    if len(s) <= 3:
+    if len(t) <= 3:
         return True
-    if re.fullmatch(r'\d+(\.\d+)?', s):  # numbers
+    if re.fullmatch(r'\d+(\.\d+)?', t):
         return True
 
     # 3) Acronyms / codes / filenames (e.g., "ABN", "CSV", "v1.2.3")
-    if re.fullmatch(r'[A-Z0-9._-]+', s):
+    if re.fullmatch(r'[A-Z0-9._-]+', t):
         return True
-
+        
     # 4) Single “word-ish” tokens (proper nouns often stay the same)
-    if re.fullmatch(r'[A-Za-z][A-Za-z0-9_-]*', s):
+    if re.fullmatch(r'[A-Za-z][A-Za-z0-9_-]*', t):
         return True
-
+        
     # Otherwise, we expect a translation
     return False
 
@@ -220,22 +234,27 @@ def translate_values_preserve_format(src_text: str, target_lang: str, mode: str)
         trailing_ws_match = re.search(r'\s*$', inner, re.DOTALL)
         trailing_ws = trailing_ws_match.group(0) if trailing_ws_match else ""
         core = inner[len(leading_ws):len(inner)-len(trailing_ws)] if len(inner) >= len(leading_ws)+len(trailing_ws) else inner.strip()
+        core_np, core_punct = _split_trailing_punct(core)
 
         # --- NEW: manual override first (compare against raw core, no token protection needed here)
-        mo = MANUAL_OVERRIDES.get(core)
+        mo = MANUAL_OVERRIDES.get(core_np)
         if mo and target_lang in mo:
-            translated_core = mo[target_lang]
+            translated_core = mo[target_lang] + core_punct
             out.append(src_text[last:m.start()])
             out.append(prefix + leading_ws + translated_core + trailing_ws + suffix)
             last = m.end()
             continue
         # --- END NEW
+        
+        # Protect tokens on the punctuation-free core
+        protected, token_map = protect_tokens(core_np)
 
-        protected, token_map = protect_tokens(core)
+        # Robust translation
+        translated_core_np = robust_translate_one(protected, target_lang, order=order, max_retries=4)
+        restored_np = restore_tokens(translated_core_np, token_map)
 
-        # Robust translation with fallbacks (your existing function)
-        translated_core = robust_translate_one(protected, target_lang, order=order, max_retries=4)
-        restored = restore_tokens(translated_core, token_map)
+        # Reattach any trailing punctuation exactly as in source
+        restored = restored_np + core_punct
 
         out.append(src_text[last:m.start()])
         out.append(prefix + leading_ws + restored + trailing_ws + suffix)
