@@ -28,6 +28,21 @@
                      Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}"
                      Margin="0,0,10,0"
                      ToolTip="Enter faction or system name..."/>
+            <Button Content="{DynamicResource InfluenceHistory_Button_Report}"
+                    Margin="10,0,0,0"
+                    FontSize="{DynamicResource GlobalFontSize}"
+                    Command="{Binding ReportCommand}"/>
+            <Button x:Name="ReportOptionsButton"
+                    Margin="8,0,0,0"
+                    Content="{DynamicResource InfluenceHistory_Button_ReportOptions}"
+                    Click="ReportOptionsButton_Click">
+                <Button.ContextMenu>
+                    <ContextMenu x:Name="ReportOptionsMenu" Placement="Bottom">
+                        <MenuItem Header="{DynamicResource InfluenceHistory_Button_ReportLocationSave}" Command="{Binding SetReportFolderCommand}" />
+                        <MenuItem Header="{DynamicResource InfluenceHistory_Button_ReportLocationOpen}" Command="{Binding OpenReportFolderCommand}" />
+                    </ContextMenu>
+                </Button.ContextMenu>
+            </Button>
         </StackPanel>
         <StackPanel Orientation="Horizontal" Margin="0,0,0,10" Grid.Row="1" VerticalAlignment="Center">
             <Label Content="{DynamicResource InfluenceHistory_Start}"

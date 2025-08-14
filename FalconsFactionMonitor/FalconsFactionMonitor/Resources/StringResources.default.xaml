@@ -1,5 +1,9 @@
 <ResourceDictionary xmlns:ns0="clr-namespace:System;assembly=mscorlib" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:sys="clr-namespace:System;assembly=mscorlib">
     <ns0:String x:Key="InfluenceHistory_Button_Search">Search</ns0:String>
+    <ns0:String x:Key="InfluenceHistory_Button_Report">Generate Report</ns0:String>
+    <ns0:String x:Key="InfluenceHistory_Button_ReportOptions">Report Options</ns0:String>
+    <ns0:String x:Key="InfluenceHistory_Button_ReportLocationSave">Set Save Location…</ns0:String>
+    <ns0:String x:Key="InfluenceHistory_Button_ReportLocationOpen">Open Save Location</ns0:String>
     <ns0:String x:Key="InfluenceHistory_End">End Date:</ns0:String>
     <ns0:String x:Key="InfluenceHistory_Faction">Faction</ns0:String>
     <ns0:String x:Key="InfluenceHistory_Max">Max Influence:</ns0:String>
