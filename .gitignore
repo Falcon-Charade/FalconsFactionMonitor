@@ -364,3 +364,5 @@ FodyWeavers.xsd
 /FalconsFactionMonitor/FalconsFactionMonitor/Output
 /FalconsFactionMonitor/FactionMonitorSetup/Setup.msi
 /FalconsFactionMonitor/FactionMonitorSetup/FactionMonitorSetup-cache
+/FalconsFactionMonitor/Setup/Setup-cache
+/FalconsFactionMonitor/Setup/Setup-SetupFiles/Setup.msi

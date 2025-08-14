@@ -2,25 +2,33 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">All</Configuration>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>8f1c65da-fcaf-40aa-9c2b-b3a537c4ad5e</ProjectGuid>
+    <ProjectGuid>789a25a7-9a6d-4d4e-9566-8197170375c3</ProjectGuid>
     <OutputType>msi</OutputType>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>FactionMonitorSetup.aip</StartupFile>
+    <StartupFile>Setup.aip</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <IsWindowsApplication>True</IsWindowsApplication>
-    <AssemblyName>FactionMonitorSetup</AssemblyName>
-    <Name>FactionMonitorSetup</Name>
-    <RootNamespace>FactionMonitorSetup</RootNamespace>
+    <AssemblyName>Setup</AssemblyName>
+    <Name>Setup</Name>
+    <RootNamespace>Setup</RootNamespace>
     <LoadFromTemplate>
     </LoadFromTemplate>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'DefaultBuild' " />
   <ItemGroup>
-    <Compile Include="FactionMonitorSetup.aip">
+    <Compile Include="Setup.aip">
       <SubType>Code</SubType>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FalconsFactionMonitor\FalconsFactionMonitor.csproj">
+      <Name>FalconsFactionMonitor</Name>
+      <Project>{a603e702-f2a3-4c00-98eb-151775302ab5}</Project>
+      <Private>True</Private>
+      <OutputsToImport>PublishOutput#Publishx64#bin\Release-publish-x64\###FileSystem#net8.0-windows#win-x64#true#true#false#</OutputsToImport>
+    </ProjectReference>
   </ItemGroup>
   <Target Name="Build">
     <Error Text="This project requires Advanced Installer tool. Please download it from https://www.advancedinstaller.com/download.html" />
