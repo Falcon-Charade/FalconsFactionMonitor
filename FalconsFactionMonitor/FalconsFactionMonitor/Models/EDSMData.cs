@@ -49,7 +49,7 @@ namespace FalconsFactionMonitor.Models
         public string name { get; set; }
         public string allegiance { get; set; }
         public string government { get; set; }
-        public double influence { get; set; }
+        public decimal influence { get; set; }
         public string state { get; set; }
         public List<State> activeStates { get; set; }
         public List<State> recoveringStates { get; set; }

@@ -34,10 +34,10 @@
     <ROW Property="ARPURLINFOABOUT" Value="https://github.com/Falcon-Charade/FalconsFactionMonitor"/>
     <ROW Property="ARPURLUPDATEINFO" Value="https://github.com/Falcon-Charade/FalconsFactionMonitor/releases/latest"/>
     <ROW Property="Manufacturer" Value="FalconCharade"/>
-    <ROW Property="ProductCode" Value="1033:{20E95C17-6976-49AB-B526-6F0EA46CB505} " Type="16"/>
+    <ROW Property="ProductCode" Value="1033:{FC8D082F-A6B7-4B61-B6E7-2977E4075661} " Type="16"/>
     <ROW Property="ProductLanguage" Value="1033"/>
     <ROW Property="ProductName" Value="FalconsFactionMonitor"/>
-    <ROW Property="ProductVersion" Value="4.1.4" Options="32"/>
+    <ROW Property="ProductVersion" Value="4.1.5" Options="32"/>
     <ROW Property="SecureCustomProperties" Value="OLDPRODUCTS;AI_NEWERPRODUCTFOUND"/>
     <ROW Property="UpgradeCode" Value="{0BB77E5D-777D-4A66-BF04-D87EB58DE111}"/>
     <ROW Property="WindowsType9X" MultiBuildValue="DefaultBuild:Windows 9x/ME" ValueLocId="-"/>
