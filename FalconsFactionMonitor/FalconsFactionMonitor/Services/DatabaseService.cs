@@ -3,6 +3,7 @@ using FalconsFactionMonitor.Models;
 using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Globalization;
 using System.IO;
 using System.Linq;
@@ -63,12 +64,20 @@ namespace FalconsFactionMonitor.Services
 
                     using SqlCommand command = new(storedProc, connection);
                     {
-                        command.Parameters.AddWithValue("@SystemName", faction.SystemName);
-                        command.Parameters.AddWithValue("@FactionName", faction.FactionName);
-                        command.Parameters.AddWithValue("@Influence", faction.InfluencePercent);
-                        command.Parameters.AddWithValue("@State", faction.State);
-                        command.Parameters.AddWithValue("@PlayerFaction", faction.IsPlayer);
-                        command.Parameters.AddWithValue("@LastUpdated", faction.LastUpdated);
+                        var p = new SqlParameter("@Influence", SqlDbType.Decimal)
+                        {
+                            Precision = 5,
+                            Scale = 2
+                        };
+                        p.Value = faction.InfluencePercent;
+                        command.Parameters.Add(p);
+
+                        command.Parameters.Add("@SystemName", SqlDbType.NVarChar, 255).Value = faction.SystemName;
+                        command.Parameters.Add("@FactionName", SqlDbType.NVarChar, 255).Value = faction.FactionName;
+                        command.Parameters.Add("@State", SqlDbType.NVarChar, 50).Value = faction.State;
+                        command.Parameters.Add("@PlayerFaction", SqlDbType.Bit).Value = faction.IsPlayer;
+                        command.Parameters.Add("@LastUpdated", SqlDbType.DateTimeOffset).Value =
+                            DateTime.ParseExact(faction.LastUpdated, "yyyy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture);
                         command.ExecuteNonQuery();
                     }
                 }

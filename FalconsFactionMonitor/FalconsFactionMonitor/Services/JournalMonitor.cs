@@ -269,8 +269,8 @@ namespace FalconsFactionMonitor.Services
                             {
                                 foreach (var faction in factions)
                                 {
-                                    double influence = faction["Influence"]?.ToObject<double>() ?? 0.0;
-                                    influence = Math.Round(influence * 100, 2);  // Convert from 0.x to xx.xx
+                                    decimal influence = faction["Influence"]?.ToObject<decimal>() ?? 0.0m;
+                                    influence = Math.Round(influence * 100m, 2);  // Convert from 0.x to xx.xx
 
                                     bool isPlayer = faction["SquadronFaction"]?.ToObject<bool>() ?? false;
                                     string state = faction["FactionState"]?.ToString();

@@ -4,8 +4,8 @@
     {
         public string SystemName { get; set; }
         public string FactionName { get; set; }
-        public double InfluencePercent { get; set; }
-        public double Difference { get; set; }
+        public decimal InfluencePercent { get; set; }
+        public decimal Difference { get; set; }
         public bool IsPlayer { get; set; }
         public string LastUpdated { get; set; }
     }

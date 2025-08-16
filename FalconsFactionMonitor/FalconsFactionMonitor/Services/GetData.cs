@@ -51,7 +51,7 @@ internal static class GetData
             var influenceText = cells[1].InnerText.Trim();
             var lastUpdatedText = cells[3].InnerText.Trim();
 
-            if (double.TryParse(influenceText.TrimEnd('%'), out double influence))
+            if (decimal.TryParse(influenceText.TrimEnd('%'), out decimal influence))
             {
                 systems.Add(new FactionSystem
                 {
@@ -89,7 +89,7 @@ internal static class GetData
 
                 foreach (var faction in responseJSON.factions)
                 {
-                    var influence = Math.Round(faction.influence * 100, 2);
+                    decimal influence = Math.Round(faction.influence * 100m, 2);
                     string lastUpdated = DateTimeOffset.FromUnixTimeSeconds(faction.lastUpdate).UtcDateTime.ToString();
 
                     allFactions.Add(new FactionDetail
@@ -180,8 +180,8 @@ internal static class GetData
             var columns = line.Split(',');
             if (columns.Length < 5) continue;
 
-            if (double.TryParse(columns[2], NumberStyles.Any, CultureInfo.InvariantCulture, out double influencePercent) &&
-                double.TryParse(columns[3], NumberStyles.Any, CultureInfo.InvariantCulture, out double difference))
+            if (decimal.TryParse(columns[2], NumberStyles.Any, CultureInfo.InvariantCulture, out decimal influencePercent) &&
+                decimal.TryParse(columns[3], NumberStyles.Any, CultureInfo.InvariantCulture, out decimal difference))
             {
                 factions.Add(new FactionDetail
                 {
@@ -214,7 +214,7 @@ internal static class GetData
             var columns = line.Split(',');
             if (columns.Length < 3) continue;
 
-            if (double.TryParse(columns[1], NumberStyles.Any, CultureInfo.InvariantCulture, out double influencePercent))
+            if (decimal.TryParse(columns[1], NumberStyles.Any, CultureInfo.InvariantCulture, out decimal influencePercent))
             {
                 systems.Add(new FactionSystem
                 {
@@ -263,7 +263,7 @@ internal static class GetData
                     var values = reader.ReadLine()?.Split(',');
                     if (values == null || values.Length < 3) continue;
 
-                    if (double.TryParse(values[influenceIndex], NumberStyles.Any, CultureInfo.InvariantCulture, out double influence))
+                    if (decimal.TryParse(values[influenceIndex], NumberStyles.Any, CultureInfo.InvariantCulture, out decimal influence))
                     {
                         list.Add(new FactionSystem
                         {

@@ -4,6 +4,6 @@
     {
         public string SystemName { get; set; }
         public string LastUpdated { get; set; }
-        public double InfluencePercent { get; set; }
+        public decimal InfluencePercent { get; set; }
     }
 }
