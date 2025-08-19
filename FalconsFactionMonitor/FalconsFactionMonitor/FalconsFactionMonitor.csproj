@@ -3,9 +3,9 @@
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
     <TargetFramework>net8.0-windows</TargetFramework>
-    <AssemblyVersion>4.1.5.0</AssemblyVersion>
-    <FileVersion>4.1.5.0</FileVersion>
-    <InformationalVersion>4.1.5 (100 Percent Influence Fix)</InformationalVersion>
+    <AssemblyVersion>4.1.6.0</AssemblyVersion>
+    <FileVersion>4.1.6.0</FileVersion>
+    <InformationalVersion>4.1.6 (WebRetrival Fix for Influence List)</InformationalVersion>
 	<EnableWindowsTargeting>true</EnableWindowsTargeting>
     <UseWPF>true</UseWPF>
     <UseWindowsForms>true</UseWindowsForms>
