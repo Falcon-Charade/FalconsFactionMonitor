@@ -15,7 +15,7 @@ internal static class GetData
     {
         using var client = new HttpClient();
 
-        string url = $"https://inara.cz/elite/minorfaction/?search={Uri.EscapeDataString(factionName)}";
+        string url = $"https://inara.cz/elite/minorfaction-presence/?search={Uri.EscapeDataString(factionName)}";
 
         var response = await client.GetAsync(url);
 
@@ -48,8 +48,9 @@ internal static class GetData
             if (cells == null || cells.Count < 4) continue;
 
             var systemName = cells[0].InnerText.Trim();
-            var influenceText = cells[1].InnerText.Trim();
-            var lastUpdatedText = cells[3].InnerText.Trim();
+            systemName = systemName.Substring(0, systemName.Length - 2);
+            var influenceText = cells[7].InnerText.Trim();
+            var lastUpdatedText = cells[8].InnerText.Trim();
 
             if (decimal.TryParse(influenceText.TrimEnd('%'), out decimal influence))
             {
